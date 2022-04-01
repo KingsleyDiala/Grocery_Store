@@ -5,7 +5,7 @@ import { HeroComponent } from '../src/resources/components/Hero/Hero';
 import { ShowcaseComponent } from './resources/components/Showcase/Showcase';
 import { FeaturedItemsComponent} from './resources/components/Featured_Items/Featured_Items.jsx'
 import { BestSellerSection } from './resources/components/Best_Sellers/BestSellers.jsx'
-
+import { FreshVegetableComponent} from './resources/components/Fresh_Vegetable_Section/Fresh_Vegetabe';
 
 function App() {
   return (
@@ -30,9 +30,11 @@ function App() {
           { <FeaturedItemsComponent />}
         </section>
 
-          {/* =========== APP FEATURED ITEMS ========== */}
+          {/* =========== APP BEST SELLER SECTION ========== */}
         { <BestSellerSection /> }
 
+        {/* =========== APP FRESH VEGETABLES ITEMS ========== */}
+      { <FreshVegetableComponent /> }
     </div>
   );
 }

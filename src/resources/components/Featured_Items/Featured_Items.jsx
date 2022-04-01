@@ -234,8 +234,3 @@ export const FeaturedItemsComponent = () => {
   )
 }
 
-
-export const Test = () => {
-  return null;
-}
-

@@ -159,11 +159,46 @@ export const CarouselSection = () => {
           <ProductPrice></ProductPrice>
           <Button></Button>
         </ItemContainer>
+
         {/*  ============= ITEM 2 ============= */}
+        <ItemContainer>
+          <ImageContainer></ImageContainer>
+          <ProductName></ProductName>
+          <ProductPrice></ProductPrice>
+          <Button></Button>
+        </ItemContainer>
+
         {/*  ============= ITEM 3 ============= */}
+        <ItemContainer>
+          <ImageContainer></ImageContainer>
+          <ProductName></ProductName>
+          <ProductPrice></ProductPrice>
+          <Button></Button>
+        </ItemContainer>
+
         {/*  ============= ITEM 4 ============= */}
+        <ItemContainer>
+          <ImageContainer></ImageContainer>
+          <ProductName></ProductName>
+          <ProductPrice></ProductPrice>
+          <Button></Button>
+        </ItemContainer>
+
         {/*  ============= ITEM 5 ============= */}
+        <ItemContainer>
+          <ImageContainer></ImageContainer>
+          <ProductName></ProductName>
+          <ProductPrice></ProductPrice>
+          <Button></Button>
+        </ItemContainer>
+
         {/*  ============= ITEM 6 ============= */}
+        <ItemContainer>
+          <ImageContainer></ImageContainer>
+          <ProductName></ProductName>
+          <ProductPrice></ProductPrice>
+          <Button></Button>
+        </ItemContainer>
         
       </BottomContainer>
 

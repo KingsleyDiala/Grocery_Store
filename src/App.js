@@ -2,8 +2,9 @@ import '../src/resources/reset.css'
 import './App.css';
 import { NavbarComponent } from './resources/components/Navbar/Navbar';
 import { HeroComponent } from '../src/resources/components/Hero/Hero';
-import { ShowcaseComponent } from '../src/resources/components/Showcase/Showcase';
-import { FeaturedItemsComponent} from '../src/resources/components/Featured_Items/Featured_Items'
+import { ShowcaseComponent } from './resources/components/Showcase/Showcase';
+import { FeaturedItemsComponent} from './resources/components/Featured_Items/Featured_Items.jsx'
+import { BestSellerSection } from './resources/components/Best_Sellers/BestSellers.jsx'
 
 
 function App() {
@@ -28,6 +29,9 @@ function App() {
         <section className='featured_items'>
           { <FeaturedItemsComponent />}
         </section>
+
+          {/* =========== APP FEATURED ITEMS ========== */}
+        { <BestSellerSection /> }
 
     </div>
   );

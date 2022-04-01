@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Featured_Items } from "../Featured_Items/Featured_Items";
+import { Featured_Items } from "../FeaturedItems/Featured_Items";
 import { Product } from "./Single_Components_container";
 
 

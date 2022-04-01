@@ -1,23 +1,34 @@
-import logo from './logo.svg';
+import '../src/resources/reset.css'
 import './App.css';
+import { NavbarComponent } from './resources/components/Navbar/Navbar';
+import { HeroComponent } from '../src/resources/components/Hero/Hero';
+import { ShowcaseComponent } from '../src/resources/components/Showcase/Showcase';
+import { FeaturedItemsComponent} from '../src/resources/components/Featured_Items/Featured_Items'
+
 
 function App() {
   return (
     <div className="App">
+      {/* =========== APP HEADER ============== */}
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        { <NavbarComponent /> }
+        </header>
+
+        {/* =========== APP HERO ========== */}
+      <section className='app-hero'>
+      { <HeroComponent /> }
+      </section>
+
+         {/* =========== APP SHOWCASE ========== */}
+      <section className='app-showcase'>
+      { <ShowcaseComponent /> } 
+      </section>
+
+           {/* =========== APP FEATURED ITEMS ========== */}
+        <section className='featured_items'>
+          { <FeaturedItemsComponent />}
+        </section>
+
     </div>
   );
 }

@@ -1,0 +1,117 @@
+/*  =================  FONT LINKS  =============== */
+@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+:root {
+  /* =========  Font Sizes  ========== */
+  --big-text: 64px;
+  --h2-size: 55px;
+  --heading-h4-font: 31px;
+  --product-heading: 48px;
+  --product-price: 31px;
+  --router: 18px;
+  --button-text: 14px;
+  --heading-h2-bold: 48px;
+  --normal-text: 16px;
+  --title-font: 24px;
+  --link-font: 16px;
+  --price-font: 18px;
+  --h5-font: 24px;
+
+  /* ============  Colors  ============== */
+  --main-background-color: #E5E5E5;
+  --accent-color: #237943;
+  --light-accent-color: #DAF9E5;
+  --light-color: #ffffff;
+  --light-grey-color: #E2E2EA;
+  --dark-grey-color: #727272;
+  --button-color: var(var(--accent-color));
+  --light-text-color: var(--light-color); 
+  --dark-text-color: black;
+  --product-color: var(--light-grey-color);
+  --light-fill: #F6F6F6;
+}
+
+* {
+  padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  scroll-behavior: smooth;
+}
+*:focus {
+  outline: none;
+}
+
+body {
+  background-color: var(--main-background-color);
+  font-family: 'Mulish', sans-serif;
+  padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+h1 {
+  font-size: var(--big-text);
+  color: var(--dark-text-color);
+}
+h2 {
+  font-size: var(--h2-size);
+  color: var(--dark-text-color);
+}
+h3 {
+  font-size: var(--product-heading);
+}
+h4 {
+  font-size: var(--heading-h4-font);
+}
+h5 {
+  font-size: var(--h5-font);
+}
+p {
+  font-size: var(--normal-text);
+}
+a {
+  text-decoration: none;
+  color: var(--dark-text-color);
+  outline: none;
+  border: none;
+}
+li {
+  list-style: none;
+}
+
+
+
+
+/* ============== UTILITIES ============ */
+
+.green__button {
+  width: 198px;
+  height: 48px;
+  border-radius: 10px;
+  background-color: var(--accent-color);
+  border: none;
+  transition: all .2s ease;
+  cursor: pointer;
+}
+.green__button:hover {
+  transform: scale(1.03);
+  box-shadow: 5px 5px 10px 3px rgba(0, 0, 0, .1);
+}
+
+.green__button__white {
+  width: 198px;
+  height: 48px;
+  border-radius: 10px;
+  background-color: var(--accent-color);
+  border: none;
+  transition: all .2s ease;
+  cursor: pointer;
+}
+.green__button__white:hover {
+  background-color: transparent;
+  color: var(--accent-color);
+  border: 2px solid var(--accent-color);
+  transform: scale(1.02);
+  box-shadow: 5px 5px 10px 3px rgba(0, 0, 0, .1);
+}

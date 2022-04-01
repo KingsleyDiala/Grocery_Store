@@ -6,6 +6,9 @@ import { ShowcaseComponent } from './resources/components/Showcase/Showcase';
 import { FeaturedItemsComponent} from './resources/components/Featured_Items/Featured_Items.jsx'
 import { BestSellerSection } from './resources/components/Best_Sellers/BestSellers.jsx'
 import { FreshVegetableComponent} from './resources/components/Fresh_Vegetable_Section/Fresh_Vegetabe';
+import { DiaryAndMilkComponent } from './resources/components/Diary_and_Milk/Diary_and_Milk';
+
+
 
 function App() {
   return (
@@ -33,8 +36,11 @@ function App() {
           {/* =========== APP BEST SELLER SECTION ========== */}
         { <BestSellerSection /> }
 
-        {/* =========== APP FRESH VEGETABLES ITEMS ========== */}
-      { <FreshVegetableComponent /> }
+          {/* =========== APP FRESH VEGETABLES SECTION ========== */}
+        { <FreshVegetableComponent /> }
+
+        {/* =========== APP DIARY & MILK SECTION ========== */}
+        { <DiaryAndMilkComponent /> }
     </div>
   );
 }

@@ -7,6 +7,7 @@ import { FeaturedItemsComponent} from './resources/components/Featured_Items/Fea
 import { BestSellerSection } from './resources/components/Best_Sellers/BestSellers.jsx'
 import { FreshVegetableComponent} from './resources/components/Fresh_Vegetable_Section/Fresh_Vegetabe';
 import { DiaryAndMilkComponent } from './resources/components/Diary_and_Milk/Diary_and_Milk';
+import { DepartmentSection } from './resources/components/Department_Section/Department_Section';
 
 
 
@@ -41,6 +42,11 @@ function App() {
 
         {/* =========== APP DIARY & MILK SECTION ========== */}
         { <DiaryAndMilkComponent /> }
+
+        {/* =========== APP Shop By Department SECTION ========== */}
+        { <DepartmentSection /> }
+
+
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import '../src/resources/reset.css'
 import './App.css';
 import { NavbarComponent } from './resources/components/Navbar/Navbar';
-import { HeroComponent } from '../src/resources/components/Hero/Hero';
+import { HeroComponent } from './resources/components/Hero/Hero';
 import { ShowcaseComponent } from './resources/components/Showcase/Showcase';
 import { FeaturedItemsComponent} from './resources/components/Featured_Items/Featured_Items.jsx'
 import { BestSellerSection } from './resources/components/Best_Sellers/BestSellers.jsx'
@@ -12,9 +12,9 @@ import { TopFooterComponent } from './resources/components/Top_Footer/Footer';
 import { BottomFooterComponent } from './resources/components/Bottom_Footer/Bottom_Footer';
 
 
-function App() {
+function Home() {
   return (
-    <div className="App">
+    <div className="Home">
       {/* =========== APP HEADER ============== */}
       <header className="App-header">
         { <NavbarComponent /> }
@@ -57,4 +57,4 @@ function App() {
   );
 }
 
-export default App;
+export default Home;

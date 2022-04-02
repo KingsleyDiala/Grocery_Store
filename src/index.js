@@ -1,11 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import Home from './Home';
+import Product_Page from './Product_Page'
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Product_Page />
   </React.StrictMode>,
   document.getElementById('root')
 );

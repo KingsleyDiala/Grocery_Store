@@ -48,15 +48,17 @@ const NavSearchBar = styled.div`
   overflow: hidden;
   border-radius: 10px;
   flex: 4;
+  transition: all .4s ease;
   &:hover {
     color: var(--accent-color);
+    background-color: var(--light-accent-color);
   }
 `
 const SearchInput = styled.input `
   position: relative;
   height: 100%;
   width: 90%;
-  background-color: var(--light-fill);
+  background-color: transparent;
   border: none;
   font-size: var(--text-font);
   color: var(--dark-text-color);

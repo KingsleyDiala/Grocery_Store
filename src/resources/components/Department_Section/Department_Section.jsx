@@ -15,7 +15,7 @@ const FeaturedItems = styled.div`
   ` 
 const FeaturedItemsContainer = styled.div`
   width: 1260px;
-  height: 526px;
+  height: 326px;
   display: flex;
   flex-direction: column;
   row-gap: 2rem;

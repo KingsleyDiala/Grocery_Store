@@ -10,11 +10,11 @@ const Showcase = styled.div`
   top: 100px;
   grid-area: showcase;
   height: fit-content;
-  width: 1440px;
   display: grid;
   place-content: center;
 `;
 const ShowcaseContainer = styled.div`
+  width: 1440px;
   padding: 100px 10%;
   height: fit-content;
   display: flex;
@@ -32,7 +32,7 @@ const Content = styled.div`
   flex-direction: column;
   row-gap: 1rem;
   justify-content: center;
-  transition: all .2s ease;
+  transition: all .5s ease;
   box-shadow: 10px 10px 20px 3px rgba(0, 0, 0, .1);
   &:hover {
     transform: scale(1.02);

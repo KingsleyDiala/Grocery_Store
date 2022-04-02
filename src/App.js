@@ -8,8 +8,8 @@ import { BestSellerSection } from './resources/components/Best_Sellers/BestSelle
 import { FreshVegetableComponent} from './resources/components/Fresh_Vegetable_Section/Fresh_Vegetabe';
 import { DiaryAndMilkComponent } from './resources/components/Diary_and_Milk/Diary_and_Milk';
 import { DepartmentSection } from './resources/components/Department_Section/Department_Section';
-import { TopFooterComponent } from './resources/components/Footer/Footer';
-
+import { TopFooterComponent } from './resources/components/Top_Footer/Footer';
+import { BottomFooterComponent } from './resources/components/Bottom_Footer/Bottom_Footer';
 
 
 function App() {
@@ -47,8 +47,11 @@ function App() {
         {/* =========== APP Shop By Department SECTION ========== */}
         { <DepartmentSection /> }
 
-        {/* =========== APP Footer SECTION ========== */}
+        {/* =========== APP Top Footer SECTION ========== */}
         < TopFooterComponent />
+
+        {/* =========== APP BOTTOM FOOTER SECTION ========== */}
+        <BottomFooterComponent />
 
     </div>
   );

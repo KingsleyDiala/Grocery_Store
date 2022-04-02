@@ -6,7 +6,7 @@ import { TopFooterComponent } from './resources/components/Top_Footer/Footer';
 import { BottomFooterComponent } from './resources/components/Bottom_Footer/Bottom_Footer';
 import { LinkNavigationComponent } from './resources/components/Link_Navigation/Link-Navigaton';
 import { ProductHeadComponent } from './resources/components/Product/Product_Head';
-
+import { ProductDescriptionComponent } from './resources/components/Product/Product_Desc';
 
 function Product_Page () {
   return (
@@ -23,7 +23,7 @@ function Product_Page () {
         <ProductHeadComponent />
 
         {/* =========== PRODUCT DESCRIPTION ============== */}
-
+        <ProductDescriptionComponent />
 
         {/* =========== RELATED ITEM ============== */}
 

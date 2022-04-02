@@ -123,7 +123,7 @@ export const ProductHeadComponent = () => {
       <Container>
         <LeftContainer></LeftContainer>
         <RightContainer>
-          <ProductName>Product Name</ProductName>
+          <ProductName>Gala Apples</ProductName>
           <ProductPrice>
             <Price>€4.12</Price>
           </ProductPrice>
@@ -133,9 +133,9 @@ export const ProductHeadComponent = () => {
             <Quantity>1</Quantity>
             <Increment><i class="uil uil-plus"></i></Increment>
           </QuantityContainer>
-          <AddToCart className='green__button'>Add to Cart</AddToCart>
+          <AddToCart href="#" className='green__button'>Add to Cart</AddToCart>
           <br />
-          <Save className='white__button'>Save</Save>
+          <Save href="#" className='white__button'>Save</Save>
         </RightContainer>
       </Container>
     </ProductHead>

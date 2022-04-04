@@ -46,6 +46,7 @@ border-radius: 10px;
   background-color: var(--light-accent-color);
   transform: scale(1.03);
   opacity: .8;
+  box-shadow: 0px 10px 10px 1px rgba(0, 0, 0, .1);
 }
 `
 const NutritionFacts = styled.div`
@@ -62,6 +63,7 @@ border-radius: 10px;
   background-color: var(--light-accent-color);
   transform: scale(1.03);
   opacity: .8;
+  box-shadow: 0px 10px 10px 1px rgba(0, 0, 0, .1);
 }
 `
 const Features = styled.div`
@@ -78,6 +80,7 @@ border-radius: 10px;
   background-color: var(--light-accent-color);
   transform: scale(1.03);
   opacity: .8;
+  box-shadow: 0px 10px 10px 1px rgba(0, 0, 0, .1);
 }
 `
 const ProducesOf = styled.div`
@@ -93,6 +96,7 @@ border-radius: 10px;
   background-color: var(--light-accent-color);
   transform: scale(1.03);
   opacity: .8;
+  box-shadow: 0px 10px 10px 1px rgba(0, 0, 0, .1);
 }
 `
 const RightContainer = styled.div`

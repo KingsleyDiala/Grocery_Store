@@ -154,12 +154,10 @@ export const NavbarComponent = () => {
 
       {/* =========  Search Bar  ========= */}
       <li>
-        <a href="#">
           <NavSearchBar>
               { <UilSearch size='1.2rem' className='icon search_icon' /> }
               <SearchInput placeholder="Search food..." />
           </NavSearchBar>
-        </a>
       </li>
 
       {/* ====== Navigation Links ========== */}

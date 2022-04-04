@@ -7,6 +7,7 @@ import { BottomFooterComponent } from './resources/components/Bottom_Footer/Bott
 import { LinkNavigationComponent } from './resources/components/Link_Navigation/Link-Navigaton';
 import { ProductHeadComponent } from './resources/components/Product/Product_Head';
 import { ProductDescriptionComponent } from './resources/components/Product/Product_Desc';
+import { RelatedItemsComponent } from './resources/components/Related_Items/Related_Items_Section';
 
 function Product_Page () {
   return (
@@ -25,7 +26,8 @@ function Product_Page () {
         {/* =========== PRODUCT DESCRIPTION ============== */}
         <ProductDescriptionComponent />
 
-        {/* =========== RELATED ITEM ============== */}
+        {/* =========== RELATED ITEMS ============== */}
+        <RelatedItemsComponent />
 
         {/* =========== APP SHOP BY DEPARTMENT SECTION ========== */}
         { <DepartmentSection /> }

@@ -2,12 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import Home from './Home';
-import Product_Page from './Product_Page'
 import { BrowserRouter as Router } from 'react-router-dom'
+import Search_Page from './Search_Page';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Product_Page />
+    <Search_Page />
   </React.StrictMode>,
   document.getElementById('root')
 );

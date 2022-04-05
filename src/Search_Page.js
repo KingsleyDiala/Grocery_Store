@@ -5,13 +5,11 @@ import { DepartmentSection } from './resources/components/Department_Section/Dep
 import { TopFooterComponent } from './resources/components/Top_Footer/Footer';
 import { BottomFooterComponent } from './resources/components/Bottom_Footer/Bottom_Footer';
 import { LinkNavigationComponent } from './resources/components/Link_Navigation/Link-Navigation';
-import { ProductHeadComponent } from './resources/components/Product/Product_Head';
-import { ProductDescriptionComponent } from './resources/components/Product/Product_Desc';
-import { RelatedItemsComponent } from './resources/components/Related_Items/Related_Items_Section';
+import Search_Result from './resources/components/Search_Result_Section/Search_Result';
 
-function Product_Page () {
+function Search_Page () {
   return (
-    <div className='Product_Page'>
+    <div className='search_page'>
       {/* =========== APP HEADER ============== */}
       <header className="App-header">
         { <NavbarComponent /> }
@@ -20,17 +18,8 @@ function Product_Page () {
         {/* =========== LINK NAVIGATION SECTION ========== */}
         <LinkNavigationComponent />
 
-        {/* =========== PRODUCT HEAD ============== */}
-        <ProductHeadComponent />
-
-        {/* =========== PRODUCT DESCRIPTION ============== */}
-        <ProductDescriptionComponent />
-
-        {/* =========== RELATED ITEMS ============== */}
-        <RelatedItemsComponent />
-
-        {/* =========== APP SHOP BY DEPARTMENT SECTION ========== */}
-        { <DepartmentSection /> }
+        {/* =========== SEARCH RESULT SECTION ========== */}
+        <Search_Result />
 
         {/* =========== APP TOP FOOTER SECTION ========== */}
         < TopFooterComponent />
@@ -41,4 +30,4 @@ function Product_Page () {
   )
 }
 
-export default Product_Page;
+export default Search_Page;

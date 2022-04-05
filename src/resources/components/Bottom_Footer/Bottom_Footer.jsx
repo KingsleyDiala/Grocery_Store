@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 // ================ STYLED COMPONENT ============
 const BottomFooter = styled.section`
-top: 100px;
+top: 80px;
 position: relative;
 width: 100%;
 height: fit-content;

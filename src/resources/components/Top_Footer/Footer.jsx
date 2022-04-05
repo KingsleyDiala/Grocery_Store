@@ -7,7 +7,7 @@ const TopFooter = styled.section`
   padding: 100px 0;
   width: 100%;
   height: fit-content;
-  top: 100px;
+  top: 80px;
   position: relative;
   display: grid;
   place-content: center;

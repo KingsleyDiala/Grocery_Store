@@ -5,7 +5,7 @@ import styled from 'styled-components'
 
 // =============  STYLED COMPONENT  ============
 const Navbar = styled.nav`
-  grid-area: nav;
+  grid-area: 'nav';
   position: fixed;
   display: none;
   width: 100%;
@@ -14,11 +14,11 @@ const Navbar = styled.nav`
   display: grid;
   place-items: center;
   z-index: 5;
-  overflow: hidden;
 `
 const NavContainer = styled.div`
+  position: relative;
   height: 100%;
-  width: 1440px;
+  width: 1232px;
   display: grid;
   place-items: center;
   & ul {

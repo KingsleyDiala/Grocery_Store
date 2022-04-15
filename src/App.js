@@ -10,6 +10,7 @@ import { TopFooterComponent } from "./resources/components/Top_Footer/Footer";
 import { BottomFooterComponent } from "./resources/components/Bottom_Footer/Bottom_Footer";
 import Category from "./Category";
 import Catalogue from "./Catalogue";
+import Wishlist from "./Wishlist";
 
 
 const App = () => {
@@ -23,6 +24,7 @@ const App = () => {
         <Route path="/product" element={ <ProductPage /> } />
         <Route path="/single-category" element={ <Category />} />
         <Route path="/catalogue" element={ <Catalogue /> } />
+        <Route path="/wishlist" element={ <Wishlist /> } />
       </Routes>
       <TopFooterComponent />
       <BottomFooterComponent />

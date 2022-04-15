@@ -50,7 +50,7 @@ export const LinkNavigationComponent = (name, path) => {
             Home
           </Link>
           <i class="uil uil-angle-right-b"></i>
-          <Link to={path}> Nothing </Link>
+          <Link to={path}> To Change </Link>
           </Breadcrumb>
       </Container>
     </LinkNavigation>

@@ -248,7 +248,7 @@ export const TopFooterComponent = () => {
 
         {/* ===========  CONTACT CONTAINER  =============== */}
         <ContactContainer>
-        <Logo href='#'> <i class="uil uil-bitcoin"></i></Logo>
+        <Link to={'/'}> <Logo > <i class="uil uil-bitcoin"></i></Logo> </Link>
         <Location><i class="uil uil-map-marker"></i> Stotternheimer Str. 6 / 7, 99086 Erfurt</Location>
         <Telephone href='tel:0361-78988101'  ><i class="uil uil-phone"></i> 0361 78988101</Telephone>
         <Email href='mailto:service@ba-bildungsakademie.de'><i class="uil uil-envelope-edit"></i> service@ba-bildungsakademie.de</Email>

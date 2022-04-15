@@ -2,22 +2,22 @@ import '../src/resources/reset.css'
 import './App.css';
 import { LinkNavigationComponent } from './resources/components/Link_Navigation/Link-Navigation';
 import Search_Result from './resources/components/Search_Result_Section/Search_Result';
-import SingleCategory from './resources/components/Single_Category_Section/Single_Category';
 
-function Category () {
+function Catalogue () {
   return (
-    <div className='search_page'>
+    <div className='catalogue'>
 
         {/* =========== LINK NAVIGATION SECTION ========== */}
         <LinkNavigationComponent
-        name={'Chosen Category'}
-        path={'/category'}
+        name={'Catalogue'}
+        path={'/catalogue'}
         />
 
         {/* =========== SEARCH RESULT SECTION ========== */}
-        <SingleCategory />
+        <Search_Result text={'Explore our Catalogue'} />
+
     </div>
   )
 }
 
-export default Category;
+export default Catalogue;

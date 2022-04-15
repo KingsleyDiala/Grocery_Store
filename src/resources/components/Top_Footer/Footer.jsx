@@ -45,6 +45,9 @@ const Telephone = styled.a`
 opacity: .8;
 font-size: var(--link-font);
 transition: all .2s ease;
+&:active {
+    transform: scale(.9);
+  }
 &:hover {
     color: var(--accent-color);
   }
@@ -58,6 +61,9 @@ const Email = styled.a`
 opacity: .8;
 font-size: var(--link-font);
 transition: all .2s ease;
+&:active {
+    transform: scale(.9);
+  }
 &:hover {
     color: var(--accent-color);
   }
@@ -83,6 +89,9 @@ const Diary = styled.a`
 opacity: .8;
 font-size: var(--link-font);
 transition: all .2s ease;
+&:active {
+    transform: scale(.9);
+  }
 &:hover {
   color: var(--accent-color);
 }
@@ -91,6 +100,9 @@ const FreshProduce = styled.a`
 opacity: .8;
 font-size: var(--link-font);
 transition: all .2s ease;
+&:active {
+    transform: scale(.9);
+  }
 &:hover {
   color: var(--accent-color);
 }
@@ -99,6 +111,9 @@ const Meat = styled.a`
 opacity: .8;
 font-size: var(--link-font);
 transition: all .2s ease;
+&:active {
+    transform: scale(.9);
+  }
 &:hover {
   color: var(--accent-color);
 }
@@ -107,6 +122,9 @@ const Snacks = styled.a`
 opacity: .8;
 font-size: var(--link-font);
 transition: all .2s ease;
+&:active {
+    transform: scale(.9);
+  }
 &:hover {
   color: var(--accent-color);
 }
@@ -115,6 +133,9 @@ const Frozen = styled.a`
 opacity: .8;
 font-size: var(--link-font);
 transition: all .2s ease;
+&:active {
+    transform: scale(.9);
+  }
 &:hover {
   color: var(--accent-color);
 }
@@ -131,6 +152,9 @@ const AboutUs = styled.a`
 opacity: .8;
 font-size: var(--link-font);
 transition: all .2s ease;
+&:active {
+    transform: scale(.9);
+  }
 &:hover {
   color: var(--accent-color);
   }
@@ -139,6 +163,9 @@ const Contact = styled.a`
 opacity: .8;
 font-size: var(--link-font);
 transition: all .2s ease;
+&:active {
+    transform: scale(.9);
+  }
 &:hover {
   color: var(--accent-color);
 }
@@ -147,6 +174,9 @@ const PrivacyPolicy = styled.a`
 opacity: .8;
 font-size: var(--link-font);
 transition: all .2s ease;
+&:active {
+    transform: scale(.9);
+  }
 &:hover {
   color: var(--accent-color);
 }
@@ -155,6 +185,9 @@ const PaymentMethod = styled.a`
 opacity: .8;
 font-size: var(--link-font);
 transition: all .2s ease;
+&:active {
+    transform: scale(.9);
+  }
 &:hover {
   color: var(--accent-color);
 }
@@ -181,6 +214,9 @@ border-radius: 8px;
 font-size: 14px;
 padding-left: 1rem;
 transition: all .2s ease;
+&:active {
+    transform: scale(.9);
+  }
 &:focus {
   background-color: var(--light-accent-color);
 }
@@ -189,6 +225,9 @@ const Submit = styled.button`
 color: var(--light-color);
 width: 147px;
 font-size: 16px;
+&:active {
+    transform: scale(.9);
+  }
 `
 
 

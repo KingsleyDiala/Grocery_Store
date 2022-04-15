@@ -22,6 +22,12 @@ const NavContainer = styled.div`
   width: 1232px;
   display: grid;
   place-items: center;
+  & .logo {
+    &:active {
+    transform: scale(.9);
+    transition: all .2s ease;
+  }
+  }
   & ul {
   display: flex;
   align-items: center;
@@ -33,10 +39,17 @@ const NavContainer = styled.div`
 const MenuToggleOpen = styled.div`
   display: block;
   flex: 1;
+  &:active {
+    transform: scale(.8);
+    transition: all .2s ease;
+  }
 `
 const MenuToggleClose = styled.div`
   display: none;
   flex: 1;
+  &:active {
+    transform: scale(.9);
+  }
 `
 const NavSearchBar = styled.div`
   position: relative;
@@ -50,6 +63,9 @@ const NavSearchBar = styled.div`
   border-radius: 10px;
   flex: 4;
   transition: all .4s ease;
+  &:active {
+    transform: scale(.9);
+  }
   &:hover {
     color: var(--accent-color);
     background-color: var(--light-accent-color);
@@ -73,6 +89,10 @@ const UserContainer = styled.div `
   &:hover {
     color: var(--accent-color);
   }
+  &:active {
+    transform: scale(.8);
+    transition: all .5s ease;
+  }
 `
 const CartContainer = styled.div`
   display: flex;
@@ -88,6 +108,10 @@ const CartContainer = styled.div`
     font-size: var(--text-font);
     cursor: pointer;
   }
+  &:active {
+    transform: scale(.8);
+    transition: all .5s ease;
+  }
   `
 const WishlistContainer = styled.div`
   display: flex;
@@ -95,6 +119,10 @@ const WishlistContainer = styled.div`
   align-items: center;
   column-gap: 1rem;
   flex: 1;
+  &:active {
+    transform: scale(.8);
+    transition: all .5s ease;
+  }
   &:hover {
     color: var(--accent-color);
   }

@@ -14,13 +14,13 @@ const ItemContainer = styled.div`
   &:hover {
     transform: scale(1.02);
     box-shadow: 10px 10px 20px 3px rgba(0, 0, 0, .2);
-    background-color: #E9E9E9;
+    background-color: var(--light-accent-color);
     & a {
       display: block;
       transition: transform .2s ease;
     }
     & .image__container {
-      border: 2px solid rgba(35, 121, 67, 6);
+      border: 3px solid rgba(35, 121, 67, .6);
       transition: all .3s ease;
     }
   }

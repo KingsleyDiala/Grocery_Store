@@ -5,10 +5,13 @@ import CategorySection from './resources/components/Category_Section/Category_Se
 
 function CategoryPage () {
   return (
-    <div className='search_page'>
+    <div className='category_page'>
 
         {/* =========== LINK NAVIGATION SECTION ========== */}
-        <LinkNavigationComponent />
+        <LinkNavigationComponent
+        name={'Category'} 
+        path={'/category'}
+        />
 
         {/* =========== SEARCH RESULT SECTION ========== */}
         <CategorySection />

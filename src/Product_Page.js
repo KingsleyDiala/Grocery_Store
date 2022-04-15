@@ -10,7 +10,10 @@ function ProductPage () {
   return (
     <div className='Product_Page'>
         {/* =========== LINK NAVIGATION SECTION ========== */}
-        <LinkNavigationComponent />
+        <LinkNavigationComponent
+        name={'Product'}
+        path={'/product'}
+        />
 
         {/* =========== PRODUCT HEAD ============== */}
         <ProductHeadComponent />

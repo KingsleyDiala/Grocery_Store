@@ -8,10 +8,12 @@ function SearchPage () {
     <div className='search_page'>
 
         {/* =========== LINK NAVIGATION SECTION ========== */}
-        <LinkNavigationComponent />
+        <LinkNavigationComponent
+        path={'/search'}
+        name={'Search'} />
 
         {/* =========== SEARCH RESULT SECTION ========== */}
-        <Search_Result />
+        <Search_Result text={'Result for ‘’Apple’’ (34 Result)'} />
 
     </div>
   )

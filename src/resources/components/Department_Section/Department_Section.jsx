@@ -37,6 +37,7 @@ const TopContainer = styled.div`
   }
   `
 const BottomContainer = styled.div`
+  padding: 10px 0;
   width: auto;
   height: fit-content;
   overflow-x: auto;
@@ -68,6 +69,9 @@ const ImageContainer = styled.div`
   transition: all .5s ease;
   cursor: pointer;
   overflow: hidden;
+  &:active {
+    transform: scale(.9);
+  }
   &:hover {
     transform: scale(1.02);
     box-shadow: 10px 10px 20px 3px rgba(0, 0, 0, .2);
@@ -85,6 +89,9 @@ const ProductName = styled.a`
   font-weight: 700;
   font-size: var(--price-font);
   transition: all .2s ease;
+  &:active {
+    transform: scale(.9);
+  }
   &:hover {
     color: var(--accent-color);
   }

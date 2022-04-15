@@ -46,11 +46,25 @@ display: flex;
 align-items: center;
 column-gap: .5rem;
 & i {
-  font-size: 25px;
-  color: var(--accent-color);
-  cursor: pointer;
+font-size: 25px;
+color: var(--accent-color);
+display: grid;
+place-content: center;
+width: 30px;
+height: 30px;
+border-radius: 3px;
+cursor: pointer;
+transition: all .2s ease;
+&:hover {
+  color: var(--light-color);
+  background-color: var(--accent-color);
+}
+&:active {
+  transform: scale(.9);
+}
 }
 `;
+
 const Number = styled.div`
 display: grid;
 place-content: center;
@@ -58,21 +72,25 @@ width: 30px;
 height: 30px;
 border-radius: 3px;
 cursor: pointer;
+transition: all .2s ease;
 &:hover {
   color: var(--light-color);
   background-color: var(--accent-color);
 }
+&:active {
+  transform: scale(.9);
+}
 `;
 
 
-const Search_Result = () => {
+const Search_Result = ({ text }) => {
   return (
     <SearchResult>
       <Container>
         <SearchWidget />
         <ContainerRight>
           <TopContainer>
-            <Text>Result for ‘’Apple’’ (34 Result)</Text>
+            <Text>{text}</Text>
           </TopContainer>
           <MiddleContainer>
             { data.map(item => { return (

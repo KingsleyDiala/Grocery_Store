@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 
 
@@ -17,7 +18,8 @@ width: 1232px;
 height: 80px;
 display: flex;
 align-items: center;`
-const Link = styled.div`
+
+const Breadcrumb = styled.div`
 display: flex;
 justify-content: center;
 align-items: center;
@@ -38,11 +40,18 @@ const Product = styled.a``
 
 
 // =============== JSX STRUCTURE COMPONENT  =============
-export const LinkNavigationComponent = () => {
+export const LinkNavigationComponent = (name, path) => {
+
   return (
     <LinkNavigation>
       <Container>
-        <Link> <Home href="#">Home</Home><i class="uil uil-angle-right-b"></i><Product href="#">Product</Product></Link>
+        <Breadcrumb> 
+          <Link style={{ color: 'var(--accent-color)' }} to={'/'}>
+            Home
+          </Link>
+          <i class="uil uil-angle-right-b"></i>
+          <Link to={path}> Nothing </Link>
+          </Breadcrumb>
       </Container>
     </LinkNavigation>
   )

@@ -31,7 +31,10 @@ const TopContainer = styled.div`
   justify-content: space-between;
   & a {
     color: var(--dark-text-color);
-    transition: transform color 1s ease;
+    transition: all color 1s ease;
+    &:active {
+    transform: scale(.9);
+  }
   }
   & a:hover {
     color: var(--accent-color);

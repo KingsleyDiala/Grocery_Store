@@ -45,6 +45,10 @@ const Content = styled.div`
   & a {
     color: var(--light-text-color);
     cursor: pointer;
+    &:active {
+    transform: scale(.9);
+    transition: all .2s ease;
+  }
   };
   & a:hover {
     color: var(--light-accent-color);

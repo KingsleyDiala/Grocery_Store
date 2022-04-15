@@ -22,6 +22,11 @@ const GradientOverlay = styled.div`
   height: 100%;
 `
 const HeroContainer = styled.div`
+  transform: translate(-0%);
+  white-space: nowrap;
+  transition: transform 0.3s;
+  `
+const HeroItem = styled.div`
   width: 100%;
   height: 100%;
   background-image: url(${img1});
@@ -51,10 +56,10 @@ const TextContainer = styled.div`
 
 // =============  JSX STRUCTURE  =============
 export const HeroComponent = () => {
-  return (
-    <Hero>
-      <GradientOverlay></GradientOverlay>
-      <HeroContainer>
+
+  const carouselItem = ( {children }) => {
+    return (
+      <HeroItem>
           <TextContainer>
             <h1 className="heading__text">
               Looking for Good Quality Ingredient?
@@ -63,8 +68,24 @@ export const HeroComponent = () => {
               <a href="#">Find Products</a>
             </button>
           </TextContainer>
+      </HeroItem>
+    )
+  }
+
+  const Carousel = ({ children }) => {
+    return (
+      <>
+      <GradientOverlay></GradientOverlay>
+      <HeroContainer>
+      { carouselItem }
       </HeroContainer>
-    </Hero>
+    </>
+    )
+  }
+
+  return (
+    <Hero> { Carousel } </Hero>
   )
+
 }
 

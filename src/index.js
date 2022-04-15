@@ -1,13 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Home from './Home';
+import App from './App';
 import { BrowserRouter as Router } from 'react-router-dom'
-import Search_Page from './Search_Page';
+import { RelatedItemsComponent } from './resources/components/Related_Items/Related_Items_Section';
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <Search_Page />
+    <Router>
+      <App />
+    </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );

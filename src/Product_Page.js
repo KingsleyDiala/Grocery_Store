@@ -1,22 +1,14 @@
 import '../src/resources/reset.css'
 import './App.css';
-import { NavbarComponent } from './resources/components/Navbar/Navbar';
 import { DepartmentSection } from './resources/components/Department_Section/Department_Section';
-import { TopFooterComponent } from './resources/components/Top_Footer/Footer';
-import { BottomFooterComponent } from './resources/components/Bottom_Footer/Bottom_Footer';
 import { LinkNavigationComponent } from './resources/components/Link_Navigation/Link-Navigation';
 import { ProductHeadComponent } from './resources/components/Product/Product_Head';
 import { ProductDescriptionComponent } from './resources/components/Product/Product_Desc';
 import { RelatedItemsComponent } from './resources/components/Related_Items/Related_Items_Section';
 
-function Product_Page () {
+function ProductPage () {
   return (
     <div className='Product_Page'>
-      {/* =========== APP HEADER ============== */}
-      <header className="App-header">
-        { <NavbarComponent /> }
-        </header>
-
         {/* =========== LINK NAVIGATION SECTION ========== */}
         <LinkNavigationComponent />
 
@@ -31,14 +23,8 @@ function Product_Page () {
 
         {/* =========== APP SHOP BY DEPARTMENT SECTION ========== */}
         { <DepartmentSection /> }
-
-        {/* =========== APP TOP FOOTER SECTION ========== */}
-        < TopFooterComponent />
-
-        {/* =========== APP BOTTOM FOOTER SECTION ========== */}
-        <BottomFooterComponent />
     </div>
   )
 }
 
-export default Product_Page;
+export default ProductPage;

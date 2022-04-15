@@ -1,7 +1,10 @@
 // IMPORT MODULES
-import React, { useRef } from 'react';
+import React from 'react';
 import styled from 'styled-components'
+import { StyleSheetConsumer } from 'styled-components';
 import '../../containers/Product_Carousel/Product_Carousel'
+import data from '../../Data/data';
+import FullCard from '../Reusable_Components/Full_Card';
 
 // ==========  STYLED COMPONENT  ============
 const RelatedItems = styled.div`
@@ -51,7 +54,7 @@ const BottomContainer = styled.div`
   }
   `
 const ArrowRight = styled.div`
-flex: 1;
+  flex: 1;
   height: 56px;
   width: 56px;
   color: var(--light-color);
@@ -113,9 +116,16 @@ const ItemContainer = styled.div`
   }
   `
 const ImageContainer = styled.div`
+  overflow: hidden;
+  position: relative;
   height: 280px;
   width: 100%;
   background-color: var(--dark-grey-color);
+`
+const Image = styled.img`
+position: relative;
+width: auto;
+height: 100%;
 `
 const TextContainer = styled.div`
   padding: 0 1rem;
@@ -170,135 +180,11 @@ export const RelatedItemsComponent = () => {
         {/* ========= BOTTOM CONTAINER ========= */}
         <BottomContainer className='bottom__container'>
 
-          {/* ITEM 1 */}
-        <ItemContainer>
-      <ImageContainer></ImageContainer>
-          <TextContainer>
-          <ProductPrice className='price'>€4.06</ProductPrice>
-            <ProductName href='#' className='product__name'>Cavendish Banana</ProductName>
-            <Button href='#' className='green__button__white add-to-cart'> Add to Cart </Button>
-          </TextContainer>
-        </ItemContainer>
-
-        {/* ITEM 2 */}
-        <ItemContainer>
-      <ImageContainer></ImageContainer>
-          <TextContainer>
-          <ProductPrice className='price'>€4.06</ProductPrice>
-            <ProductName href='#' className='product__name'>Cavendish Banana</ProductName>
-            <a href='#'>
-              <Button className='green__button__white add-to-cart'> Add to Cart</Button>
-            </a>
-          </TextContainer>
-        </ItemContainer>
-
-        {/* ITEM 3 */}
-        <ItemContainer>
-      <ImageContainer></ImageContainer>
-          <TextContainer>
-          <ProductPrice className='price'>€4.06</ProductPrice>
-            <ProductName href='#' className='product__name'>Cavendish Banana</ProductName>
-            <a href='#'>
-              <Button className='green__button__white add-to-cart'> Add to Cart</Button>
-            </a>
-          </TextContainer>
-        </ItemContainer>
-
-        {/* ITEM 4 */}
-        <ItemContainer>
-      <ImageContainer></ImageContainer>
-          <TextContainer>
-          <ProductPrice className='price'>€4.06</ProductPrice>
-            <ProductName href='#' className='product__name'>Cavendish Banana</ProductName>
-            <a href='#'>
-              <Button className='green__button__white add-to-cart'> Add to Cart</Button>
-            </a>
-          </TextContainer>
-        </ItemContainer>
-
-        {/* ITEM 5 */}
-        <ItemContainer>
-      <ImageContainer></ImageContainer>
-          <TextContainer>
-          <ProductPrice className='price'>€4.06</ProductPrice>
-            <ProductName href='#' className='product__name'>Cavendish Banana</ProductName>
-            <a href='#'>
-              <Button className='green__button__white add-to-cart'> Add to Cart</Button>
-            </a>
-          </TextContainer>
-        </ItemContainer>
-
-        {/* ITEM 6 */}
-        <ItemContainer>
-      <ImageContainer></ImageContainer>
-          <TextContainer>
-          <ProductPrice className='price'>€4.06</ProductPrice>
-            <ProductName href='#' className='product__name'>Cavendish Banana</ProductName>
-            <a href='#'>
-              <Button className='green__button__white add-to-cart'> Add to Cart</Button>
-            </a>
-          </TextContainer>
-        </ItemContainer>
-
-        {/* ITEM 7 */}
-        <ItemContainer>
-      <ImageContainer></ImageContainer>
-          <TextContainer>
-          <ProductPrice className='price'>€4.06</ProductPrice>
-            <ProductName href='#' className='product__name'>Cavendish Banana</ProductName>
-            <a href='#'>
-              <Button className='green__button__white add-to-cart'> Add to Cart</Button>
-            </a>
-          </TextContainer>
-        </ItemContainer>
-
-        {/* ITEM 8 */}
-        <ItemContainer>
-      <ImageContainer></ImageContainer>
-          <TextContainer>
-          <ProductPrice className='price'>€4.06</ProductPrice>
-            <ProductName href='#' className='product__name'>Cavendish Banana</ProductName>
-            <a href='#'>
-              <Button className='green__button__white add-to-cart'> Add to Cart</Button>
-            </a>
-          </TextContainer>
-        </ItemContainer>
-
-        {/* ITEM 9 */}
-        <ItemContainer>
-      <ImageContainer></ImageContainer>
-          <TextContainer>
-          <ProductPrice className='price'>€4.06</ProductPrice>
-            <ProductName href='#' className='product__name'>Cavendish Banana</ProductName>
-            <a href='#'>
-              <Button className='green__button__white add-to-cart'> Add to Cart</Button>
-            </a>
-          </TextContainer>
-        </ItemContainer>
-
-        {/* ITEM 10 */}
-        <ItemContainer>
-      <ImageContainer></ImageContainer>
-          <TextContainer>
-          <ProductPrice className='price'>€4.06</ProductPrice>
-            <ProductName href='#' className='product__name'>Cavendish Banana</ProductName>
-            <a href='#'>
-              <Button className='green__button__white add-to-cart'> Add to Cart</Button>
-            </a>
-          </TextContainer>
-        </ItemContainer>
-
-        {/* ITEM 11 */}
-        <ItemContainer>
-      <ImageContainer></ImageContainer>
-          <TextContainer>
-          <ProductPrice className='price'>€4.06</ProductPrice>
-            <ProductName href='#' className='product__name'>Cavendish Banana</ProductName>
-            <a href='#'>
-              <Button className='green__button__white add-to-cart'> Add to Cart</Button>
-            </a>
-          </TextContainer>
-        </ItemContainer>
+          { data.map(item => {
+            return (
+              <FullCard />
+            )
+          })}
 
 
         </BottomContainer>

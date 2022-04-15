@@ -1,6 +1,7 @@
 import React from "react";
 import { UilListUiAlt, UilBitcoin, UilSearch, UilUser, UilHeart, UilShoppingCart, UilTimes } from '@iconscout/react-unicons';
 import styled from 'styled-components'
+import { Link } from "react-router-dom";
 
 
 // =============  STYLED COMPONENT  ============
@@ -144,11 +145,11 @@ export const NavbarComponent = () => {
         
         {/* ======== LOGO  ========== */}
         <li>
-            <a href="#">
+            <Link to='/'>
               <div className="logo">
                   { <UilBitcoin color='var(--accent-color)' size='3rem' className='icon' /> }
               </div>
-            </a>
+              </Link>
         </li>
 
 

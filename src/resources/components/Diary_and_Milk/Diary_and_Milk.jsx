@@ -1,6 +1,9 @@
 // IMPORT MODULES
 import React from 'react';
 import styled from 'styled-components'
+import data, { Milk } from '../../Data/data';
+import { ArrowLeft, ArrowRight } from '../Reusable_Components/Arrow';
+import { HalfCard } from '../Reusable_Components/Card';
 
 // ==========  STYLED COMPONENT  ============
 const FeaturedItems = styled.div`
@@ -41,102 +44,15 @@ const BottomContainer = styled.div`
   align-items: center;
   column-gap: 1rem;
   `
-const ArrowRight = styled.div`
-  height: 56px;
-  width: 56px;
-  color: var(--light-color);
-  position: absolute;
-  bottom: 55%;
-  right: -15px;
-  display: grid;
-  place-items: center;
-  font-size: 40px;
-  border-radius: 50%;
-  overflow: hidden;
-  background-color: var(--accent-color);
-  cursor: pointer;
-  z-index: 1;
-  transition: all .2s ease;
-  &:hover {
-    transform: scale(1.05);
-    box-shadow: 5px 5px 10px 3px rgba(0, 0, 0, .2);
-  }
-`
-const ArrowLeft = styled.div`
-  height: 56px;
-  width: 56px;
-  color: var(--light-color);
-  position: absolute;
-  bottom: 55%;
-  left: -15px;
-  display: grid;
-  place-items: center;
-  font-size: 40px;
-  border-radius: 50%;
-  overflow: hidden;
-  background-color: var(--accent-color);
-  cursor: pointer;
-  z-index: 1;
-  transition: all .2s ease;
-    &:hover {
-    transform: scale(1.05);
-    box-shadow: 5px 5px 10px 3px rgba(0, 0, 0, .2);
-  }
-`
-const ItemContainer = styled.div`
-  height: 457px;
-  width: 192px;
-  display: flex;
-  flex-direction: column;
-  row-gap: 2rem;
-  border-radius: 10px;
-  overflow: hidden;
-  transition: all .5s ease;
-  &:hover {
-    transform: scale(1.02);
-    box-shadow: 10px 10px 20px 3px rgba(0, 0, 0, .2);
-    & a {
-      display: block;
-      transition: transform .2s ease;
-    }
-  }
-  `
-const ImageContainer = styled.div`
-  height: 280px;
-  width: 100%;
-  background-color: var(--dark-grey-color);
-`
-const TextContainer = styled.div`
-  padding: 0 1rem;
-`
-const ProductName = styled.a`
-  line-height: 1.5rem;
-  cursor: pointer;
-  `
-const ProductPrice = styled.p`
-  color: var(--accent-color);
-  font-weight: 700;
-`
-const Button = styled.a`
-  position: relative;
-  width: 160px;
-  height: 41px;
-  margin-top: 2rem;
-  cursor: pointer;
-  color: var(--light-text-color);
-  font-size: var(--button-text);
-  font-weight: 600;
-  text-align: center;
-  line-height: 35px;
-  display: none;
-`
-
-
 
 
 // ============ JSX COMPONENT =========
 
-export const DiaryAndMilkComponent = () => {
+export const DiaryAndMilkComponent = ({ items }) => {
+
+  console.log(items)
+  const data = Milk.filter(item => {return item.title.length <= 45}).slice(0, 6);
+
 
   return (
     <FeaturedItems>
@@ -154,78 +70,14 @@ export const DiaryAndMilkComponent = () => {
         <BottomContainer>
 
           {/* ARROW RIGHT AND LEFT */}
-          <ArrowRight> <i class="uil uil-angle-right-b"></i> </ArrowRight>
-          <ArrowLeft><i class="uil uil-angle-left"></i></ArrowLeft>
+          <ArrowRight />
+          <ArrowLeft />
 
-          {/* ITEM 1 */}
-        <ItemContainer>
-      <ImageContainer></ImageContainer>
-          <TextContainer>
-          <ProductPrice className='price'>€4.06</ProductPrice>
-            <ProductName href='#' className='product__name'>Cavendish Banana</ProductName>
-            <Button href='#' className='green__button__white add-to-cart'> Add to Cart </Button>
-          </TextContainer>
-        </ItemContainer>
-
-        {/* ITEM 2 */}
-        <ItemContainer>
-      <ImageContainer></ImageContainer>
-          <TextContainer>
-          <ProductPrice className='price'>€4.06</ProductPrice>
-            <ProductName href='#' className='product__name'>Cavendish Banana</ProductName>
-            <a href='#'>
-              <Button className='green__button__white add-to-cart'> Add to Cart</Button>
-            </a>
-          </TextContainer>
-        </ItemContainer>
-
-        {/* ITEM 3 */}
-        <ItemContainer>
-      <ImageContainer></ImageContainer>
-          <TextContainer>
-          <ProductPrice className='price'>€4.06</ProductPrice>
-            <ProductName href='#' className='product__name'>Cavendish Banana</ProductName>
-            <a href='#'>
-              <Button className='green__button__white add-to-cart'> Add to Cart</Button>
-            </a>
-          </TextContainer>
-        </ItemContainer>
-
-        {/* ITEM 4 */}
-        <ItemContainer>
-      <ImageContainer></ImageContainer>
-          <TextContainer>
-          <ProductPrice className='price'>€4.06</ProductPrice>
-            <ProductName href='#' className='product__name'>Cavendish Banana</ProductName>
-            <a href='#'>
-              <Button className='green__button__white add-to-cart'> Add to Cart</Button>
-            </a>
-          </TextContainer>
-        </ItemContainer>
-
-        {/* ITEM 5 */}
-        <ItemContainer>
-      <ImageContainer></ImageContainer>
-          <TextContainer>
-          <ProductPrice className='price'>€4.06</ProductPrice>
-            <ProductName href='#' className='product__name'>Cavendish Banana</ProductName>
-            <a href='#'>
-              <Button className='green__button__white add-to-cart'> Add to Cart</Button>
-            </a>
-          </TextContainer>
-        </ItemContainer>
-
-        {/* ITEM 6 */}
-        <ItemContainer>
-      <ImageContainer></ImageContainer>
-          <TextContainer>
-          <ProductPrice className='price'>€4.06</ProductPrice>
-            <ProductName href='#' className='product__name'>Cavendish Banana</ProductName>
-            <a href='#'>
-              <Button className='green__button__white add-to-cart'> Add to Cart</Button>
-            </a>
-          </TextContainer>
-        </ItemContainer>
+          { data.map(item => {
+            return (
+              <HalfCard key={item.id} price={32.32} alt={item.title} src={item.image} title={item.title.slice(0, 20)} />
+            )
+          })}
 
 
         </BottomContainer>

@@ -1,9 +1,9 @@
 import '../src/resources/reset.css'
 import './App.css';
 import { LinkNavigationComponent } from './resources/components/Link_Navigation/Link-Navigation';
-import Search_Result from './resources/components/Search_Result_Section/Search_Result';
+import CategorySection from './resources/components/Category_Section/Category_Section';
 
-function SearchPage () {
+function CategoryPage () {
   return (
     <div className='search_page'>
 
@@ -11,10 +11,9 @@ function SearchPage () {
         <LinkNavigationComponent />
 
         {/* =========== SEARCH RESULT SECTION ========== */}
-        <Search_Result />
-
+        <CategorySection />
     </div>
   )
 }
 
-export default SearchPage;
+export default CategoryPage;

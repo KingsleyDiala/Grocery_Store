@@ -1,8 +1,8 @@
 // IMPORT MODULES
 import React from 'react';
 import styled from 'styled-components'
-import { Vegetables } from '../../Data/data';
 import { HalfCard } from '../Reusable_Components/Card';
+import { Vegetables } from '../../Data/data';
 import { ArrowLeft, ArrowRight } from '../Reusable_Components/Arrow';
 
 // ==========  STYLED COMPONENT  ============
@@ -50,7 +50,7 @@ const BottomContainer = styled.div`
 
 // ============ JSX COMPONENT =========
 
-export const FeaturedItemsComponent = () => {
+export const FreshVegetableComponent = () => {
 
   return (
     <FeaturedItems>
@@ -58,7 +58,7 @@ export const FeaturedItemsComponent = () => {
 
         {/* ======= TOP CONTAINER ========= */}
         <TopContainer>
-          <h4> Featured Items </h4>
+          <h4> Fresh Vegetables </h4>
           <a href='#'>
             Show All <i class="uil uil-angle-right-b"></i>
             </a>
@@ -68,18 +68,12 @@ export const FeaturedItemsComponent = () => {
         <BottomContainer>
 
           {/* ARROW RIGHT AND LEFT */}
-          <ArrowRight />
           <ArrowLeft />
+          <ArrowRight />
 
-          { Vegetables.slice(10, 16).map(item => {
+          {Vegetables.slice(0, 6).map(item => {
             return (
-              <HalfCard
-              title={item.title.slice(0, 16)}
-              src={item.image}
-              alt={item.title}
-              key={item.id}
-              price={8.42}
-              />
+              <HalfCard key={item.id} src={item.image} alt={item.title} title={item.title.slice(0, 17)} price={7.89} />
             )
           })}
 
@@ -89,4 +83,5 @@ export const FeaturedItemsComponent = () => {
       </FeaturedItems>
   )
 }
+
 

@@ -1,6 +1,7 @@
 // IMPORT MODULES
 import React from 'react';
 import styled from 'styled-components'
+import { CategoryData } from '../../Data/data';
 
 // ==========  STYLED COMPONENT  ============
 const FeaturedItems = styled.div`
@@ -14,11 +15,12 @@ const FeaturedItems = styled.div`
   overflow: hidden;
   ` 
 const FeaturedItemsContainer = styled.div`
+position: relative;
   width: 1260px;
-  height: 326px;
+  height: fit-content;
   display: flex;
   flex-direction: column;
-  row-gap: 2rem;
+  row-gap: 3rem;
   `
 const TopContainer = styled.div`
   height: auto;
@@ -35,15 +37,22 @@ const TopContainer = styled.div`
   }
   `
 const BottomContainer = styled.div`
+  width: auto;
+  height: fit-content;
+  overflow-x: auto;
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   column-gap: 1rem;
+  &::-webkit-scrollbar {
+    display: none;
+  }
   `
 const ItemContainer = styled.div`
+  flex: 1 1 auto;
   height: 250px;
-  width: 192px;
+  min-width: 192px;
   display: flex;
   flex-direction: column;
   row-gap: 2rem;
@@ -58,10 +67,15 @@ const ImageContainer = styled.div`
   border-radius: 50%;
   transition: all .5s ease;
   cursor: pointer;
+  overflow: hidden;
   &:hover {
     transform: scale(1.02);
     box-shadow: 10px 10px 20px 3px rgba(0, 0, 0, .2);
   }
+`
+const Image = styled.img`
+width: 100%;
+height: auto;
 `
 const TextContainer = styled.div`
 `
@@ -98,64 +112,18 @@ export const DepartmentSection = () => {
         {/* ========= BOTTOM CONTAINER ========= */}
         <BottomContainer>
 
-          {/* ITEM 1 */}
-        <ItemContainer>
-      <ImageContainer></ImageContainer>
+          { CategoryData.map(item => {
+            return (
+              <ItemContainer key={item.id}>
+      <ImageContainer>
+        <Image alt={item.alt} src={item.url} />
+      </ImageContainer>
           <TextContainer>
-            <ProductName href='#' className='product__name'>New Arrivals</ProductName>
+            <ProductName href='#' className='product__name'>{item.name}</ProductName>
           </TextContainer>
         </ItemContainer>
-
-        {/* ITEM 2 */}
-        <ItemContainer>
-      <ImageContainer></ImageContainer>
-          <TextContainer>
-            <ProductName href='#' className='product__name'>Dairy & MIlk</ProductName>
-            <a href='#'>
-            </a>
-          </TextContainer>
-        </ItemContainer>
-
-        {/* ITEM 3 */}
-        <ItemContainer>
-      <ImageContainer></ImageContainer>
-          <TextContainer>
-            <ProductName href='#' className='product__name'>Fresh Produce</ProductName>
-            <a href='#'>
-            </a>
-          </TextContainer>
-        </ItemContainer>
-
-        {/* ITEM 4 */}
-        <ItemContainer>
-      <ImageContainer></ImageContainer>
-          <TextContainer>
-            <ProductName href='#' className='product__name'>Snacks</ProductName>
-            <a href='#'>
-            </a>
-          </TextContainer>
-        </ItemContainer>
-
-        {/* ITEM 5 */}
-        <ItemContainer>
-      <ImageContainer></ImageContainer>
-          <TextContainer>
-            <ProductName href='#' className='product__name'>Frozen</ProductName>
-            <a href='#'>
-            </a>
-          </TextContainer>
-        </ItemContainer>
-
-        {/* ITEM 6 */}
-        <ItemContainer>
-      <ImageContainer></ImageContainer>
-          <TextContainer>
-            <ProductName href='#' className='product__name'>Cavendish Banana</ProductName>
-            <a href='#'>
-            </a>
-          </TextContainer>
-        </ItemContainer>
-
+            )
+          })}
 
         </BottomContainer>
       </FeaturedItemsContainer>

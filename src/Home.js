@@ -1,25 +1,43 @@
+import { useState, useEffect } from 'react';
 import '../src/resources/reset.css'
 import './App.css';
-import { NavbarComponent } from './resources/components/Navbar/Navbar';
 import { HeroComponent } from './resources/components/Hero/Hero';
 import { ShowcaseComponent } from './resources/components/Showcase/Showcase';
 import { FeaturedItemsComponent} from './resources/components/Featured_Items/Featured_Items.jsx'
 import { BestSellerSection } from './resources/components/Best_Sellers/BestSellers.jsx'
-import { FreshVegetableComponent} from './resources/components/Fresh_Vegetable_Section/Fresh_Vegetabe';
+import { FreshVegetableComponent} from './resources/components/Fresh_Vegetable_Section/Fresh_Vegetable';
 import { DiaryAndMilkComponent } from './resources/components/Diary_and_Milk/Diary_and_Milk';
 import { DepartmentSection } from './resources/components/Department_Section/Department_Section';
-import { TopFooterComponent } from './resources/components/Top_Footer/Footer';
-import { BottomFooterComponent } from './resources/components/Bottom_Footer/Bottom_Footer';
 
 
 function Home() {
+
+  const apiKey = '75351bfa2a8944ad9366abcbb4a6a8c4';
+  const number = '50';
+  const query = 'best';
+  const filterMapping = 'searchResults';
+
+
+  const [groceries, setGroceries] = useState([]);
+
+  useEffect( () => {
+    getItems();
+  },[])
+
+
+  const getItems = async () => {
+
+    const items = await fetch(`https://api.spoonacular.com/food/products/search?apiKey=${number}&query=${query}&number=${number}`)
+
+    const response = await items.json().catch(err => console.error(err));
+  
+    setGroceries(response)
+  }
+
+
+
   return (
     <div className="Home">
-      {/* =========== APP HEADER ============== */}
-      <header className="App-header">
-        { <NavbarComponent /> }
-        </header>
-
         {/* =========== APP HERO ========== */}
       <section className='app-hero'>
       { <HeroComponent /> }
@@ -42,16 +60,10 @@ function Home() {
         { <FreshVegetableComponent /> }
 
         {/* =========== APP DIARY & MILK SECTION ========== */}
-        { <DiaryAndMilkComponent /> }
+        { <DiaryAndMilkComponent items={groceries} /> }
 
         {/* =========== APP Shop By Department SECTION ========== */}
         { <DepartmentSection /> }
-
-        {/* =========== APP Top Footer SECTION ========== */}
-        < TopFooterComponent />
-
-        {/* =========== APP BOTTOM FOOTER SECTION ========== */}
-        <BottomFooterComponent />
 
     </div>
   );

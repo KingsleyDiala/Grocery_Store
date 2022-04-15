@@ -43,7 +43,7 @@
 }
 
 body {
-  background-color: var(--main-background-color);
+  background-color: var(--light-color);
   font-family: 'Mulish', sans-serif;
   padding: 0;
   box-sizing: border-box;

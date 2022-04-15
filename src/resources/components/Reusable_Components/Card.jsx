@@ -19,6 +19,10 @@ const ItemContainer = styled.div`
       display: block;
       transition: transform .2s ease;
     }
+    & .image__container {
+      border: 2px solid rgba(35, 121, 67, 6);
+      transition: all .3s ease;
+    }
   }
   `
 const ImageContainer = styled.div`
@@ -29,6 +33,9 @@ const ImageContainer = styled.div`
   display: grid;
   place-content: center;
   overflow: hidden;
+  border: 2px solid rgba(35, 121, 67, .3);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 `
 const Image = styled.img`
 position: relative;
@@ -74,9 +81,9 @@ const Button = styled.a`
 export const HalfCard = ({ key, src, alt, price, title }) => {
   return (
     <ItemContainer key={key}>
-      <ImageContainer>
+      <ImageContainer className="image__container">
         <Image alt={alt} src={src} />
-      </ImageContainer>
+      </ImageContainer >
           <TextContainer>
           <ProductPrice className='price'>€{price}</ProductPrice>
             <ProductName href='#' className='product__name'>{title}</ProductName>

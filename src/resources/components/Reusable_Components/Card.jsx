@@ -8,7 +8,7 @@ const ItemContainer = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 2rem;
-  border-radius: 5px;
+  border-radius: 10px;
   overflow: hidden;
   transition: all .5s ease;
   &:hover {
@@ -58,6 +58,9 @@ const Button = styled.a`
   text-align: center;
   line-height: 35px;
   display: none;
+  &:active {
+    transform: scale(.9);
+  }
 `
 
 

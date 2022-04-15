@@ -1,4 +1,8 @@
-
+import img1 from '../img/hero-img-1.jpg'
+import img2 from '../img/paper-bag-and-different-food-isolated.jpg'
+import img3 from '../img/paper-bag-with-green-vegetables.jpg'
+import img4 from '../img/retail-grocery-shopping-and-delivery.jpg'
+import img5 from '../img/woman-holding-grocery-shopping-bag-full.jpg'
 
 const data = [
   {
@@ -1067,6 +1071,18 @@ export const bestSellers = [
 
 
 
+// =================== HERO IMAGE ARRAY WITH INFORMATION ===========================
 
+export const images = [
+    { url: img1, alt: 'man caring grocery bag', heading: 'Looking for Good Quality Ingridient?' },
+
+    { url: img2, alt: 'paper-bag-and-different-food-isolated' , heading: 'Grocery shopping has never been this fun!'},
+
+    { url: img3, alt: 'paper-bag-with-green-vegetables', heading: 'If you can’t find it from others, we have it for you.'},
+
+    { url: img4, alt: 'retail-grocery-shopping-and-delivery', heading: 'We make grocery shopping more interesting.'},
+
+    { url: img5, alt: 'woman-holding-grocery-shopping-bag-full', heading: 'Serving fresh ingredients your way everyday!'},
+]
 
 

@@ -22,6 +22,9 @@ const Right = styled.div`
     transform: scale(1.05);
     box-shadow: 5px 5px 10px 3px rgba(0, 0, 0, .2);
   }
+  &:active {
+    transform: scale(.9);
+  }
 `
 const Left = styled.div`
   height: 56px;
@@ -42,6 +45,9 @@ const Left = styled.div`
     &:hover {
     transform: scale(1.05);
     box-shadow: 5px 5px 10px 3px rgba(0, 0, 0, .2);
+  }
+  &:active {
+    transform: scale(.9);
   }
 `
 

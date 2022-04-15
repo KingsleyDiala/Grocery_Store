@@ -44,6 +44,10 @@ const TextContainer = styled.div`
 const ProductName = styled.a`
   line-height: 1.5rem;
   cursor: pointer;
+  &:active {
+    transform: scale(.9);
+    transition: all .2s ease;
+  }
   `
 const ProductPrice = styled.p`
   color: var(--accent-color);
@@ -62,6 +66,10 @@ const Button = styled.a`
   font-weight: 600;
   text-align: center;
   line-height: 35px;
+  transition: all .2s ease;
+  &:active {
+    transform: scale(.9);
+  }
 `
 
 

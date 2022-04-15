@@ -181,7 +181,7 @@ transition: all .2s ease;
   color: var(--accent-color);
 }
 `
-const PaymentMethod = styled.a`
+const Catalogue = styled.div`
 opacity: .8;
 font-size: var(--link-font);
 transition: all .2s ease;
@@ -269,8 +269,8 @@ export const TopFooterComponent = () => {
           <Title>Company</Title>
           <AboutUs href='#'>About Us</AboutUs>
           <Contact href='#'>Contact</Contact>
+          <Link to={'/catalogue'}> <Catalogue>Catalogue</Catalogue> </Link>
           <PrivacyPolicy href='#'>Policy & Privacy</PrivacyPolicy>
-          <PaymentMethod href='#'>Payment Method</PaymentMethod>
         </CompanyContainer>
 
         {/* ===========  NEWSLETTER CONTAINER  =============== */}

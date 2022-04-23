@@ -17,14 +17,19 @@ padding: 5px;
 transition: all .2s ease;
 &:hover {
   background-color: var(--light-accent-color);
+  box-shadow: 5px 5px 10px 1px rgba(0, 0, 0, .1);
+  transform: scale(1.02);
 }
 `;
 const ImageContainer = styled.div`
 height: 130px;
 width: 110px;
-background-color: var(--light-grey-color);
+background-color: var(--light-color);
 border-radius: 5px;
 overflow: hidden;
+display: grid;
+place-content: center;
+border: 3px solid var(--light-grey-color);
 `;
 const Image = styled.img`
 width: 100%;
@@ -75,15 +80,15 @@ font-weight: 500;
 
 // ============= JSX STRUCTURE ==================
 
-const SingleWishlistComponent = (title, price, image) => {
+const SingleCardComponent = ({title, price, image}) => {
   return (
     <Item>
             <ImageContainer>
-              <Image />
+              <Image src={image} alt={title} />
             </ImageContainer>
             <DetailsContainer>
-              <ProductName> Chiitos Crunch Chocolate Chips </ProductName>
-              <ProductPrice> €6.67 </ProductPrice>
+              <ProductName> {title} </ProductName>
+              <ProductPrice> €{price} </ProductPrice>
               <ButtonContainer>
                 <AddToCart className='white__button__green'>Add to Cart</AddToCart>
                 <Remove className='green__button__white'>Remove</Remove>
@@ -93,10 +98,10 @@ const SingleWishlistComponent = (title, price, image) => {
   )
 }
 
-SingleWishlistComponent.propTypes = {
+SingleCardComponent.propTypes = {
   title: PropTypes.string,
   price: PropTypes.number,
   image: PropTypes.string,
 }
 
-export default SingleWishlistComponent
+export default SingleCardComponent;

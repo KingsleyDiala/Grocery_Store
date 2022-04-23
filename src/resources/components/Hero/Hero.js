@@ -1,10 +1,8 @@
 // IMPORT MODULES
 import React, { useState } from "react";
 import styled from 'styled-components';
-import img1 from '../../img/hero-img-1.jpg'
 import { images } from "../../Data/data";
-import { ArrowLeft, ArrowRight } from "../Reusable_Components/Arrow";
-import file from '../../img/paper-bag-and-different-food-isolated.jpg'
+import { Link } from "react-router-dom";
 
 
 // ============  STYLED COMPONENTS  ===========
@@ -181,9 +179,9 @@ export const HeroComponent = () => {
             <h1 className="heading__text">
               { image.heading}
             </h1>
-            <Button className="green__button">
-              <a href="#">Find Products</a>
-            </Button>
+            <Link to='/catalogue'><Button className="green__button">
+              <a>Find Products</a>
+            </Button></Link>
           </TextContainer>
         </HeroItem>
         </>

@@ -32,7 +32,6 @@ font-weight: 700;
 const Home = styled.a`
 color: var(--accent-color);
 `
-const Product = styled.a``
 
 
 
@@ -40,7 +39,7 @@ const Product = styled.a``
 
 
 // =============== JSX STRUCTURE COMPONENT  =============
-export const LinkNavigationComponent = (name, path) => {
+export const LinkNavigationComponent = ({name, path}) => {
 
   return (
     <LinkNavigation>
@@ -50,7 +49,7 @@ export const LinkNavigationComponent = (name, path) => {
             Home
           </Link>
           <i class="uil uil-angle-right-b"></i>
-          <Link to={path}> To Change </Link>
+          <Link to={path}> {name} </Link>
           </Breadcrumb>
       </Container>
     </LinkNavigation>

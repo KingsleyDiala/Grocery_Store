@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components';
-import { images } from '../../../Data/data';
-import SingleWishlistComponent from './Single_Card_Component';
+import { Vegetables } from '../../Data/data'
+import SingleCardComponent from './Single_Card_Component';
 
 // ================ STYLED COMPONENT  ==================
 const Wishlist = styled.section`
@@ -25,7 +25,7 @@ width: 100%;
 height: fit-content;
 display: flex;
 flex-direction: column;
-row-gap: 1rem;
+row-gap: 1.5rem;
 justify-content: center;
 border-top: 1px solid rgba(35, 121, 67, .3);
 border-left: 1px solid rgba(35, 121, 67, .3);
@@ -54,9 +54,13 @@ const WishlistSection = () => {
       <Container>
         <Text> Your Wishlist</Text>
         <ItemContainer>
-          {images.map(item => {
+          {Vegetables.slice(17, 24).map(item => {
             return (
-              <SingleWishlistComponent />
+              <SingleCardComponent
+              image={item.image}
+              title={item.title.slice(0, 50)}
+              price='6.67'
+              />
             )
           })}
         </ItemContainer>

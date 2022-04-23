@@ -233,12 +233,6 @@ font-size: 16px;
 
 
 
-
-
-
-
-
-
 //  ===============  JSX COMPONENT  ============
 
 export const TopFooterComponent = () => {
@@ -268,7 +262,7 @@ export const TopFooterComponent = () => {
         <CompanyContainer>
           <Title>Company</Title>
           <AboutUs href='#'>About Us</AboutUs>
-          <Contact href='#'>Contact</Contact>
+          <Link to='/contact'>Contact</Link>
           <Link to={'/catalogue'}> <Catalogue>Catalogue</Catalogue> </Link>
           <PrivacyPolicy href='#'>Policy & Privacy</PrivacyPolicy>
         </CompanyContainer>

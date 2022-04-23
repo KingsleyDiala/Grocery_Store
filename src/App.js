@@ -11,6 +11,7 @@ import { BottomFooterComponent } from "./resources/components/Bottom_Footer/Bott
 import Category from "./Category";
 import Catalogue from "./Catalogue";
 import Wishlist from "./Wishlist";
+import Contact from "./Contact";
 
 
 const App = () => {
@@ -25,6 +26,7 @@ const App = () => {
         <Route path="/single-category" element={ <Category />} />
         <Route path="/catalogue" element={ <Catalogue /> } />
         <Route path="/wishlist" element={ <Wishlist /> } />
+        <Route path="/contact" element={ <Contact />} />
       </Routes>
       <TopFooterComponent />
       <BottomFooterComponent />

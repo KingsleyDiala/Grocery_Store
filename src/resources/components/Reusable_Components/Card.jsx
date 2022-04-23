@@ -20,7 +20,7 @@ const ItemContainer = styled.div`
       transition: transform .2s ease;
     }
     & .image__container {
-      border: 3px solid rgba(35, 121, 67, .6);
+      border: 5px solid var(--light-accent-color);
       transition: all .3s ease;
     }
   }
@@ -33,7 +33,7 @@ const ImageContainer = styled.div`
   display: grid;
   place-content: center;
   overflow: hidden;
-  border: 2px solid rgba(35, 121, 67, .3);
+  border: 4px solid var(--light-grey-color);
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 `

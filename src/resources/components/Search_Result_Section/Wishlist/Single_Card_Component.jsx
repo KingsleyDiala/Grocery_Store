@@ -57,13 +57,16 @@ const Remove =styled.button`
 width: 130px;
 height: 35px;
 color: var(--light-color);
-transition: color .3s ease;
+transition: color, transform .3s ease;
 font-weight: 500;
 &:hover {
-  color: rgba(235, 88, 88, 1);
+  color: var(--light-color);
   background-color: rgba(235, 88, 88, .8);
   transform: scale(1);
   border: 1px solid rgba(235, 88, 88, 1);
+}
+&:active {
+  transform: scale(.9);
 }
 `
 

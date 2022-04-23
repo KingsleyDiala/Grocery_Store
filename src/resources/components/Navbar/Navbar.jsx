@@ -203,12 +203,12 @@ export const NavbarComponent = () => {
 
         {/* ===========  Wishlist  ============ */}
         <li>
-          <a href="#">
+          <Link to='/wishlist'>
             <WishlistContainer>
               { <UilHeart size='1.5rem' className='icon' /> }
               <p>wishlist</p>
             </WishlistContainer>
-          </a>
+          </Link>
         </li>
       {/* ============  Shopping cart  ============= */}
       <li>

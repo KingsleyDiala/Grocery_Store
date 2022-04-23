@@ -32,6 +32,12 @@ border-left: 1px solid rgba(35, 121, 67, .3);
 padding: 20px;
 border-radius: 10px;
 `;
+const Button = styled.button`
+margin-top: 50px;
+margin-left: 20px;
+width: 300px;
+
+`
 
 
 
@@ -55,6 +61,7 @@ const WishlistSection = () => {
           })}
         </ItemContainer>
       </Container>
+      <Button className='white__button__green' >Go to Cart</Button>
     </Wishlist>
   )
 }

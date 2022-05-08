@@ -80,18 +80,25 @@ font-weight: 500;
 
 // ============= JSX STRUCTURE ==================
 
-const SingleCardComponent = ({title, price, image}) => {
+const SingleCardComponent = ({ setWishlist, wishlist, item }) => {
+
+
+  // Handle Remove Click
+  const handleRemove = (id) => {
+    setWishlist(array => array.filter(item => item.id !== id ))
+  }
+
   return (
-    <Item>
+    <Item key={item.title}>
             <ImageContainer>
-              <Image src={image} alt={title} />
+              <Image src={item.image} alt={item.title} />
             </ImageContainer>
             <DetailsContainer>
-              <ProductName> {title} </ProductName>
-              <ProductPrice> €{price} </ProductPrice>
+              <ProductName> {item.title.slice(0, 50)} </ProductName>
+              <ProductPrice> €6.65 </ProductPrice>
               <ButtonContainer>
                 <AddToCart className='white__button__green'>Add to Cart</AddToCart>
-                <Remove className='green__button__white'>Remove</Remove>
+                <Remove onClick={() => handleRemove(item.id)} className='green__button__white'>Remove</Remove>
               </ButtonContainer>
             </DetailsContainer>
           </Item>
@@ -100,7 +107,7 @@ const SingleCardComponent = ({title, price, image}) => {
 
 SingleCardComponent.propTypes = {
   title: PropTypes.string,
-  price: PropTypes.number,
+  price: PropTypes.string,
   image: PropTypes.string,
 }
 

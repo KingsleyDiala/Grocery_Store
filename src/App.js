@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import './App.css';
 import Home from "./Home";
 import ProductPage from './Product_Page';
@@ -15,6 +15,21 @@ import Contact from "./Contact";
 
 
 const App = () => {
+  // Wishlist State 
+  const [wishlist, setWishlist] = useState([]);
+  const [data, setData] = useState([]);
+
+  // const apiFetch = async () => {
+  //   const apiKey = '9c0bb3a2e3b94200a61a781b4d3df3ea'
+  //   const secretKey = '70edf14fd0bc4f08b5e6b5954097dae0'
+  //   const url = `https://platform.fatsecret.com/js?key=${apiKey}&auto_load=true`
+
+  //   // Data fetch
+  //   const response = await fetch(url).json().catch(err => console.error(err));
+  //   console.log(response);
+  // }
+
+
   return (
       <div>
       <NavbarComponent />
@@ -24,8 +39,8 @@ const App = () => {
         <Route path="/category" element={ <CategoryPage /> } />
         <Route path="/product" element={ <ProductPage /> } />
         <Route path="/single-category" element={ <Category />} />
-        <Route path="/catalogue" element={ <Catalogue /> } />
-        <Route path="/wishlist" element={ <Wishlist /> } />
+        <Route path="/catalogue" element={ <Catalogue wishlist={wishlist} setWishlist={setWishlist} /> } />
+        <Route path="/wishlist" element={ <Wishlist setWishlist={setWishlist} wishlist={wishlist} /> } />
         <Route path="/contact" element={ <Contact />} />
       </Routes>
       <TopFooterComponent />

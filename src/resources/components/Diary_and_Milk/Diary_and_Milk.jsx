@@ -50,7 +50,6 @@ const BottomContainer = styled.div`
 
 export const DiaryAndMilkComponent = ({ items }) => {
 
-  console.log(items)
   const data = Milk.filter(item => {return item.title.length <= 45}).slice(0, 6);
 
 

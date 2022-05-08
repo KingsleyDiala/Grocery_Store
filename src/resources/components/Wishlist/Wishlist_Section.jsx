@@ -42,30 +42,27 @@ width: 300px;
 
 
 
-
-
-
 // ==================== JSX STRUCTURE  ===============
 
-const WishlistSection = () => {
+const WishlistSection = ({ setWishlist, wishlist }) => {
 
   return (
     <Wishlist>
       <Container>
         <Text> Your Wishlist</Text>
         <ItemContainer>
-          {Vegetables.slice(17, 24).map(item => {
+          {wishlist.map(item => {
             return (
               <SingleCardComponent
-              image={item.image}
-              title={item.title.slice(0, 50)}
-              price='6.67'
+              setWishlist={setWishlist}
+              wishlist={wishlist}
+              item={item}
               />
             )
           })}
         </ItemContainer>
       </Container>
-      <Button className='white__button__green' >Go to Cart</Button>
+      <Button className='white__button__green'>Go to Cart</Button>
     </Wishlist>
   )
 }

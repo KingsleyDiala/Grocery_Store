@@ -3,7 +3,7 @@ import React from 'react';
 import styled from 'styled-components'
 import { StyleSheetConsumer } from 'styled-components';
 import '../../containers/Product_Carousel/Product_Carousel'
-import data from '../../Data/data';
+import data, { Vegetables } from '../../Data/data';
 import FullCard from '../Reusable_Components/Full_Card';
 
 // ==========  STYLED COMPONENT  ============
@@ -180,9 +180,15 @@ export const RelatedItemsComponent = () => {
         {/* ========= BOTTOM CONTAINER ========= */}
         <BottomContainer className='bottom__container'>
 
-          { data.map(item => {
+          { Vegetables.slice(10, 16).map(item => {
             return (
-              <FullCard />
+              <FullCard
+              src={item.image}
+              title={item.title.slice(0, 20)}
+              price={'4.53'}
+              key={item.id}
+              item={item}
+              />
             )
           })}
 

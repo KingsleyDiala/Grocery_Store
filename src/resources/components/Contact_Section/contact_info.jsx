@@ -74,7 +74,7 @@ const ContactInfoSection = () => {
             Email us for general enquiries
 including other business afairs.
           </Description>
-          <Info>contact@Kingsley.com</Info>
+          <Info>service@ba-bildungsakademie.de</Info>
         </TextContainer>
       </InfoContainer>
 
@@ -105,7 +105,7 @@ including other business afairs.
             Visit us for general enquiries
 including other business afairs.
           </Description>
-          <Info>Karl-Liebknecht str. 27a <br /> 99310 Arnstadt</Info>
+          <Info>Stotternheimer Str. 6 / 7,<br /> 99086 Erfurt</Info>
         </TextContainer>
       </InfoContainer>
     </Container>

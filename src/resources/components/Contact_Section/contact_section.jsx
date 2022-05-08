@@ -28,9 +28,7 @@ const Button = styled.button`
 margin-top: 50px;
 margin-left: 20px;
 width: 300px;
-
 `
-
 
 
 

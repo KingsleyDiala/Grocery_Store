@@ -5,6 +5,7 @@ import { Vegetables } from '../../Data/data';
 import { HalfCard } from '../Reusable_Components/Card';
 import { ArrowLeft, ArrowRight } from '../Reusable_Components/Arrow';
 
+
 // ==========  STYLED COMPONENT  ============
 const FeaturedItems = styled.div`
   position: relative;
@@ -48,6 +49,7 @@ const BottomContainer = styled.div`
 
 
 
+
 // ============ JSX COMPONENT =========
 
 export const FeaturedItemsComponent = () => {
@@ -70,7 +72,6 @@ export const FeaturedItemsComponent = () => {
           {/* ARROW RIGHT AND LEFT */}
           <ArrowRight />
           <ArrowLeft />
-
           { Vegetables.slice(10, 16).map(item => {
             return (
               <HalfCard
@@ -82,7 +83,6 @@ export const FeaturedItemsComponent = () => {
               />
             )
           })}
-
 
         </BottomContainer>
       </FeaturedItemsContainer>

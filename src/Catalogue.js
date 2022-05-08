@@ -3,7 +3,7 @@ import './App.css';
 import { LinkNavigationComponent } from './resources/components/Link_Navigation/Link-Navigation';
 import Search_Result from './resources/components/Search_Result_Section/Search_Result';
 
-function Catalogue () {
+function Catalogue ({ wishlist, setWishlist }) {
   return (
     <div className='catalogue'>
 
@@ -14,7 +14,7 @@ function Catalogue () {
         />
 
         {/* =========== SEARCH RESULT SECTION ========== */}
-        <Search_Result text={'Explore our Catalogue'} />
+        <Search_Result wishlist={wishlist} setWishlist={setWishlist} text={'Explore our Catalogue'} />
 
     </div>
   )

@@ -20,19 +20,19 @@ function Home() {
 
   const [groceries, setGroceries] = useState([]);
 
-  useEffect( () => {
-    getItems();
-  },[])
+  // useEffect( () => {
+  //   getItems();
+  // },[])
 
 
-  const getItems = async () => {
+  // const getItems = async () => {
 
-    const items = await fetch(`https://api.spoonacular.com/food/products/search?apiKey=${number}&query=${query}&number=${number}`)
+  //   const items = await fetch(`https://api.spoonacular.com/food/products/search?apiKey=${number}&query=${query}&number=${number}`)
 
-    const response = await items.json().catch(err => console.error(err));
+  //   const response = await items.json().catch(err => console.error(err));
   
-    setGroceries(response)
-  }
+  //   setGroceries(response)
+  // }
 
 
 

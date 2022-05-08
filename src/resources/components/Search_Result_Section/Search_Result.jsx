@@ -1,4 +1,4 @@
-import data from '../../Data/data'
+import data, { Vegetables } from '../../Data/data'
 import React from 'react'
 import styled from 'styled-components'
 import SearchWidget from '../Widget/Search_Widget';
@@ -83,7 +83,7 @@ transition: all .2s ease;
 `;
 
 
-const Search_Result = ({ text }) => {
+const SearchResultContainer = ({ wishlist, setWishlist, text }) => {
   return (
     <SearchResult>
       <Container>
@@ -93,13 +93,11 @@ const Search_Result = ({ text }) => {
             <Text>{text}</Text>
           </TopContainer>
           <MiddleContainer>
-            { data.map(item => { return (
+            { Vegetables.slice(26).map(item => { return (
               <FullCard
-              key={item.id}
-              title={item.name}
-              alt={item.alt}
-              src={item.url}
-              price={item.price}
+              wishlist={wishlist}
+              setWishlist={setWishlist}
+              item={item}
               />
             )})}
           </MiddleContainer>
@@ -120,4 +118,4 @@ const Search_Result = ({ text }) => {
   )
 }
 
-export default Search_Result
+export default SearchResultContainer;

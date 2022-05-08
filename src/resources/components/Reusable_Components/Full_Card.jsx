@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import React from "react"
+import React, { useState } from "react"
 
 
 // =================  STYLED COMPONENT  ========================
@@ -7,6 +7,7 @@ import React from "react"
 
 const ItemContainer = styled.div`
 position: relative;
+padding-bottom: 20px;
   flex: 1 1 auto;
   height: 457px;
   width: 193px;
@@ -19,24 +20,31 @@ position: relative;
   &:hover {
     transform: scale(1.02);
     box-shadow: 10px 10px 20px 3px rgba(0, 0, 0, .2);
+    background-color: var(--light-accent-color);
     & a {
       display: block;
       transition: transform .2s ease;
+    }
+    & .image__container {
+      border: 6px solid var(--light-accent-color);
     }
   }
   `
 const ImageContainer = styled.div`
 height: 280px;
 width: 100%;
-background-color: var(--dark-grey-color);
+background-color: var(--light-color);
 overflow: hidden;
 border-bottom: 5px solid var(--accent-color);
 border-radius: 10px;
+border: 4px solid var(--light-grey-color);
+display: grid;
+place-content: center;
 `
 const Image = styled.img`
 position: relative;
-height: 100%;
-width: auto;
+height: auto;
+width: 100%;
 `
 const TextContainer = styled.div`
   padding: 0 1rem;
@@ -79,16 +87,30 @@ const Button = styled.a`
 // ===================  JSX STRUCTURE  ================================
 
 
-const FullCard = ({ key, src, alt, price, title }) => {
+const FullCard = ({ item, wishlist, setWishlist }) => {
+
+  const [name, setName] = useState('Add to Cart')
+
+  // Add item to wishlist
+  const addToWishlist = (item) => {
+    setWishlist(prev => [...prev, item])
+    setName('Added to Cart')
+
+    setTimeout(() => {
+      setWishlist('Add to Cart')
+    }, 2000);
+  }
+
+
   return (
-    <ItemContainer key={key}>
-              <ImageContainer>
-              <Image alt={alt} src={src} />
+    <ItemContainer key={item.key}>
+              <ImageContainer className="image__container">
+              <Image alt={item.alt} src={item.image} />
               </ImageContainer>
                   <TextContainer>
-                  <ProductPrice className='price'>€{price}</ProductPrice>
-                    <ProductName href='#' className='product__name'> {title} </ProductName>
-                    <Button href='#' className='green__button__white add-to-cart'> Add to Cart </Button>
+                  <ProductPrice className='price'>€4.32</ProductPrice>
+                    <ProductName href='#' className='product__name'> {item.title.slice(0, 20)} </ProductName>
+                    <Button onClick={() => addToWishlist(item)}className='green__button__white add-to-cart'> {name} </Button>
                   </TextContainer>
                 </ItemContainer>
   )

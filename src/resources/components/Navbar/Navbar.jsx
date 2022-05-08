@@ -1,7 +1,10 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { UilListUiAlt, UilBitcoin, UilSearch, UilUser, UilHeart, UilShoppingCart, UilTimes } from '@iconscout/react-unicons';
 import styled from 'styled-components'
 import { Link } from "react-router-dom";
+import IconButton from '@mui/material/IconButton';
+import Badge from '@mui/material/Badge';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 
 // =============  STYLED COMPONENT  ============
@@ -148,6 +151,33 @@ const WishlistContainer = styled.div`
 // ============  JSX COMPONENT =============
 
 export const NavbarComponent = () => {
+
+  const [ cartNumber, setCartNumber] = useState(1)
+
+// Handles the Logic
+  function notificationsLabel(count) {
+  if (count === 0) {
+    return 'no notifications';
+  }
+  if (count > 99) {
+    return 'more than 99 notifications';
+  }
+  return `${count} notifications`;
+}
+
+
+// Returns the Cart Structure
+function AccessibleBadges() {
+  return (
+    <IconButton aria-label={notificationsLabel(100)}>
+      <Badge badgeContent={cartNumber} color='primary'>
+        <ShoppingCartIcon />
+      </Badge>
+    </IconButton>
+  );
+}
+
+
   return (
     <Navbar>
       <NavContainer>
@@ -211,14 +241,7 @@ export const NavbarComponent = () => {
           </Link>
         </li>
       {/* ============  Shopping cart  ============= */}
-      <li>
-        <a href="#">
-          <CartContainer>
-            { <UilShoppingCart size='1.5rem' className='icon' /> }
-            <p>€0.00</p>
-          </CartContainer>
-        </a>
-      </li>
+      <li> { AccessibleBadges() } €34.00</li>
       </ul>
     </NavContainer>
     </Navbar>

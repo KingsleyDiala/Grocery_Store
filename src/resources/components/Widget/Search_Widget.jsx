@@ -1,6 +1,9 @@
 
 import React from 'react'
 import styled from 'styled-components'
+import FormGroup from '@mui/material/FormGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
 
 const Container = styled.div`
 height: fit-content;
@@ -49,18 +52,25 @@ const SearchWidget = () => {
     <Container>
           <Category>
             <Title>Departments</Title>
-            <CheckBoxContainer>
-            <Name className='checkmark'></Name>
-              <Option type='checkbox' ></Option>
-              Fruity & Vegetables
 
-            </CheckBoxContainer>
-            <CheckBoxContainer>
-            <Name className='checkmark' ></Name>
-              <Option type='checkbox' ></Option>
-              Pantry
-          
-            </CheckBoxContainer>
+            <FormGroup>
+              <FormControlLabel control={<Checkbox size='small' sx={{ '& .MuiSvgIcon-root': { fontSize: 20 },
+                  color: 'black',
+                  opacity: .3,
+                  '&.Mui-checked': {
+                    color: 'green',
+                    opacity: 1,
+                  } }} />} label='Fruity & Vegetables' />
+
+            <FormControlLabel control={<Checkbox size='large' sx={{ '& .MuiSvgIcon-root': { fontSize: 20 },
+            color: 'black',
+            opacity: .3,
+            '&.Mui-checked': {
+              opacity: 1,
+              color: 'green',
+            } }} />} label='Pantry' />
+                    </FormGroup>
+
             <CheckBoxContainer>
             <Name className='checkmark'></Name>
               <Option type='checkbox' ></Option>

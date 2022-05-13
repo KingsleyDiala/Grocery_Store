@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { useState } from 'react'
 import * as React from 'react';
-import { ListItem, Skeleton } from "@mui/material";
+import { Divider, ListItem, Skeleton } from "@mui/material";
 
 
 
@@ -25,18 +25,25 @@ justify-content: space-between;
 const LeftContainer = styled.div`
 width: 500px;
 height: 100%;
-background-color: var(--light-grey-color);
+background-color: var(--light-color);
+box-shadow: 5px 5px 15px 3px rgba(0, 0, 0, .1);
 border-radius: 10px;
-box-shadow: 5px 5px 15px 3px rgba(0, 0, 0, .2);
 overflow: hidden;
 display: flex;
 justify-content: center;
 align-items: center;
+transition: .5s all ease;
+&:hover {
+  box-shadow: 5px 5px 15px 3px rgba(0, 0, 0, .2);
+}
 `
 const Image = styled.img`
 width: auto;
 height: 100%;
-
+transition: .5s transform ease;
+&:hover {
+  transform: scale(1.05);
+}
 `
 const RightContainer = styled.div`
 width: 608px;
@@ -54,7 +61,7 @@ margin-bottom: 2rem;
 const Price = styled.h4`
 color: var(--accent-color);
 `
-const BrandContainer = styled.div`
+const ProductInfoContainer = styled.div`
 font-size: 20px;
 font-weight: 700;
 display: flex;
@@ -63,11 +70,6 @@ align-items: center;
 const Brand = styled.p `
 font-weight: 500;
 margin-left: .5rem;
-`
-const HorizontalLine = styled.hr`
-margin-bottom: 3rem;
-margin-top: 1.5rem;
-opacity: .5;
 `
 const QuantityContainer = styled.div`
 display: flex;
@@ -158,8 +160,9 @@ export const ProductHeadComponent = ({ setCart, setWishlist, product }) => {
     })
   }
 
+
   return (
-    <ProductHead>
+    <ProductHead key={product.id}>
       <Container>
         <LeftContainer>
           { product.image ? <Image src={product.image} alt={product.name} /> : <Skeleton variant="rect" width={500} height={600} /> }
@@ -169,18 +172,22 @@ export const ProductHeadComponent = ({ setCart, setWishlist, product }) => {
           <ProductPrice>
             <Price>€{product.price}</Price>
           </ProductPrice>
-          <BrandContainer> Brand: 
+          <Divider sx={{ width: '100%', marginBottom: 1.5}} />
+          <ProductInfoContainer> Brand: 
           <Brand> {product.brand} </Brand>
-          </BrandContainer>
-          <HorizontalLine></HorizontalLine>
+          </ProductInfoContainer>
+          <ProductInfoContainer> Aisle: 
+          <Brand> {product.aisle} </Brand>
+          </ProductInfoContainer>
+          <Divider sx={{ width: '100%', marginTop: 1.5, marginBottom: 3}} />
           <QuantityContainer>
             <Decrement onClick={decrement}><i class="uil uil-minus"></i></Decrement>
             <Quantity>{quantity}</Quantity>
             <Increment onClick={increment}><i class="uil uil-plus"></i></Increment>
           </QuantityContainer>
-          <AddToCart href="#" className='green__button'>Add to Cart</AddToCart>
+          <AddToCart onClick={(product) => setCart(prev => [...prev, product])} className='green__button'>Add to Cart</AddToCart>
           <br />
-          <Save href="#" className='white__button'>Save</Save>
+          <Save onClick={(product) => setWishlist(prev => [...prev, product])} className='white__button'>Save to Wishlist</Save>
         </RightContainer>
       </Container>
     </ProductHead>

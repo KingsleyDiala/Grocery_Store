@@ -10,7 +10,7 @@ import React from 'react';
 
 // THIS IS PRESENTATIONAL COMPONENT 
 // Passed the wishlist array as prop
-const Wishlist = ({ setWishlist, wishlist }) => {
+const Wishlist = ({ setCart, setWishlist, wishlist }) => {
 
   return (
     <div className='catalogue'>
@@ -19,7 +19,7 @@ const Wishlist = ({ setWishlist, wishlist }) => {
         <LinkNavigationComponent name={'Wishlist'} path={'/wishlist'} />
 
         {/* =========== WISHLIST SECTION ========== */}
-        <WishlistSection setWishlist={setWishlist} wishlist={wishlist} />
+        <WishlistSection setCart={setCart} setWishlist={setWishlist} wishlist={wishlist} />
 
     </div>
   )

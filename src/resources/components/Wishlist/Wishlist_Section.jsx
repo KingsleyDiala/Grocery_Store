@@ -46,7 +46,7 @@ font-weight: 500;
 
 // ==================== JSX STRUCTURE  ===============
 
-const WishlistSection = ({ setWishlist, wishlist }) => {
+const WishlistSection = ({ setCart, setWishlist, wishlist }) => {
 
   return (
     <Wishlist>
@@ -56,6 +56,7 @@ const WishlistSection = ({ setWishlist, wishlist }) => {
           {wishlist.map(item => {
             return (
               <SingleCardComponent
+              setCart={setCart}
               setWishlist={setWishlist}
               wishlist={wishlist}
               item={item}
@@ -67,6 +68,6 @@ const WishlistSection = ({ setWishlist, wishlist }) => {
       { wishlist.length === 0 ? <Link to={'/catalogue'} > <Button className='white__button__green'> Continue Shopping</Button> </Link> : <Button className='white__button__green'>Go to Cart</Button> }
     </Wishlist>
   )
-}
+};
 
 export default WishlistSection;

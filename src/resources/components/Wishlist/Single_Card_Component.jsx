@@ -80,16 +80,29 @@ font-weight: 500;
 
 // ============= JSX STRUCTURE ==================
 
-const SingleCardComponent = ({ setWishlist, wishlist, item }) => {
+const SingleCardComponent = ({ setCart, setWishlist, wishlist, item }) => {
+  const [inCart, setInCart] = React.useState(false);
 
 
-  // Handle Remove Click
-  const handleRemove = (id) => {
-    setWishlist(array => array.filter(item => item.id !== id ))
+  // Remove item from wishlist
+  const removeFromWishlist = () => {
+    setWishlist(prev => prev.filter(element => element.id !== item.id))
+  }
+
+  // Add to cart
+  const addToCart = () => {
+    setCart(prev => {
+      if (prev.includes(item)) {
+        return prev;
+      } else {
+        return [...prev, item];
+      }
+    })
+    setInCart(() => !inCart)
   }
 
   return (
-    <Item key={item.title}>
+    <Item key={item.id}>
             <ImageContainer>
               <Image src={item.image} alt={item.title} />
             </ImageContainer>
@@ -97,8 +110,9 @@ const SingleCardComponent = ({ setWishlist, wishlist, item }) => {
               <ProductName> {item.title.slice(0, 50)} </ProductName>
               <ProductPrice> €6.65 </ProductPrice>
               <ButtonContainer>
-                <AddToCart className='white__button__green'>Add to Cart</AddToCart>
-                <Remove onClick={() => handleRemove(item.id)} className='green__button__white'>Remove</Remove>
+                {/* ========== ADD TO CART BUTTON ========== */}
+                { !inCart ? <AddToCart onClick={addToCart} className='white__button__green'>Add to Cart</AddToCart> : <AddToCart className='white__button__green'>Added To Cart</AddToCart> }
+                <Remove onClick={removeFromWishlist} className='green__button__white'>Remove</Remove>
               </ButtonContainer>
             </DetailsContainer>
           </Item>

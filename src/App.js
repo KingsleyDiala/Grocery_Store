@@ -40,7 +40,7 @@ const App = () => {
         <Route path="/product/:id" element={ <ProductPage setCart={setCart} setWishlist={setWishlist} /> } />
         <Route path="/single-category" element={ <Category />} />
         <Route path="/catalogue" element={ <Catalogue cart={cart} setCart={setCart} wishlist={wishlist} setWishlist={setWishlist} /> } />
-        <Route path="/wishlist" element={ <Wishlist setWishlist={setWishlist} wishlist={wishlist} /> } />
+        <Route path="/wishlist" element={ <Wishlist setCart={setCart} setWishlist={setWishlist} wishlist={wishlist} /> } />
         <Route path="/contact" element={ <Contact />} />
       </Routes>
       <TopFooterComponent />

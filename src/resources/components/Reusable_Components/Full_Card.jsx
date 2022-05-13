@@ -129,7 +129,14 @@ const FullCard = ({ index, cart, setCart, item, wishlist, setWishlist }) => {
 
   // Add item to Cart
   const addToCart = () => {
-    setCart(prev => [...prev, item]);
+    setCart(prev => {
+      // check if item is already in cart
+      if (prev.includes(item)) {
+        return prev;
+      } else {
+        return [...prev, item]
+      }
+    });
     setInCart(() => !inCart);
   }
 
@@ -164,7 +171,7 @@ const FullCard = ({ index, cart, setCart, item, wishlist, setWishlist }) => {
                     { item ? <ProductName href='#' className='product__name'> {item.title.slice(0, 20)} </ProductName> : <Skeleton animation='wave' sx={{ height: 30}}/> }
 
                     {/* ============ ADD TO CART BUTTON ============ */}
-                    { item ? <> { inCart ? <Button onClick={() => addToCart() } className='green__button__white add-to-cart'> Add to Cart </Button> : <Button onClick={() => removeFromCart() } className='white__button__green add-to-cart'> Remove </Button> } </> : <Skeleton animation='wave' sx={{ width: 100, height: 50}} />}
+                    { item ? <> { inCart ? <Button onClick={() => addToCart() } className='green__button__white add-to-cart'> Add to Cart </Button> : <Button onClick={() => removeFromCart() } className='green__button__white add-to-cart'> Remove </Button> } </> : <Skeleton animation='wave' sx={{ width: 100, height: 50}} />}
 
                   </TextContainer>
                 </ItemContainer>

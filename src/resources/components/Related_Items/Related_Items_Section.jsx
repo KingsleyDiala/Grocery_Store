@@ -180,13 +180,10 @@ export const RelatedItemsComponent = () => {
         {/* ========= BOTTOM CONTAINER ========= */}
         <BottomContainer className='bottom__container'>
 
-          { Vegetables.slice(10, 16).map(item => {
+          { Vegetables.slice(10, 16).map((item, index) => {
             return (
               <FullCard
-              src={item.image}
-              title={item.title.slice(0, 20)}
-              price={'4.53'}
-              key={item.id}
+              index={index}
               item={item}
               />
             )

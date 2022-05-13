@@ -17,6 +17,7 @@ import Contact from "./Contact";
 const App = () => {
   // Wishlist State 
   const [wishlist, setWishlist] = useState([]);
+  const [cart, setCart] = useState([]);
   const [data, setData] = useState([]);
 
   // const apiFetch = async () => {
@@ -32,14 +33,14 @@ const App = () => {
 
   return (
       <div>
-      <NavbarComponent />
+      <NavbarComponent cart={cart} wishlist={wishlist} />
       <Routes>
-        <Route path="/" exact element={ <Home /> } />
+        <Route path="/" exact element={ <Home wishlist={wishlist} setWishlist={setWishlist} /> } />
         <Route path="/search" exact element={ <SearchPage /> } />
         <Route path="/category" element={ <CategoryPage /> } />
-        <Route path="/product" element={ <ProductPage /> } />
+        <Route path="/product/:id" element={ <ProductPage setCart={setCart} setWishlist={setWishlist} /> } />
         <Route path="/single-category" element={ <Category />} />
-        <Route path="/catalogue" element={ <Catalogue wishlist={wishlist} setWishlist={setWishlist} /> } />
+        <Route path="/catalogue" element={ <Catalogue cart={cart} setCart={setCart} wishlist={wishlist} setWishlist={setWishlist} /> } />
         <Route path="/wishlist" element={ <Wishlist setWishlist={setWishlist} wishlist={wishlist} /> } />
         <Route path="/contact" element={ <Contact />} />
       </Routes>

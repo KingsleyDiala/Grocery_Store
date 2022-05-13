@@ -1,5 +1,8 @@
 import styled from "styled-components";
 import React from 'react'
+import Checkbox from '@mui/material/Checkbox';
+import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
+import Favorite from '@mui/icons-material/Favorite';
 
 // STYLED COMPONENTS
 const ItemContainer = styled.div`
@@ -26,6 +29,7 @@ const ItemContainer = styled.div`
   }
   `
 const ImageContainer = styled.div`
+  position: relative;
   height: 280px;
   width: 100%;
   background-color: var(--light-color);
@@ -36,6 +40,9 @@ const ImageContainer = styled.div`
   border: 4px solid var(--light-grey-color);
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+`
+const WishlistContainer = styled.div`
+position: absolute;
 `
 const Image = styled.img`
 position: relative;
@@ -78,11 +85,44 @@ const Button = styled.a`
 
 // JSX STRUCTURE
 
-export const HalfCard = ({ key, src, alt, price, title }) => {
+export const HalfCard = ({ wishlist, setWishlist, item, key, src, alt, price, title }) => {
+
+
+    // ================ ADD TO WISHLIST ==================
+  const addToWishlist = (product) => {
+    setWishlist(prev => [...prev, product])
+  }
+
+
+
+
+  // ================= WISHLIST CHECK ICON ============
+  const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
+
+  function IconCheckboxes(product) {
+  return (
+    <div>
+      <Checkbox 
+      onClick={() => addToWishlist(product)}
+      {...label} icon={<FavoriteBorder />} checkedIcon={<Favorite />}
+      sx={{
+    color: 'green',
+    '&.Mui-checked': {
+      color: 'green',
+    },
+  }}
+      />
+    </div>
+  );
+}
+
+
+
   return (
     <ItemContainer key={key}>
       <ImageContainer className="image__container">
         <Image alt={alt} src={src} />
+        <WishlistContainer> { IconCheckboxes(item) } </WishlistContainer>
       </ImageContainer >
           <TextContainer>
           <ProductPrice className='price'>€{price}</ProductPrice>

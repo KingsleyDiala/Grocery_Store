@@ -1,8 +1,14 @@
 import data, { Vegetables } from '../../Data/data'
-import React from 'react'
+import * as React from 'react';
+import { Link, MemoryRouter, Route, Routes, useLocation } from 'react-router-dom';
+import Pagination from '@mui/material/Pagination';
+import PaginationItem from '@mui/material/PaginationItem';
 import styled from 'styled-components'
 import SearchWidget from '../Widget/Search_Widget';
-import FullCard from '../Reusable_Components/Full_Card'
+import FullCard from '../Reusable_Components/Full_Card';
+
+
+// =====================  STYLED COMPONENT  ========================
 
 const SearchResult = styled.section`
 width: 100%;
@@ -83,7 +89,21 @@ transition: all .2s ease;
 `;
 
 
-const SearchResultContainer = ({ wishlist, setWishlist, text }) => {
+
+// =====================  JSX COMPONENT  ========================
+
+
+const SearchResultContainer = ({ cart, setCart, wishlist, setWishlist, text }) => {
+
+  // check if product is in cart
+const checkIfInCart = (product) => {
+  if (cart.includes(product)) {
+    return true
+  } else {
+    return false
+  }
+}
+
   return (
     <SearchResult>
       <Container>
@@ -93,8 +113,12 @@ const SearchResultContainer = ({ wishlist, setWishlist, text }) => {
             <Text>{text}</Text>
           </TopContainer>
           <MiddleContainer>
-            { Vegetables.slice(26).map(item => { return (
+            { Vegetables.slice(26).map((item, index) => { return (
               <FullCard
+              key={index}
+              checkIfInCart={checkIfInCart}
+              cart={cart}
+              setCart={setCart}
               wishlist={wishlist}
               setWishlist={setWishlist}
               item={item}

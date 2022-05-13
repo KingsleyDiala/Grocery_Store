@@ -1,4 +1,7 @@
 import styled from "styled-components";
+import { useState } from 'react'
+import * as React from 'react';
+import { ListItem, Skeleton } from "@mui/material";
 
 
 
@@ -22,9 +25,18 @@ justify-content: space-between;
 const LeftContainer = styled.div`
 width: 500px;
 height: 100%;
-background-color: var(--dark-grey-color);
+background-color: var(--light-grey-color);
 border-radius: 10px;
 box-shadow: 5px 5px 15px 3px rgba(0, 0, 0, .2);
+overflow: hidden;
+display: flex;
+justify-content: center;
+align-items: center;
+`
+const Image = styled.img`
+width: auto;
+height: 100%;
+
 `
 const RightContainer = styled.div`
 width: 608px;
@@ -34,15 +46,27 @@ flex-direction: column;
 const ProductName = styled.h3`
 font-weight: 600;
 margin-bottom: 1rem;
+font-size: 35px;
 `
 const ProductPrice = styled.div`
-margin-bottom: 3rem;
+margin-bottom: 2rem;
 `
 const Price = styled.h4`
 color: var(--accent-color);
 `
+const BrandContainer = styled.div`
+font-size: 20px;
+font-weight: 700;
+display: flex;
+align-items: center;
+`
+const Brand = styled.p `
+font-weight: 500;
+margin-left: .5rem;
+`
 const HorizontalLine = styled.hr`
 margin-bottom: 3rem;
+margin-top: 1.5rem;
 opacity: .5;
 `
 const QuantityContainer = styled.div`
@@ -117,21 +141,42 @@ height: 60px;
 
 
 // =============== JSX STRUCTURE COMPONENT  =============
-export const ProductHeadComponent = () => {
+export const ProductHeadComponent = ({ setCart, setWishlist, product }) => {
+  const [quantity, setQuantity] = useState(1);
+
+  const increment = () => {
+    setQuantity(prev => prev + 1)
+  }
+  
+  // Decrement Quantity
+  const decrement = () => {
+    setQuantity(prev => {
+      if (prev === 1) {
+        return prev
+      }
+      return prev - 1;
+    })
+  }
+
   return (
     <ProductHead>
       <Container>
-        <LeftContainer></LeftContainer>
+        <LeftContainer>
+          { product.image ? <Image src={product.image} alt={product.name} /> : <Skeleton variant="rect" width={500} height={600} /> }
+        </LeftContainer>
         <RightContainer>
-          <ProductName>Gala Apples</ProductName>
+          <ProductName>{product.title}</ProductName>
           <ProductPrice>
-            <Price>€4.12</Price>
+            <Price>€{product.price}</Price>
           </ProductPrice>
+          <BrandContainer> Brand: 
+          <Brand> {product.brand} </Brand>
+          </BrandContainer>
           <HorizontalLine></HorizontalLine>
           <QuantityContainer>
-            <Decrement><i class="uil uil-minus"></i></Decrement>
-            <Quantity>1</Quantity>
-            <Increment><i class="uil uil-plus"></i></Increment>
+            <Decrement onClick={decrement}><i class="uil uil-minus"></i></Decrement>
+            <Quantity>{quantity}</Quantity>
+            <Increment onClick={increment}><i class="uil uil-plus"></i></Increment>
           </QuantityContainer>
           <AddToCart href="#" className='green__button'>Add to Cart</AddToCart>
           <br />

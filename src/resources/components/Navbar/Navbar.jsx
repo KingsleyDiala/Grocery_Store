@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import IconButton from '@mui/material/IconButton';
 import Badge from '@mui/material/Badge';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import Favorite from '@mui/icons-material/Favorite';
 
 
 // =============  STYLED COMPONENT  ============
@@ -150,9 +151,8 @@ const WishlistContainer = styled.div`
 
 // ============  JSX COMPONENT =============
 
-export const NavbarComponent = () => {
+export const NavbarComponent = ({ cart, wishlist }) => {
 
-  const [ cartNumber, setCartNumber] = useState(1)
 
 // Handles the Logic
   function notificationsLabel(count) {
@@ -166,17 +166,33 @@ export const NavbarComponent = () => {
 }
 
 
-// Returns the Cart Structure
-function AccessibleBadges() {
+// Returns the cart button
+const cartBadge = () => {
   return (
     <IconButton aria-label={notificationsLabel(100)}>
-      <Badge badgeContent={cartNumber} color='primary'>
+      <Badge badgeContent={ cart.length } color='primary'>
         <ShoppingCartIcon />
       </Badge>
     </IconButton>
   );
 }
 
+
+
+  // ======================  START WISHLIST =====================
+
+  
+  const wishlistBadge = () => {
+  return (
+    <IconButton aria-label={notificationsLabel(100)}>
+      <Badge badgeContent={ wishlist.length } color="primary">
+        <Favorite />
+      </Badge>
+    </IconButton>
+  );
+}
+
+// ==================== END WISHLIST ================
 
   return (
     <Navbar>
@@ -234,14 +250,11 @@ function AccessibleBadges() {
         {/* ===========  Wishlist  ============ */}
         <li>
           <Link to='/wishlist'>
-            <WishlistContainer>
-              { <UilHeart size='1.5rem' className='icon' /> }
-              <p>wishlist</p>
-            </WishlistContainer>
+            { wishlistBadge() } Wishlist
           </Link>
         </li>
       {/* ============  Shopping cart  ============= */}
-      <li> { AccessibleBadges() } €34.00</li>
+      <li> { cartBadge() } €34.00</li>
       </ul>
     </NavContainer>
     </Navbar>

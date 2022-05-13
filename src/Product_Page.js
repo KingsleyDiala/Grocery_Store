@@ -5,21 +5,52 @@ import { LinkNavigationComponent } from './resources/components/Link_Navigation/
 import { ProductHeadComponent } from './resources/components/Product/Product_Head';
 import { ProductDescriptionComponent } from './resources/components/Product/Product_Desc';
 import { RelatedItemsComponent } from './resources/components/Related_Items/Related_Items_Section';
+import { useParams } from 'react-router-dom';
+import React, { useState, useEffect } from 'react'
 
-function ProductPage () {
+
+const ProductPage = ({ setCart, setWishlist }) => {
+  const params = useParams();
+
+  const apiKey = '75351bfa2a8944ad9366abcbb4a6a8c4';
+  const number = '50';
+  const query = 'best';
+  const filterMapping = 'searchResults';
+
+
+  const [product, setProduct] = useState({});
+
+
+
+  React.useEffect( () => {
+    getItems();
+  },[])
+
+
+  const getItems = async () => {
+    // Fetch product information
+    const fetchItem = await fetch(`https://api.spoonacular.com/food/products/${params.id}/?apiKey=${apiKey}`)
+
+    const response = await fetchItem.json().catch(err => console.error(err));
+    // Add the data to state
+    setProduct(response)
+  
+
+  }
+
   return (
     <div className='Product_Page'>
         {/* =========== LINK NAVIGATION SECTION ========== */}
         <LinkNavigationComponent
         name={'Product'}
-        path={'/product'}
+        path={`/product:id`}
         />
 
         {/* =========== PRODUCT HEAD ============== */}
-        <ProductHeadComponent />
+        <ProductHeadComponent product={product} setCart={setCart} setWishlist={setWishlist} />
 
         {/* =========== PRODUCT DESCRIPTION ============== */}
-        <ProductDescriptionComponent />
+        <ProductDescriptionComponent product={product} />
 
         {/* =========== RELATED ITEMS ============== */}
         <RelatedItemsComponent />

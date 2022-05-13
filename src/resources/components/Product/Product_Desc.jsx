@@ -113,7 +113,7 @@ text-align: justify;
 
 //   =============== JSX STRUCTURE COMPONENT ==================
 
-export const ProductDescriptionComponent = () => {
+export const ProductDescriptionComponent = ({ product }) => {
   return (
     <ProductDescription>
       <Container>
@@ -125,7 +125,7 @@ export const ProductDescriptionComponent = () => {
         </LeftContainer>
         <RightContainer>
           <Text>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut hendrerit tristique pretium gravida felis, sociis in felis. Diam habitant natoque libero, sit et duis eleifend. Lorem at venenatis pellentesque ut amet vulputate praesent. Ut feugiat tristique purus et porttitor viverra nibh tellus sed. Consequat vel tellus est lobortis sociis amet porta. Pellentesque eget at suscipit in tempor nisl adipiscing sed. Sed vitae augue ultricies sapien ornare. Lectus venenatis nibh quis sed nunc, tortor euismod ut. Mattis imperdiet nascetur lectus nisl massa viverra facilisis. Rutrum sed sed egestas leo mi purus sed. Ut enim eu non orci cras. Magna nunc proin augue nisi, sit felis elit nam. Gravida nunc a eget tellus suscipit at proin viverram. raesent. Ut feugiat tristique purus et porttitor viverra nibh tellus sed. Consequat vel tellus est lobortis sociis amet porta. Pellentesque eget at suscipit in tempor nisl adipiscing sed. Sed vitae augue ultricies sapien ornare. Lectus venenatis nibh quis sed nunc, tortor euismod ut. Mattis imperdiet nascetur lectus nisl ma
+          {product.generatedText}
           </Text>
         </RightContainer>
       </Container>

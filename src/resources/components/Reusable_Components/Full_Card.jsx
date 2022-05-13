@@ -1,5 +1,13 @@
 import styled from "styled-components"
-import React, { useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
+import Checkbox from '@mui/material/Checkbox';
+import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
+import Favorite from '@mui/icons-material/Favorite';
+import { Link } from "react-router-dom";
+import CircularProgress from '@mui/material/CircularProgress';
+import Box from '@mui/material/Box';
+
+
 
 
 // =================  STYLED COMPONENT  ========================
@@ -79,38 +87,71 @@ const Button = styled.a`
     transform: scale(.9);
   }
 `
+const WishlistContainer = styled.div`
+position: absolute;
+`
 
 
-
-
+// =================  SKELETON COLOR  ========================
+const CircularIndeterminate = () => {
+  return (
+    <Box sx={{ display: 'flex' }}>
+      <CircularProgress />
+    </Box>
+  );
+}
 
 // ===================  JSX STRUCTURE  ================================
 
 
-const FullCard = ({ item, wishlist, setWishlist }) => {
+const FullCard = ({ index, cart, setCart, item, wishlist, setWishlist }) => {
+  
+  // =========== Wishlist Component rendered by WishlistContainer ===========
+  const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
-  const [name, setName] = useState('Add to Cart')
+  function wishlistIcon() {
+  return (
+    <div>
+      <Checkbox onClick={(e) => handleWishlistClick(e) } className="wishlist--icon"  {...label} icon={<FavoriteBorder />} checkedIcon={<Favorite />}
+      sx={{
+    color: 'green',
+    '&.Mui-checked': {
+      color: 'green',
+    },
+  }}
+      />
+    </div>
+  );
+}
 
-  // Add item to wishlist
-  const addToWishlist = (item) => {
-    setWishlist(prev => [...prev, item])
-    setName('Added to Cart')
+  
+  //  ============= Remove from wishlist  ==================
+  const handleWishlistClick = (e) => {
+    if (e.target.checked) {
+      setWishlist(prev => [...prev, prev.id === item.id ? null : item])
+    } else {
+      setWishlist(prev => prev.filter(element => element.id !== item.id))
+    }
+  }
 
-    setTimeout(() => {
-      setWishlist('Add to Cart')
-    }, 2000);
+  // Add item to Cart
+  const addToCart = () => {
+    setCart(prev => [...prev, item]);
   }
 
 
   return (
-    <ItemContainer key={item.key}>
+    <ItemContainer key={index}>
               <ImageContainer className="image__container">
-              <Image alt={item.alt} src={item.image} />
+                <Link to={`/product/${item.id}`}>
+                  {item.image ? <Image src={item.image} alt={item.name} /> : CircularIndeterminate }
+                </Link>
+              <WishlistContainer> { wishlistIcon() } </WishlistContainer>
               </ImageContainer>
                   <TextContainer>
                   <ProductPrice className='price'>€4.32</ProductPrice>
                     <ProductName href='#' className='product__name'> {item.title.slice(0, 20)} </ProductName>
-                    <Button onClick={() => addToWishlist(item)}className='green__button__white add-to-cart'> {name} </Button>
+                    <Button onClick={ addToCart } className='green__button__white add-to-cart'> Add to Cart </Button>
                   </TextContainer>
                 </ItemContainer>
   )

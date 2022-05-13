@@ -52,7 +52,7 @@ const BottomContainer = styled.div`
 
 // ============ JSX COMPONENT =========
 
-export const FeaturedItemsComponent = () => {
+export const FeaturedItemsComponent = ({ wishlist, setWishlist }) => {
 
   return (
     <FeaturedItems>
@@ -75,6 +75,9 @@ export const FeaturedItemsComponent = () => {
           { Vegetables.slice(10, 16).map(item => {
             return (
               <HalfCard
+              wishlist={wishlist}
+              setWishlist={setWishlist}
+              item={item}
               title={item.title.slice(0, 16)}
               src={item.image}
               alt={item.title}

@@ -10,7 +10,7 @@ import { DiaryAndMilkComponent } from './resources/components/Diary_and_Milk/Dia
 import { DepartmentSection } from './resources/components/Department_Section/Department_Section';
 
 
-function Home() {
+function Home({ wishlist, setWishlist }) {
 
   const apiKey = '75351bfa2a8944ad9366abcbb4a6a8c4';
   const number = '50';
@@ -50,7 +50,7 @@ function Home() {
 
            {/* =========== APP FEATURED ITEMS ========== */}
         <section className='featured_items'>
-          { <FeaturedItemsComponent />}
+          { <FeaturedItemsComponent wishlist={wishlist} setWishlist={setWishlist} />}
         </section>
 
           {/* =========== APP BEST SELLER SECTION ========== */}

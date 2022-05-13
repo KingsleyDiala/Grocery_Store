@@ -1,9 +1,10 @@
 import '../src/resources/reset.css'
 import './App.css';
 import { LinkNavigationComponent } from './resources/components/Link_Navigation/Link-Navigation';
-import Search_Result from './resources/components/Search_Result_Section/Search_Result';
+import SearchResultContainer from './resources/components/Search_Result_Section/Search_Result';
 
-function Catalogue ({ wishlist, setWishlist }) {
+
+function Catalogue ({ cart, setCart, wishlist, setWishlist }) {
   return (
     <div className='catalogue'>
 
@@ -14,7 +15,7 @@ function Catalogue ({ wishlist, setWishlist }) {
         />
 
         {/* =========== SEARCH RESULT SECTION ========== */}
-        <Search_Result wishlist={wishlist} setWishlist={setWishlist} text={'Explore our Catalogue'} />
+        <SearchResultContainer cart={cart} setCart={setCart} wishlist={wishlist} setWishlist={setWishlist} text={'Explore our Catalogue'} />
 
     </div>
   )

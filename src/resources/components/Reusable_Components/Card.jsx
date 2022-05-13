@@ -4,6 +4,7 @@ import Checkbox from '@mui/material/Checkbox';
 import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
 import Favorite from '@mui/icons-material/Favorite';
 import { Skeleton } from "@mui/material";
+import { textAlign } from "@mui/system";
 
 // STYLED COMPONENTS
 const ItemContainer = styled.div`
@@ -123,7 +124,7 @@ export const HalfCard = ({ wishlist, setWishlist, item, key, src, alt, price, ti
     <ItemContainer key={key}>
       <ImageContainer className="image__container">
         { src ? <Image alt={alt} src={src} /> : <Skeleton
-        sx={{ bgcolor: 'grey.900' }}
+        animation='wave'
         variant="rectangular"
         width={300}
         height={400}
@@ -131,9 +132,9 @@ export const HalfCard = ({ wishlist, setWishlist, item, key, src, alt, price, ti
         <WishlistContainer> { IconCheckboxes(item) } </WishlistContainer>
       </ImageContainer >
           <TextContainer>
-          <ProductPrice className='price'>€{price}</ProductPrice>
-            <ProductName href='#' className='product__name'>{title}</ProductName>
-            <Button href='#' className='green__button__white add-to-cart'> Add to Cart </Button>
+            { price ? <ProductPrice className='price'>€{price}</ProductPrice> : <Skeleton width={60} height={30} /> }
+            {title ? <ProductName href='#' className='product__name'>{title}</ProductName> : <Skeleton height={30} />}
+            { title ? <Button href='#' className='green__button__white add-to-cart'> Add to Cart </Button> : <Skeleton height={50} width={100} />}
           </TextContainer>
         </ItemContainer>
   )

@@ -12,8 +12,6 @@ import React from 'react';
 // Passed the wishlist array as prop
 const Wishlist = ({ setWishlist, wishlist }) => {
 
-  console.log(wishlist);
-
   return (
     <div className='catalogue'>
 

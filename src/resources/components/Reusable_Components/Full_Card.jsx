@@ -135,7 +135,7 @@ const FullCard = ({ index, cart, setCart, item, wishlist, setWishlist }) => {
     <ItemContainer key={index}>
               <ImageContainer className="image__container">
                 <Link to={`/product/${item.id}`}>
-                  { item.image ? <Image src={item.image} alt={item.name} /> : <Skeleton
+                  { item.image ? <Image src={item.image} alt={item.name} /> : <Skeleton animation='wave'
         sx={{ bgcolor: 'grey.900' }}
         variant="rectangular"
         width={300}

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { Vegetables } from '../../Data/data'
 import SingleCardComponent from './Single_Card_Component';
@@ -35,8 +36,9 @@ border-radius: 10px;
 const Button = styled.button`
 margin-top: 50px;
 margin-left: 20px;
-width: 300px;
-
+width: 100%;
+font-size: 16px;
+font-weight: 500;
 `
 
 
@@ -49,7 +51,7 @@ const WishlistSection = ({ setWishlist, wishlist }) => {
   return (
     <Wishlist>
       <Container>
-        <Text> Your Wishlist</Text>
+        <Text> { wishlist.length === 0 ? 'Your Wishlist is empty' : 'Your Wishlist' } </Text>
         <ItemContainer>
           {wishlist.map(item => {
             return (
@@ -62,7 +64,7 @@ const WishlistSection = ({ setWishlist, wishlist }) => {
           })}
         </ItemContainer>
       </Container>
-      <Button className='white__button__green'>Go to Cart</Button>
+      { wishlist.length === 0 ? <Link to={'/catalogue'} > <Button className='white__button__green'> Continue Shopping</Button> </Link> : <Button className='white__button__green'>Go to Cart</Button> }
     </Wishlist>
   )
 }

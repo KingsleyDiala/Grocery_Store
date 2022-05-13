@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Checkbox from '@mui/material/Checkbox';
 import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
 import Favorite from '@mui/icons-material/Favorite';
@@ -87,13 +87,23 @@ const Button = styled.a`
 
 // JSX STRUCTURE
 
-export const HalfCard = ({ setCart, index, setWishlist, item, key, src, alt, price, title }) => {
+export const HalfCard = ({ Cart, setCart, index, setWishlist, item}) => {
 
+  const [inCart, setInCart] = useState(true)
 
-  // Add item to Cart
+    // Add item to Cart
   const addToCart = () => {
-    setCart(prev => [...prev, item]);
+    setCart(prev => [...prev, item])
+    setInCart(() => !inCart)
   }
+
+
+  // Remove item from cart on second click
+  const removeFromCart = () => {
+    setCart(prev => prev.filter(product => product.id !== item.id))
+    setInCart(() => !inCart)
+  }
+
 
 
   // ================= WISHLIST CHECK ICON ============
@@ -142,8 +152,8 @@ export const HalfCard = ({ setCart, index, setWishlist, item, key, src, alt, pri
       </ImageContainer >
           <TextContainer>
             { item ? <ProductPrice className='price'>€9.32</ProductPrice> : <Skeleton width={60} height={30} /> }
-            {item ? <ProductName href='#' className='product__name'>{item.title.slice(0, 15)}</ProductName> : <Skeleton height={30} />}
-            { item ? <Button onClick={ addToCart } className='green__button__white add-to-cart'> Add to Cart </Button> : <Skeleton height={50} width={100} />}
+            {item ? <Link to={`/product/${item.id}`}><ProductName className='product__name'>{item.title.slice(0, 15)}</ProductName> </Link> : <Skeleton height={30} />}
+            { item ? <> { inCart ? <Button onClick={() => addToCart() } className='green__button__white add-to-cart'> Add to Cart </Button> : <Button onClick={() => removeFromCart() } className='green__button__white add-to-cart'> Remove </Button> } </> : <Skeleton height={50} width={100} />}
           </TextContainer>
         </ItemContainer>
   )

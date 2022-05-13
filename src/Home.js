@@ -50,7 +50,7 @@ function Home({ cart, setCart, wishlist, setWishlist }) {
 
            {/* =========== APP FEATURED ITEMS ========== */}
         <section className='featured_items'>
-          { <FeaturedItemsComponent setCart={setCart} wishlist={wishlist} setWishlist={setWishlist} />}
+          { <FeaturedItemsComponent Cart={cart} setCart={setCart} wishlist={wishlist} setWishlist={setWishlist} />}
         </section>
 
           {/* =========== APP BEST SELLER SECTION ========== */}

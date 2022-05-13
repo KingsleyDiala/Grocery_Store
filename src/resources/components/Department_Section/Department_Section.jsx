@@ -132,7 +132,7 @@ export const DepartmentSection = () => {
         /> }
       </ImageContainer>
           <TextContainer>
-            <ProductName href='#' className='product__name'>{item.name}</ProductName>
+            { item.name ? <ProductName href='#' className='product__name'>{item.name}</ProductName> : <Skeleton animation='wave' /> }
           </TextContainer>
         </ItemContainer>
             )

@@ -4,7 +4,7 @@ import Checkbox from '@mui/material/Checkbox';
 import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
 import Favorite from '@mui/icons-material/Favorite';
 import { Skeleton } from "@mui/material";
-import { textAlign } from "@mui/system";
+import { Link } from "react-router-dom";
 
 // STYLED COMPONENTS
 const ItemContainer = styled.div`
@@ -87,15 +87,13 @@ const Button = styled.a`
 
 // JSX STRUCTURE
 
-export const HalfCard = ({ wishlist, setWishlist, item, key, src, alt, price, title }) => {
+export const HalfCard = ({ setCart, index, setWishlist, item, key, src, alt, price, title }) => {
 
 
-    // ================ ADD TO WISHLIST ==================
-  const addToWishlist = (product) => {
-    setWishlist(prev => [...prev, product])
+  // Add item to Cart
+  const addToCart = () => {
+    setCart(prev => [...prev, item]);
   }
-
-
 
 
   // ================= WISHLIST CHECK ICON ============
@@ -105,7 +103,7 @@ export const HalfCard = ({ wishlist, setWishlist, item, key, src, alt, price, ti
   return (
     <div>
       <Checkbox 
-      onClick={() => addToWishlist(product)}
+      onClick={(e) => handleWishlistClick(e)}
       {...label} icon={<FavoriteBorder />} checkedIcon={<Favorite />}
       sx={{
     color: 'green',
@@ -118,23 +116,34 @@ export const HalfCard = ({ wishlist, setWishlist, item, key, src, alt, price, ti
   );
 }
 
+  //  ============= Remove from wishlist  ==================
+  const handleWishlistClick = (e) => {
+    if (e.target.checked) {
+      setWishlist(prev => [...prev, prev.id === item.id ? null : item])
+    } else {
+      setWishlist(prev => prev.filter(element => element.id !== item.id))
+    }
+  }
+
 
 
   return (
-    <ItemContainer key={key}>
+    <ItemContainer key={index}>
       <ImageContainer className="image__container">
-        { src ? <Image alt={alt} src={src} /> : <Skeleton
-        animation='wave'
-        variant="rectangular"
-        width={300}
-        height={400}
+        <Link to={`/product/${item.id}`}>
+          { item.image ? <Image alt={item.title} src={item.image} /> : <Skeleton
+          animation='wave'
+          variant="rectangular"
+          width={300}
+          height={400}
       /> }
+      </Link>
         <WishlistContainer> { IconCheckboxes(item) } </WishlistContainer>
       </ImageContainer >
           <TextContainer>
-            { price ? <ProductPrice className='price'>€{price}</ProductPrice> : <Skeleton width={60} height={30} /> }
-            {title ? <ProductName href='#' className='product__name'>{title}</ProductName> : <Skeleton height={30} />}
-            { title ? <Button href='#' className='green__button__white add-to-cart'> Add to Cart </Button> : <Skeleton height={50} width={100} />}
+            { item ? <ProductPrice className='price'>€9.32</ProductPrice> : <Skeleton width={60} height={30} /> }
+            {item ? <ProductName href='#' className='product__name'>{item.title.slice(0, 15)}</ProductName> : <Skeleton height={30} />}
+            { item ? <Button onClick={ addToCart } className='green__button__white add-to-cart'> Add to Cart </Button> : <Skeleton height={50} width={100} />}
           </TextContainer>
         </ItemContainer>
   )

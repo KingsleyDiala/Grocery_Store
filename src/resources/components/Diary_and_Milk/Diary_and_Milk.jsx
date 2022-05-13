@@ -48,7 +48,7 @@ const BottomContainer = styled.div`
 
 // ============ JSX COMPONENT =========
 
-export const DiaryAndMilkComponent = ({ items }) => {
+export const DiaryAndMilkComponent = ({ setCart, setWishlist, items }) => {
 
   const data = Milk.filter(item => {return item.title.length <= 45}).slice(0, 6);
 
@@ -72,9 +72,9 @@ export const DiaryAndMilkComponent = ({ items }) => {
           <ArrowRight />
           <ArrowLeft />
 
-          { data.map(item => {
+          { data.map((item, index) => {
             return (
-              <HalfCard key={item.id} price={32.32} alt={item.title} src={item.image} title={item.title.slice(0, 20)} />
+              <HalfCard setCart={setCart} setWishlist={setWishlist} index={index} item={item} />
             )
           })}
 

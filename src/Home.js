@@ -10,7 +10,7 @@ import { DiaryAndMilkComponent } from './resources/components/Diary_and_Milk/Dia
 import { DepartmentSection } from './resources/components/Department_Section/Department_Section';
 
 
-function Home({ wishlist, setWishlist }) {
+function Home({ cart, setCart, wishlist, setWishlist }) {
 
   const apiKey = '75351bfa2a8944ad9366abcbb4a6a8c4';
   const number = '50';
@@ -50,17 +50,17 @@ function Home({ wishlist, setWishlist }) {
 
            {/* =========== APP FEATURED ITEMS ========== */}
         <section className='featured_items'>
-          { <FeaturedItemsComponent wishlist={wishlist} setWishlist={setWishlist} />}
+          { <FeaturedItemsComponent setCart={setCart} wishlist={wishlist} setWishlist={setWishlist} />}
         </section>
 
           {/* =========== APP BEST SELLER SECTION ========== */}
-        { <BestSellerSection /> }
+        { <BestSellerSection setCart={setCart} setWishlist={setWishlist} /> }
 
           {/* =========== APP FRESH VEGETABLES SECTION ========== */}
-        { <FreshVegetableComponent /> }
+        { <FreshVegetableComponent setCart={setCart} setWishlist={setWishlist} /> }
 
         {/* =========== APP DIARY & MILK SECTION ========== */}
-        { <DiaryAndMilkComponent items={groceries} /> }
+        { <DiaryAndMilkComponent setCart={setCart} setWishlist={setWishlist} items={groceries} /> }
 
         {/* =========== APP Shop By Department SECTION ========== */}
         { <DepartmentSection /> }

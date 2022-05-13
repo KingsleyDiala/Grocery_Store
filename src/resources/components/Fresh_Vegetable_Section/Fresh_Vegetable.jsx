@@ -50,7 +50,7 @@ const BottomContainer = styled.div`
 
 // ============ JSX COMPONENT =========
 
-export const FreshVegetableComponent = () => {
+export const FreshVegetableComponent = ({ setCart, setWishlist }) => {
 
   return (
     <FeaturedItems>
@@ -71,9 +71,9 @@ export const FreshVegetableComponent = () => {
           <ArrowLeft />
           <ArrowRight />
 
-          {Vegetables.slice(0, 6).map(item => {
+          {Vegetables.slice(0, 6).map((item, index) => {
             return (
-              <HalfCard key={item.id} src={item.image} alt={item.title} title={item.title.slice(0, 17)} price={7.89} />
+              <HalfCard setCart={setCart} setWishlist={setWishlist} index={index} item={item} />
             )
           })}
 

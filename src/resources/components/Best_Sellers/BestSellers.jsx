@@ -53,7 +53,7 @@ const BottomContainer = styled.div`
 
 // ============ JSX COMPONENT =========
 
-export const BestSellerSection = () => {
+export const BestSellerSection = ({ setCart, setWishlist }) => {
 
   return (
     <FeaturedItems>
@@ -72,14 +72,13 @@ export const BestSellerSection = () => {
           <ArrowRight />
           <ArrowLeft />
 
-          {bestSellers.slice(0, 6).map(item => {
+          {bestSellers.slice(0, 6).map((item, index) => {
             return (
               <HalfCard
-              key={item.id}
-              title={item.title.slice(0,17)}
-              src={item.image}
-              alt={item.title}
-              price={6.43}
+              setCart={setCart}
+              setWishlist={setWishlist}
+              index={index}
+              item={item}
               />
             )
           })}

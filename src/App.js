@@ -35,7 +35,7 @@ const App = () => {
       <div>
       <NavbarComponent cart={cart} wishlist={wishlist} />
       <Routes>
-        <Route path="/" exact element={ <Home wishlist={wishlist} setWishlist={setWishlist} /> } />
+        <Route path="/" exact element={ <Home cart={cart} setCart={setCart} wishlist={wishlist} setWishlist={setWishlist} /> } />
         <Route path="/search" exact element={ <SearchPage /> } />
         <Route path="/category" element={ <CategoryPage /> } />
         <Route path="/product/:id" element={ <ProductPage setCart={setCart} setWishlist={setWishlist} /> } />

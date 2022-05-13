@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import React, { useEffect, useRef, useState } from "react"
+import React, { useState } from "react"
 import Checkbox from '@mui/material/Checkbox';
 import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
 import Favorite from '@mui/icons-material/Favorite';
@@ -96,6 +96,8 @@ position: absolute;
 
 
 const FullCard = ({ index, cart, setCart, item, wishlist, setWishlist }) => {
+
+  const [inCart, setInCart] = useState(true);
   
   // =========== Wishlist Component rendered by WishlistContainer ===========
   const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
@@ -128,6 +130,13 @@ const FullCard = ({ index, cart, setCart, item, wishlist, setWishlist }) => {
   // Add item to Cart
   const addToCart = () => {
     setCart(prev => [...prev, item]);
+    setInCart(() => !inCart);
+  }
+
+  // Remove item from Cart
+  const removeFromCart = () => {
+    setCart(prev => prev.filter(element => element.id !== item.id));
+    setInCart(() => !inCart);
   }
 
 
@@ -145,9 +154,18 @@ const FullCard = ({ index, cart, setCart, item, wishlist, setWishlist }) => {
               <WishlistContainer> { wishlistIcon() } </WishlistContainer>
               </ImageContainer>
                   <TextContainer>
+
+                    {/* =============== Product Price  =============== */}
+
                     { item ? <ProductPrice className='price'>€4.32</ProductPrice> : <Skeleton animation='wave' sx={{ width: 50}} /> }
+
+                    {/* ============ PRODUCT NAME ============ */}
+
                     { item ? <ProductName href='#' className='product__name'> {item.title.slice(0, 20)} </ProductName> : <Skeleton animation='wave' sx={{ height: 30}}/> }
-                    { item ? <Button onClick={ addToCart } className='green__button__white add-to-cart'> Add to Cart </Button> : <Skeleton animation='wave' sx={{ width: 100, height: 50}} />}
+
+                    {/* ============ ADD TO CART BUTTON ============ */}
+                    { item ? <> { inCart ? <Button onClick={() => addToCart() } className='green__button__white add-to-cart'> Add to Cart </Button> : <Button onClick={() => removeFromCart() } className='white__button__green add-to-cart'> Remove </Button> } </> : <Skeleton animation='wave' sx={{ width: 100, height: 50}} />}
+
                   </TextContainer>
                 </ItemContainer>
   )

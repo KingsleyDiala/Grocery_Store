@@ -4,8 +4,8 @@ import Checkbox from '@mui/material/Checkbox';
 import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
 import Favorite from '@mui/icons-material/Favorite';
 import { Link } from "react-router-dom";
-import CircularProgress from '@mui/material/CircularProgress';
-import Box from '@mui/material/Box';
+import { Skeleton } from "@mui/material";
+
 
 
 
@@ -92,15 +92,6 @@ position: absolute;
 `
 
 
-// =================  SKELETON COLOR  ========================
-const CircularIndeterminate = () => {
-  return (
-    <Box sx={{ display: 'flex' }}>
-      <CircularProgress />
-    </Box>
-  );
-}
-
 // ===================  JSX STRUCTURE  ================================
 
 
@@ -144,7 +135,13 @@ const FullCard = ({ index, cart, setCart, item, wishlist, setWishlist }) => {
     <ItemContainer key={index}>
               <ImageContainer className="image__container">
                 <Link to={`/product/${item.id}`}>
-                  {item.image ? <Image src={item.image} alt={item.name} /> : CircularIndeterminate }
+                  { item.image ? <Image src={item.image} alt={item.name} /> : <Skeleton
+        sx={{ bgcolor: 'grey.900' }}
+        variant="rectangular"
+        width={300}
+        height={400}
+      />
+      }
                 </Link>
               <WishlistContainer> { wishlistIcon() } </WishlistContainer>
               </ImageContainer>

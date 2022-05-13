@@ -93,7 +93,14 @@ export const HalfCard = ({ Cart, setCart, index, setWishlist, item}) => {
 
     // Add item to Cart
   const addToCart = () => {
-    setCart(prev => [...prev, item])
+    setCart(prev => {
+      // Check if item is already in Cart
+      if (prev.includes(item)) {
+        return prev;
+      } else {
+        return [...prev, item]
+      }
+    });
     setInCart(() => !inCart)
   }
 

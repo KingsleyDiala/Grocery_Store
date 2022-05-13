@@ -135,8 +135,7 @@ const FullCard = ({ index, cart, setCart, item, wishlist, setWishlist }) => {
     <ItemContainer key={index}>
               <ImageContainer className="image__container">
                 <Link to={`/product/${item.id}`}>
-                  { item.image ? <Image src={item.image} alt={item.name} /> : <Skeleton
-        sx={{ bgcolor: 'grey.900' }}
+                  { item.image ? <Image src={item.image} alt={item.name} /> : <Skeleton animation='wave'
         variant="rectangular"
         width={300}
         height={400}
@@ -146,9 +145,9 @@ const FullCard = ({ index, cart, setCart, item, wishlist, setWishlist }) => {
               <WishlistContainer> { wishlistIcon() } </WishlistContainer>
               </ImageContainer>
                   <TextContainer>
-                  <ProductPrice className='price'>€4.32</ProductPrice>
-                    <ProductName href='#' className='product__name'> {item.title.slice(0, 20)} </ProductName>
-                    <Button onClick={ addToCart } className='green__button__white add-to-cart'> Add to Cart </Button>
+                    { item ? <ProductPrice className='price'>€4.32</ProductPrice> : <Skeleton animation='wave' sx={{ width: 50}} /> }
+                    { item ? <ProductName href='#' className='product__name'> {item.title.slice(0, 20)} </ProductName> : <Skeleton animation='wave' sx={{ height: 30}}/> }
+                    { item ? <Button onClick={ addToCart } className='green__button__white add-to-cart'> Add to Cart </Button> : <Skeleton animation='wave' sx={{ width: 100, height: 50}} />}
                   </TextContainer>
                 </ItemContainer>
   )

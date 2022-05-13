@@ -158,7 +158,7 @@ const Button = styled.a`
 
 // ============ JSX COMPONENT =========
 
-export const RelatedItemsComponent = () => {
+export const RelatedItemsComponent = ({ setCart, setWishlist }) => {
 
 
   return (
@@ -183,6 +183,8 @@ export const RelatedItemsComponent = () => {
           { Vegetables.slice(10, 16).map((item, index) => {
             return (
               <FullCard
+              setCart={setCart}
+              setWishlist={setWishlist}
               index={index}
               item={item}
               />

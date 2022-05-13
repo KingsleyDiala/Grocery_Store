@@ -53,7 +53,7 @@ const ProductPage = ({ setCart, setWishlist }) => {
         <ProductDescriptionComponent product={product} />
 
         {/* =========== RELATED ITEMS ============== */}
-        <RelatedItemsComponent />
+        <RelatedItemsComponent setCart={setCart} setWishlist={setWishlist} />
 
         {/* =========== APP SHOP BY DEPARTMENT SECTION ========== */}
         { <DepartmentSection /> }

@@ -18,7 +18,6 @@ const App = () => {
   // Wishlist State 
   const [wishlist, setWishlist] = useState([]);
   const [cart, setCart] = useState([]);
-  const [data, setData] = useState([]);
 
   // const apiFetch = async () => {
   //   const apiKey = '9c0bb3a2e3b94200a61a781b4d3df3ea'

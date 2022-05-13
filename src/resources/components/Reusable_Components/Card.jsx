@@ -3,6 +3,7 @@ import React from 'react'
 import Checkbox from '@mui/material/Checkbox';
 import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
 import Favorite from '@mui/icons-material/Favorite';
+import { Skeleton } from "@mui/material";
 
 // STYLED COMPONENTS
 const ItemContainer = styled.div`
@@ -121,7 +122,12 @@ export const HalfCard = ({ wishlist, setWishlist, item, key, src, alt, price, ti
   return (
     <ItemContainer key={key}>
       <ImageContainer className="image__container">
-        <Image alt={alt} src={src} />
+        { src ? <Image alt={alt} src={src} /> : <Skeleton
+        sx={{ bgcolor: 'grey.900' }}
+        variant="rectangular"
+        width={300}
+        height={400}
+      /> }
         <WishlistContainer> { IconCheckboxes(item) } </WishlistContainer>
       </ImageContainer >
           <TextContainer>

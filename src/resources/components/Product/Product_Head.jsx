@@ -126,6 +126,7 @@ height: 60px;
 color: var(--light-color);
 font-size: var(--normal-text);
 font-weight: 600;
+margin-bottom: 1rem;
 `
 const Save = styled.a`
 font-size: var(--normal-text);
@@ -165,29 +166,28 @@ export const ProductHeadComponent = ({ setCart, setWishlist, product }) => {
     <ProductHead key={product.id}>
       <Container>
         <LeftContainer>
-          { product.image ? <Image src={product.image} alt={product.name} /> : <Skeleton variant="rect" width={500} height={600} /> }
+          { product.image ? <Image src={product.image} alt={product.name} /> : <Skeleton animation='wave' variant="rect" width={500} height={600} /> }
         </LeftContainer>
         <RightContainer>
-          <ProductName>{product.title}</ProductName>
-          <ProductPrice>
-            <Price>€{product.price}</Price>
-          </ProductPrice>
-          <Divider sx={{ width: '100%', marginBottom: 1.5}} />
-          <ProductInfoContainer> Brand: 
-          <Brand> {product.brand} </Brand>
-          </ProductInfoContainer>
-          <ProductInfoContainer> Aisle: 
-          <Brand> {product.aisle} </Brand>
-          </ProductInfoContainer>
-          <Divider sx={{ width: '100%', marginTop: 1.5, marginBottom: 3}} />
-          <QuantityContainer>
-            <Decrement onClick={decrement}><i class="uil uil-minus"></i></Decrement>
-            <Quantity>{quantity}</Quantity>
-            <Increment onClick={increment}><i class="uil uil-plus"></i></Increment>
-          </QuantityContainer>
-          <AddToCart onClick={(product) => setCart(prev => [...prev, product])} className='green__button'>Add to Cart</AddToCart>
-          <br />
-          <Save onClick={(product) => setWishlist(prev => [...prev, product])} className='white__button'>Save to Wishlist</Save>
+            { product ? <ProductName>{product.title}</ProductName> : <Skeleton width='80%' height={60} animation='wave' />}
+            <ProductPrice>
+              { product ? <Price>€{product.price}</Price> : <Skeleton animation='wave' height={60} width='20%' /> }
+            </ProductPrice>
+            <Divider sx={{ width: '100%', marginBottom: 1.5}} />
+            <ProductInfoContainer> Brand: 
+              { product ? <Brand> {product.brand} </Brand> : <Skeleton animation='wave' width='30%' height={40} sx={{ marginLeft: 1}} />}
+            </ProductInfoContainer>
+            <ProductInfoContainer> Aisle: 
+              { product ? <Brand> {product.aisle} </Brand> : <Skeleton animation='wave' width='30%' height={40} sx={{ marginLeft: 1}} /> }
+            </ProductInfoContainer>
+            <Divider sx={{ width: '100%', marginTop: 1.5, marginBottom: 3}} />
+            { product ? <QuantityContainer>
+              <Decrement onClick={decrement}><i class="uil uil-minus"></i></Decrement>
+              <Quantity>{quantity}</Quantity>
+              <Increment onClick={increment}><i class="uil uil-plus"></i></Increment>
+            </QuantityContainer> : <Skeleton animation='wave' sx={{ marginBottom: 4, width:'30%', height: 90 }} /> }
+            { product ? <AddToCart onClick={(product) => setCart(prev => [...prev, product])} className='green__button'>Add to Cart</AddToCart> : <Skeleton animation='wave' height={80} />}
+            { product ? <Save onClick={(product) => setWishlist(prev => [...prev, product])} className='white__button'>Save to Wishlist</Save> : <Skeleton animation='wave' height={80} />}
         </RightContainer>
       </Container>
     </ProductHead>

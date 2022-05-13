@@ -2,6 +2,7 @@
 import React from 'react';
 import styled from 'styled-components'
 import { CategoryData } from '../../Data/data';
+import { Skeleton } from '@mui/material';
 
 // ==========  STYLED COMPONENT  ============
 const FeaturedItems = styled.div`
@@ -64,7 +65,7 @@ const ItemContainer = styled.div`
 const ImageContainer = styled.div`
   height: 170px;
   width: 100%;
-  background-color: var(--dark-grey-color);
+  background-color: var(--light-grey-color);
   border-radius: 50%;
   transition: all .5s ease;
   cursor: pointer;
@@ -123,7 +124,12 @@ export const DepartmentSection = () => {
             return (
               <ItemContainer key={item.id}>
       <ImageContainer>
-        <Image alt={item.alt} src={item.url} />
+        { item.url ? <Image alt={item.alt} src={item.url} /> : <Skeleton
+        sx={{ bgcolor: 'grey.900' }}
+        variant="rectangular"
+        width={410}
+        height={400}
+        /> }
       </ImageContainer>
           <TextContainer>
             <ProductName href='#' className='product__name'>{item.name}</ProductName>

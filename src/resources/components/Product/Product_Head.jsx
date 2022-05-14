@@ -161,6 +161,28 @@ export const ProductHeadComponent = ({ setCart, setWishlist, product }) => {
     })
   }
 
+  // Add to Cart
+  const addToCart = () => {
+    setCart(prev => {
+      if (prev.includes(product)) {
+        return prev;
+      } else {
+        return [...prev, product]
+      }
+    })
+  }
+
+  // Save to wishlist
+  const addToWishlist = () => {
+    setWishlist(prev => {
+      if (prev.includes(product)) {
+        return prev;
+      } else {
+        return [...prev, product];
+      }
+    })
+  };
+
 
   return (
     <ProductHead key={product.id}>
@@ -186,8 +208,8 @@ export const ProductHeadComponent = ({ setCart, setWishlist, product }) => {
               <Quantity>{quantity}</Quantity>
               <Increment onClick={increment}><i class="uil uil-plus"></i></Increment>
             </QuantityContainer> : <Skeleton animation='wave' sx={{ marginBottom: 4, width:'30%', height: 90 }} /> }
-            { product ? <AddToCart onClick={(product) => setCart(prev => [...prev, product])} className='green__button'>Add to Cart</AddToCart> : <Skeleton animation='wave' height={80} />}
-            { product ? <Save onClick={(product) => setWishlist(prev => [...prev, product])} className='white__button'>Save to Wishlist</Save> : <Skeleton animation='wave' height={80} />}
+            { product ? <AddToCart onClick={addToCart} className='green__button'>Add to Cart</AddToCart> : <Skeleton animation='wave' height={80} />}
+            { product ? <Save onClick={addToWishlist} className='white__button'>Save to Wishlist</Save> : <Skeleton animation='wave' height={80} />}
         </RightContainer>
       </Container>
     </ProductHead>

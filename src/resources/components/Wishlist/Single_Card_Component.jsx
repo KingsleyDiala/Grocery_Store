@@ -102,20 +102,20 @@ const SingleCardComponent = ({ setCart, setWishlist, wishlist, item }) => {
   }
 
   return (
-    <Item key={item.id}>
-            <ImageContainer>
-              <Image src={item.image} alt={item.title} />
-            </ImageContainer>
-            <DetailsContainer>
-              <ProductName> {item.title.slice(0, 50)} </ProductName>
-              <ProductPrice> €6.65 </ProductPrice>
-              <ButtonContainer>
-                {/* ========== ADD TO CART BUTTON ========== */}
-                { !inCart ? <AddToCart onClick={addToCart} className='white__button__green'>Add to Cart</AddToCart> : <AddToCart className='white__button__green'>Added To Cart</AddToCart> }
-                <Remove onClick={removeFromWishlist} className='green__button__white'>Remove</Remove>
-              </ButtonContainer>
-            </DetailsContainer>
-          </Item>
+      <Item key={item.id}>
+              <ImageContainer>
+                <Image src={item.image} alt={item.title} />
+              </ImageContainer>
+              <DetailsContainer>
+                <ProductName> {item.title.slice(0, 50)} </ProductName>
+                <ProductPrice> €6.65 </ProductPrice>
+                <ButtonContainer>
+                  {/* ========== ADD TO CART BUTTON ========== */}
+                  { !inCart ? <AddToCart onClick={addToCart} className='white__button__green'>Add to Cart</AddToCart> : <AddToCart className='white__button__green'>Added To Cart</AddToCart> }
+                  <Remove onClick={removeFromWishlist} className='green__button__white'>Remove</Remove>
+                </ButtonContainer>
+              </DetailsContainer>
+            </Item>
   )
 }
 

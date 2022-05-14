@@ -1,11 +1,7 @@
+import { useState } from "react";
 import styled from "styled-components";
-import * as React from 'react';
-import PropTypes from 'prop-types';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
-import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
-import { fontWeight } from "@mui/system";
+import {NutritionTable} from "./Virtualized_Table";
+
 
 
 
@@ -24,9 +20,9 @@ border-top: 1px solid rgba(0,0,0,0.2);
 border-right: 1px solid rgba(0,0,0,0.2);
 width: 1232px;
 display: flex;
-align-items: center;
+align-items: flex-start;
 justify-content: space-between;
-column-gap: 5rem;
+column-gap: 3rem;
 padding: 60px 20px;
 `
 const LeftContainer = styled.div`
@@ -109,98 +105,54 @@ border-radius: 10px;
 `
 const RightContainer = styled.div`
 flex: 2.5;
+padding-right: 2rem;
+height: fit-content;
 `
-const Text = {
-  textAlign: 'justify',
-  fontWeight: '400',
-}
+const Text = styled.p`
+text-align: justify;
+`
 
 
 
-// ================ DESCRIPTION ================
-function TabPanel(props) {
-  const { children, value, index, ...other } = props;
-
-  return (
-    <div
-      role="tabpanel"
-      hidden={value !== index}
-      id={`simple-tabpanel-${index}`}
-      aria-labelledby={`simple-tab-${index}`}
-      {...other}
-    >
-      {value === index && (
-        <Box sx={{ p: 4 }}>
-          <Typography >{children}</Typography>
-        </Box>
-      )}
-    </div>
-  );
-}
-
-TabPanel.propTypes = {
-  children: PropTypes.node,
-  index: PropTypes.number.isRequired,
-  value: PropTypes.number.isRequired,
-};
-
-function a11yProps(index) {
-  return {
-    id: `simple-tab-${index}`,
-    'aria-controls': `simple-tabpanel-${index}`,
-  };
-}
-
-function BasicTabs({ product }) {
-  const [value, setValue] = React.useState(0);
-
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
-
-  return (
-    <Box sx={{ width: '100%' }}>
-      <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-        <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-          <Tab label="Description" {...a11yProps(0)} />
-          <Tab label="Nutritional Facts" {...a11yProps(1)} />
-          <Tab label="Features" {...a11yProps(2)} />
-        </Tabs>
-      </Box>
-      <TabPanel value={value} index={0}>
-        <p style={Text}>{product.generatedText}</p>
-      </TabPanel>
-      <TabPanel value={value} index={1}>
-        Item Two
-      </TabPanel>
-      <TabPanel value={value} index={2}>
-        Item Three
-      </TabPanel>
-    </Box>
-  );
-}
 
 
 
 //   =============== JSX STRUCTURE COMPONENT ==================
 
 export const ProductDescriptionComponent = ({ product }) => {
-  console.log(product);
+  const [index, setIndex] = useState(1)
+
+  const textToDisplay = () => {
+    if (index === 1) {
+      return <Text key={1}>{product.generatedText}</Text>;
+    }
+    if (index === 2) {
+      return <Text key={1}>{ <NutritionTable product={product.nutrition.nutrients} /> }</Text>;
+    }
+    if (index === 3) {
+      return <Text key={3}> Features </Text>;
+    }
+    if (index === 4) {
+      return <Text key={4}>Produces of</Text>;
+    }
+  }
+
+  const handleClick = (index) => {
+    setIndex(() => index)
+  }
+
   return (
     <ProductDescription>
       <Container>
-        <BasicTabs product={product} />
-        {/* <LeftContainer>
-          <Description>Description</Description>
-          <NutritionFacts>Nutrition Facts</NutritionFacts>
-          <Features>Features</Features>
-          <ProducesOf>Produces of</ProducesOf>
+        <LeftContainer>
+          <Description onClick={() => handleClick(1)} >Description</Description>
+          <NutritionFacts onClick={() => handleClick(2)} >Nutrition Facts</NutritionFacts>
+          <Features onClick={() => handleClick(3)} >Features</Features>
+          <ProducesOf onClick={() => handleClick(4)} >Produces of</ProducesOf>
         </LeftContainer>
         <RightContainer>
-          <Text>
-          {product.generatedText}
-          </Text>
-        </RightContainer> */}
+            { textToDisplay() }
+        </RightContainer>
       </Container>
     </ProductDescription>
   )

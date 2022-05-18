@@ -114,20 +114,6 @@ export const FeaturedItemsComponent = (props, { Cart, setCart, wishlist, setWish
                       })}
           </Carousel>
 
-          {/* <ArrowRight />
-          <ArrowLeft />
-          { Vegetables.slice(10, 16).map(item => {
-            return (
-              <HalfCard
-              Cart={Cart}
-              setCart={setCart}
-              wishlist={wishlist}
-              setWishlist={setWishlist}
-              item={item}
-              />
-            )
-          })} */}
-
         </BottomContainer>
       </FeaturedItemsContainer>
       </FeaturedItems>

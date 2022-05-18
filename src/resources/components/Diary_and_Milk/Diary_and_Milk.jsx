@@ -4,6 +4,9 @@ import styled from 'styled-components'
 import data, { Milk } from '../../Data/data';
 import { ArrowLeft, ArrowRight } from '../Reusable_Components/Arrow';
 import { HalfCard } from '../Reusable_Components/Card';
+import Carousel from 'react-multi-carousel';
+import "react-multi-carousel/lib/styles.css";
+import { responsive } from '../Reusable_Components/Responsive';
 
 // ==========  STYLED COMPONENT  ============
 const FeaturedItems = styled.div`
@@ -15,6 +18,12 @@ const FeaturedItems = styled.div`
   display: grid;
   place-content: center;
   overflow: hidden;
+  & .carousel {
+    height: fit-content;
+    padding-bottom: 40px;
+    padding-top: 10px;
+    padding-right: 20px;
+  }
   ` 
 const FeaturedItemsContainer = styled.div`
   width: 1260px;
@@ -48,7 +57,7 @@ const BottomContainer = styled.div`
 
 // ============ JSX COMPONENT =========
 
-export const DiaryAndMilkComponent = ({ setCart, setWishlist, items }) => {
+export const DiaryAndMilkComponent = (props, { setCart, setWishlist, items }) => {
 
   const data = Milk.filter(item => {return item.title.length <= 45}).slice(0, 6);
 
@@ -68,15 +77,39 @@ export const DiaryAndMilkComponent = ({ setCart, setWishlist, items }) => {
         {/* ========= BOTTOM CONTAINER ========= */}
         <BottomContainer>
 
-          {/* ARROW RIGHT AND LEFT */}
-          <ArrowRight />
-          <ArrowLeft />
-
-          { data.map((item, index) => {
+          <Carousel
+              customRightArrow={<ArrowRight />}
+              customLeftArrow={ <ArrowLeft />}
+              additionalTransfrom={0}
+              arrows
+              autoPlay={props.deviceType === "mobile" ? true : false}
+              autoPlaySpeed={4000}
+              deviceType={props.deviceType}
+              centerMode={true}
+              className="carousel"
+              containerClass='container-padding-bottom'
+              dotListClass="dots"
+              draggable
+              focusOnSelect={false}
+              infinite={true}
+              itemClass=""
+              keyBoardControl
+              minimumTouchDrag={80}
+              renderButtonGroupOutside={false}
+              renderDotsOutside={false}
+              responsive={responsive}
+              showDots={true}
+              sliderClass=""
+              slidesToSlide={3}
+              swipeable
+              customTransition=''
+            >
+              { data.map((item, index) => {
             return (
               <HalfCard setCart={setCart} setWishlist={setWishlist} index={index} item={item} />
             )
           })}
+          </Carousel>
 
 
         </BottomContainer>

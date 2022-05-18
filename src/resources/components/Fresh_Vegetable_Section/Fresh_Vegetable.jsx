@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { HalfCard } from '../Reusable_Components/Card';
 import { Vegetables } from '../../Data/data';
 import { ArrowLeft, ArrowRight } from '../Reusable_Components/Arrow';
-import { responsive_6 } from '../Reusable_Components/Responsive';
+import { responsive } from '../Reusable_Components/Responsive';
 import Carousel from 'react-multi-carousel';
 import "react-multi-carousel/lib/styles.css";
 
@@ -82,20 +82,21 @@ export const FreshVegetableComponent = (props, { setCart, setWishlist }) => {
               additionalTransfrom={0}
               arrows
               autoPlay={props.deviceType === "mobile" ? true : false}
+              autoPlaySpeed={4000}
               deviceType={props.deviceType}
-              centerMode={false}
+              centerMode={true}
               className="carousel"
               containerClass='container-padding-bottom'
               dotListClass="dots"
               draggable
               focusOnSelect={false}
-              infinite={false}
+              infinite={true}
               itemClass=""
               keyBoardControl
               minimumTouchDrag={80}
               renderButtonGroupOutside={false}
               renderDotsOutside={false}
-              responsive={responsive_6}
+              responsive={responsive}
               showDots={true}
               sliderClass=""
               slidesToSlide={3}

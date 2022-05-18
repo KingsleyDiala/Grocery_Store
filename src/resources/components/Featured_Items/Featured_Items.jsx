@@ -4,6 +4,9 @@ import styled from 'styled-components'
 import { Vegetables } from '../../Data/data';
 import { HalfCard } from '../Reusable_Components/Card';
 import { ArrowLeft, ArrowRight } from '../Reusable_Components/Arrow';
+import Carousel from 'react-multi-carousel';
+import "react-multi-carousel/lib/styles.css";
+import { responsive } from '../Reusable_Components/Responsive';
 
 
 // ==========  STYLED COMPONENT  ============
@@ -16,6 +19,12 @@ const FeaturedItems = styled.div`
   display: grid;
   place-content: center;
   overflow: hidden;
+  & .carousel {
+    height: fit-content;
+    padding-bottom: 40px;
+    padding-top: 10px;
+    padding-right: 20px;
+  }
   ` 
 const FeaturedItemsContainer = styled.div`
   width: 1260px;
@@ -40,23 +49,19 @@ const TopContainer = styled.div`
   `
 const BottomContainer = styled.div`
   position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  column-gap: 1rem;
   `
-
 
 
 
 
 // ============ JSX COMPONENT =========
 
-export const FeaturedItemsComponent = ({ Cart, setCart, wishlist, setWishlist }) => {
+export const FeaturedItemsComponent = (props, { Cart, setCart, wishlist, setWishlist }) => {
 
   return (
     <FeaturedItems>
       <FeaturedItemsContainer>
+        
 
         {/* ======= TOP CONTAINER ========= */}
         <TopContainer>
@@ -69,8 +74,47 @@ export const FeaturedItemsComponent = ({ Cart, setCart, wishlist, setWishlist })
         {/* ========= BOTTOM CONTAINER ========= */}
         <BottomContainer>
 
-          {/* ARROW RIGHT AND LEFT */}
-          <ArrowRight />
+          <Carousel
+              customRightArrow={<ArrowRight />}
+              customLeftArrow={ <ArrowLeft />}
+              additionalTransfrom={0}
+              arrows
+              autoPlay={props.deviceType === "mobile" ? true : false}
+              autoPlaySpeed={4000}
+              deviceType={props.deviceType}
+              centerMode={true}
+              className="carousel"
+              containerClass='container-padding-bottom'
+              dotListClass="dots"
+              draggable
+              focusOnSelect={false}
+              infinite={true}
+              itemClass=""
+              keyBoardControl
+              minimumTouchDrag={80}
+              renderButtonGroupOutside={false}
+              renderDotsOutside={false}
+              responsive={responsive}
+              showDots={true}
+              sliderClass=""
+              slidesToSlide={3}
+              swipeable
+              customTransition=''
+            >
+              { Vegetables.slice(10, 25).map(item => {
+                        return (
+                          <HalfCard
+                          Cart={Cart}
+                          setCart={setCart}
+                          wishlist={wishlist}
+                          setWishlist={setWishlist}
+                          item={item}
+                          />
+                        )
+                      })}
+          </Carousel>
+
+          {/* <ArrowRight />
           <ArrowLeft />
           { Vegetables.slice(10, 16).map(item => {
             return (
@@ -82,7 +126,7 @@ export const FeaturedItemsComponent = ({ Cart, setCart, wishlist, setWishlist })
               item={item}
               />
             )
-          })}
+          })} */}
 
         </BottomContainer>
       </FeaturedItemsContainer>

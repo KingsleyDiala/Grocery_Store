@@ -20,8 +20,6 @@ const ProductPage = ({ setCart, setWishlist }) => {
 
   const [product, setProduct] = useState({});
 
-
-
   React.useEffect( () => {
     getItems();
   },[])

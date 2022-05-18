@@ -3,12 +3,13 @@ import React from "react";
 
 // ================  STYLED COMPONENT  ============
 const Right = styled.div`
+  opacity: .9;
   height: 56px;
   width: 56px;
   color: var(--light-color);
   position: absolute;
   bottom: 55%;
-  right: -15px;
+  right: 5px;
   display: grid;
   place-items: center;
   font-size: 40px;
@@ -27,12 +28,13 @@ const Right = styled.div`
   }
 `
 const Left = styled.div`
+  opacity: 0.9;
   height: 56px;
   width: 56px;
   color: var(--light-color);
   position: absolute;
   bottom: 55%;
-  left: -15px;
+  left: 5px;
   display: grid;
   place-items: center;
   font-size: 40px;
@@ -56,17 +58,16 @@ const Left = styled.div`
 // ==============  JSX STRUCTURE =============
 
 // ARROW RIGHT
-export const ArrowRight = () => {
-
+export const ArrowRight = ({ onClick }) => {
   return (
-    <Right> <i class="uil uil-angle-right-b"></i> </Right>
+    <Right onClick={() => onClick() }> <i class="uil uil-angle-right-b"></i> </Right>
   )
 }
 
 // ARROW LEFT
-export const ArrowLeft = () => {
+export const ArrowLeft = ({ onClick }) => {
 
   return (
-    <Left> <i class="uil uil-angle-left"></i> </Left>
+    <Left onClick={ () => onClick() }> <i class="uil uil-angle-left"></i> </Left>
   )
 }

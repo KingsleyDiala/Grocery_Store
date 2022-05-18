@@ -1,10 +1,11 @@
 import styled from "styled-components"
-import React, { useState } from "react"
+import React, { useRef, useState } from "react"
 import Checkbox from '@mui/material/Checkbox';
 import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
 import Favorite from '@mui/icons-material/Favorite';
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Skeleton } from "@mui/material";
+import ProductPage from "../../../Product_Page";
 
 
 
@@ -98,6 +99,8 @@ position: absolute;
 const FullCard = ({ index, cart, setCart, item, wishlist, setWishlist }) => {
 
   const [inCart, setInCart] = useState(true);
+  const ref = useRef();
+  const location = useLocation();
   
   // =========== Wishlist Component rendered by WishlistContainer ===========
   const label = { inputProps: { 'aria-label': 'Checkbox demo' } };

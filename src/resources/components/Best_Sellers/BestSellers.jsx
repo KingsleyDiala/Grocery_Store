@@ -4,6 +4,9 @@ import styled from 'styled-components'
 import  { bestSellers } from '../../Data/data'
 import { HalfCard } from '../Reusable_Components/Card';
 import { ArrowLeft, ArrowRight } from '../Reusable_Components/Arrow';
+import { responsive_6 } from '../Reusable_Components/Responsive';
+import Carousel from 'react-multi-carousel';
+import "react-multi-carousel/lib/styles.css";
 
 
 // ==========  STYLED COMPONENT  ============
@@ -16,6 +19,12 @@ const FeaturedItems = styled.div`
   display: grid;
   place-content: center;
   overflow: hidden;
+  & .carousel {
+    height: fit-content;
+    padding-bottom: 40px;
+    padding-top: 10px;
+    padding-right: 20px;
+  }
   ` 
 const FeaturedItemsContainer = styled.div`
   width: 1260px;
@@ -53,7 +62,7 @@ const BottomContainer = styled.div`
 
 // ============ JSX COMPONENT =========
 
-export const BestSellerSection = ({ setCart, setWishlist }) => {
+export const BestSellerSection = (props, { setCart, setWishlist }) => {
 
   return (
     <FeaturedItems>
@@ -69,10 +78,33 @@ export const BestSellerSection = ({ setCart, setWishlist }) => {
 
         {/* ========= BOTTOM CONTAINER ========= */}
         <BottomContainer>
-          <ArrowRight />
-          <ArrowLeft />
-
-          {bestSellers.slice(0, 6).map((item, index) => {
+          <Carousel
+              customRightArrow={<ArrowRight />}
+              customLeftArrow={ <ArrowLeft />}
+              additionalTransfrom={0}
+              arrows
+              autoPlay={props.deviceType === "mobile" ? true : false}
+              deviceType={props.deviceType}
+              centerMode={false}
+              className="carousel"
+              containerClass='container-padding-bottom'
+              dotListClass="dots"
+              draggable
+              focusOnSelect={false}
+              infinite={false}
+              itemClass=""
+              keyBoardControl
+              minimumTouchDrag={80}
+              renderButtonGroupOutside={false}
+              renderDotsOutside={false}
+              responsive={responsive_6}
+              showDots={true}
+              sliderClass=""
+              slidesToSlide={3}
+              swipeable
+              customTransition=''
+            >
+              {bestSellers.slice(0, 15).map((item, index) => {
             return (
               <HalfCard
               setCart={setCart}
@@ -82,8 +114,7 @@ export const BestSellerSection = ({ setCart, setWishlist }) => {
               />
             )
           })}
-
-
+          </Carousel>
         </BottomContainer>
       </FeaturedItemsContainer>
       </FeaturedItems>

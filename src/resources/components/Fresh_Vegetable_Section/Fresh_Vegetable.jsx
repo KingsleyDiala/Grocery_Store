@@ -4,6 +4,9 @@ import styled from 'styled-components'
 import { HalfCard } from '../Reusable_Components/Card';
 import { Vegetables } from '../../Data/data';
 import { ArrowLeft, ArrowRight } from '../Reusable_Components/Arrow';
+import { responsive_6 } from '../Reusable_Components/Responsive';
+import Carousel from 'react-multi-carousel';
+import "react-multi-carousel/lib/styles.css";
 
 // ==========  STYLED COMPONENT  ============
 const FeaturedItems = styled.div`
@@ -15,6 +18,12 @@ const FeaturedItems = styled.div`
   display: grid;
   place-content: center;
   overflow: hidden;
+  & .carousel {
+    height: fit-content;
+    padding-bottom: 40px;
+    padding-top: 10px;
+    padding-right: 20px;
+  }
   ` 
 const FeaturedItemsContainer = styled.div`
   width: 1260px;
@@ -50,7 +59,7 @@ const BottomContainer = styled.div`
 
 // ============ JSX COMPONENT =========
 
-export const FreshVegetableComponent = ({ setCart, setWishlist }) => {
+export const FreshVegetableComponent = (props, { setCart, setWishlist }) => {
 
   return (
     <FeaturedItems>
@@ -67,15 +76,38 @@ export const FreshVegetableComponent = ({ setCart, setWishlist }) => {
         {/* ========= BOTTOM CONTAINER ========= */}
         <BottomContainer>
 
-          {/* ARROW RIGHT AND LEFT */}
-          <ArrowLeft />
-          <ArrowRight />
-
-          {Vegetables.slice(0, 6).map((item, index) => {
+          <Carousel
+              customRightArrow={<ArrowRight />}
+              customLeftArrow={ <ArrowLeft />}
+              additionalTransfrom={0}
+              arrows
+              autoPlay={props.deviceType === "mobile" ? true : false}
+              deviceType={props.deviceType}
+              centerMode={false}
+              className="carousel"
+              containerClass='container-padding-bottom'
+              dotListClass="dots"
+              draggable
+              focusOnSelect={false}
+              infinite={false}
+              itemClass=""
+              keyBoardControl
+              minimumTouchDrag={80}
+              renderButtonGroupOutside={false}
+              renderDotsOutside={false}
+              responsive={responsive_6}
+              showDots={true}
+              sliderClass=""
+              slidesToSlide={3}
+              swipeable
+              customTransition=''
+            >
+              {Vegetables.slice(0, 15).map((item, index) => {
             return (
               <HalfCard setCart={setCart} setWishlist={setWishlist} index={index} item={item} />
             )
           })}
+          </Carousel>
 
 
         </BottomContainer>

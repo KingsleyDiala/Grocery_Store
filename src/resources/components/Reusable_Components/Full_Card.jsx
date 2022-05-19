@@ -54,6 +54,10 @@ const Image = styled.img`
 position: relative;
 height: auto;
 width: 100%;
+transition: transform 2s ease;
+&:hover {
+  transform: scale(1.1);
+}
 `
 const TextContainer = styled.div`
   padding: 0 1rem;

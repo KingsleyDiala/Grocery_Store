@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from "react";
-import { UilListUiAlt, UilBitcoin, UilSearch, UilUser, UilHeart, UilShoppingCart, UilTimes } from '@iconscout/react-unicons';
+import React from "react";
+import { UilListUiAlt, UilBitcoin, UilSearch, UilUser, UilTimes } from '@iconscout/react-unicons';
 import styled from 'styled-components'
 import { Link } from "react-router-dom";
 import IconButton from '@mui/material/IconButton';
@@ -38,6 +38,11 @@ const NavContainer = styled.div`
   justify-content: space-between;
   width: 95%;
   height: 80%;
+  & .wishlist {
+    &:hover {
+      color: var(--accent-color);
+    }
+  }
   };
 `
 const MenuToggleOpen = styled.div`
@@ -169,7 +174,7 @@ export const NavbarComponent = ({ cart, wishlist }) => {
 // Returns the cart button
 const cartBadge = () => {
   return (
-    <IconButton aria-label={notificationsLabel(100)}>
+    <IconButton className="wishlist" aria-label={notificationsLabel(100)}>
       <Badge badgeContent={ cart.length } color='primary'>
         <ShoppingCartIcon />
       </Badge>
@@ -184,7 +189,7 @@ const cartBadge = () => {
   
   const wishlistBadge = () => {
   return (
-    <IconButton aria-label={notificationsLabel(100)}>
+    <IconButton className="wishlist" aria-label={notificationsLabel(100)}>
       <Badge badgeContent={ wishlist.length } color="primary">
         <Favorite />
       </Badge>
@@ -249,12 +254,12 @@ const cartBadge = () => {
 
         {/* ===========  Wishlist  ============ */}
         <li>
-          <Link to='/wishlist'>
+          <Link className="wishlist" to='/wishlist'>
             { wishlistBadge() } Wishlist
           </Link>
         </li>
       {/* ============  Shopping cart  ============= */}
-      <li> { cartBadge() } €34.00</li>
+      <li className="wishlist"> { cartBadge() } €34.00</li>
       </ul>
     </NavContainer>
     </Navbar>

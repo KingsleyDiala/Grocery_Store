@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { CategoryData } from "../../Data/data"
 import styled from "styled-components"
+import { Link } from "react-router-dom"
 
 
 // ==========  STYLED COMPONENT  ============
@@ -54,6 +55,10 @@ const ItemContainer = styled.div`
 const Image = styled.img`
 width: 100%;
 height: auto;
+&:hover {
+  transform: scale(1.1);
+  transition: transform 2s ease;
+}
 `
 const ImageContainer = styled.div`
   height: 170px;
@@ -87,6 +92,8 @@ const ProductName = styled.a`
 // JSX STRUCTURE
 
 export const CategoryComponent = () => {
+
+
   return (
     <Category>
       <Container>
@@ -105,11 +112,15 @@ export const CategoryComponent = () => {
         {CategoryData.map(item => {
           return (
             <ItemContainer id={item.id}>
-      <ImageContainer>
-        <Image alt={item.alt} src={item.url} />
-      </ImageContainer>
+              <Link to={`/categories/${item.name}`}>
+                <ImageContainer>
+                <Image alt={item.alt} src={item.url} />
+              </ImageContainer>
+              </Link>
           <TextContainer>
-            <ProductName href='#' className='product__name'> {item.name} </ProductName>
+            <Link to={`/categories/${item.category}`}>
+              <ProductName href='#' className='product__name'> {item.name} </ProductName>
+            </Link>
           </TextContainer>
         </ItemContainer>
           )

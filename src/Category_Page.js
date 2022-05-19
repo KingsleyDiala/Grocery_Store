@@ -3,7 +3,7 @@ import './App.css';
 import { LinkNavigationComponent } from './resources/components/Link_Navigation/Link-Navigation';
 import CategorySection from './resources/components/Category_Section/Category_Section';
 
-function CategoryPage () {
+function CategoryPage ({ setCart, setWishlist }) {
   return (
     <div className='category_page'>
 
@@ -14,7 +14,7 @@ function CategoryPage () {
         />
 
         {/* =========== SEARCH RESULT SECTION ========== */}
-        <CategorySection />
+        <CategorySection setCart={setCart} setWishlist={setWishlist} />
     </div>
   )
 }

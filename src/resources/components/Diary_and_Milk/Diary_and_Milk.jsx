@@ -59,7 +59,7 @@ const BottomContainer = styled.div`
 
 export const DiaryAndMilkComponent = ({ setCart, setWishlist, items }) => {
 
-  const data = Milk.filter(item => {return item.title.length <= 45}).slice(0, 6);
+  const data = Milk.filter(item => {return item.title.length <= 45}).slice(0, 16);
 
 
   return (

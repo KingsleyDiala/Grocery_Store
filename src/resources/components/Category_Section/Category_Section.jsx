@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import data, { CategoryData } from "../../Data/data";
+import data, { CategoryData, Vegetables } from "../../Data/data";
+import FullCard from "../Reusable_Components/Full_Card";
 import { CategoryComponent } from "../Single_Components/Single_Components";
 import SearchWidget from "../Widget/Search_Widget";
 
@@ -127,7 +128,7 @@ cursor: pointer;
 
 // JSX STRUCTURE COMPONENT
 
-const CategorySection = () => {
+const CategorySection = ({ setCart, setWishlist }) => {
   return (
     <Category>
       <Container>
@@ -138,18 +139,13 @@ const CategorySection = () => {
             <Text>Explore these items</Text>
           </TopContainer>
           <MiddleContainer>
-            { data.map(item => { return (
-              <ItemContainer>
-              <ImageContainer>
-              <Image alt={item.alt} src={item.url} />
-              </ImageContainer>
-                  <TextContainer>
-                  <ProductPrice className='price'>€{item.price}</ProductPrice>
-                    <ProductName href='#' className='product__name'> {item.name} </ProductName>
-                    <Button href='#' className='green__button__white add-to-cart'> Add to Cart </Button>
-                  </TextContainer>
-                </ItemContainer>
-            )})}
+            {
+              Vegetables.map((item, index) => {
+                return (
+                  <FullCard item={item} index={index} setCart={setCart} setWishlist={setWishlist} />
+                )
+              })
+            }
           </MiddleContainer>
           <BottomContainer>
             <PageNumContainer>

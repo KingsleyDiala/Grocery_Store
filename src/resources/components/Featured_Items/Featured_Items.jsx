@@ -80,7 +80,7 @@ export const FeaturedItemsComponent = ({ Cart, setCart, wishlist, setWishlist })
               additionalTransfrom={0}
               arrows
               autoPlaySpeed={4000}
-              partialVisbile={true}
+              partialVisible={true}
               className="carousel"
               containerClass='container-padding-bottom'
               dotListClass="dots"

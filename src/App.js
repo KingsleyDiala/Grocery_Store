@@ -35,10 +35,10 @@ const App = () => {
       <NavbarComponent cart={cart} wishlist={wishlist} />
       <Routes>
         <Route path="/" exact element={ <Home cart={cart} setCart={setCart} wishlist={wishlist} setWishlist={setWishlist} /> } />
-        <Route path="/search" exact element={ <SearchPage /> } />
-        <Route path="/category" element={ <CategoryPage /> } />
+        <Route path="/search" exact element={ <SearchPage setCart={setCart} setWishlist={setWishlist} /> } />
+        <Route path="/categories" element={ <CategoryPage setCart={setCart} setWishlist={setWishlist} /> } />
         <Route path="/product/:id" element={ <ProductPage setCart={setCart} setWishlist={setWishlist} /> } />
-        <Route path="/single-category" element={ <Category />} />
+        <Route path="/categories/:category" element={ <Category setCart={setCart} setWishlist={setWishlist} />} />
         <Route path="/catalogue" element={ <Catalogue cart={cart} setCart={setCart} wishlist={wishlist} setWishlist={setWishlist} /> } />
         <Route path="/wishlist" element={ <Wishlist setCart={setCart} setWishlist={setWishlist} wishlist={wishlist} /> } />
         <Route path="/contact" element={ <Contact />} />

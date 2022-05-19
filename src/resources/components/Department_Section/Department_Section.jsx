@@ -3,6 +3,7 @@ import React from 'react';
 import styled from 'styled-components'
 import { CategoryData } from '../../Data/data';
 import { Skeleton } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 // ==========  STYLED COMPONENT  ============
 const FeaturedItems = styled.div`
@@ -103,8 +104,6 @@ const ProductName = styled.a`
   `
 
 
-
-
 // ============ JSX COMPONENT =========
 
 export const DepartmentSection = () => {
@@ -116,9 +115,9 @@ export const DepartmentSection = () => {
         {/* ======= TOP CONTAINER ========= */}
         <TopContainer>
           <h4> Shop By Department </h4>
-          <a href='#'>
+          <Link to={'/categories'}>
             Show All Department <i class="uil uil-angle-right-b"></i>
-            </a>
+            </Link>
         </TopContainer>
 
         {/* ========= BOTTOM CONTAINER ========= */}
@@ -127,17 +126,19 @@ export const DepartmentSection = () => {
           { CategoryData.map(item => {
             return (
               <ItemContainer key={item.id}>
-      <ImageContainer>
-        { item.url ? <Image alt={item.alt} src={item.url} /> : <Skeleton
-        sx={{ bgcolor: 'grey.900' }}
-        variant="rectangular"
-        width={410}
-        height={400}
-        /> }
-      </ImageContainer>
-          <TextContainer>
-            { item.name ? <ProductName href='#' className='product__name'>{item.name}</ProductName> : <Skeleton animation='wave' /> }
-          </TextContainer>
+                <Link to={`/categories/${item.name}`}>
+                  <ImageContainer>
+                      { item.url ? <Image alt={item.alt} src={item.url} /> : <Skeleton
+                      sx={{ bgcolor: 'grey.900' }}
+                      variant="rectangular"
+                      width={410}
+                      height={400}
+                      /> }
+                    </ImageContainer>
+                  </Link>
+                <TextContainer>
+                  { item.name ? <Link to={`/categories/${item.name}`}> <ProductName href='#' className='product__name'>{item.name}</ProductName></Link> : <Skeleton animation='wave' /> }
+                </TextContainer>
         </ItemContainer>
             )
           })}

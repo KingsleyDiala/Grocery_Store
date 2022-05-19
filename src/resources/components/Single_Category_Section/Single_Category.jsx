@@ -1,8 +1,10 @@
 import React from 'react'
 import styled from 'styled-components';
-import data from '../../Data/data';
+import data, { Vegetables } from '../../Data/data';
 import Widget_2 from '../Widget/Widget_2';
 import { Link } from 'react-router-dom';
+import FullCard from '../Reusable_Components/Full_Card';
+import { useParams } from 'react-router-dom';
 
 
 // STYLED COMPONENT
@@ -129,30 +131,25 @@ cursor: pointer;
 
 // JSX STRUCTURE
 
-const SingleCategory = () => {
+const SingleCategory = ({ CategoryName, setCart, setWishlist }) => {
+  const params = useParams();
+
   return (
     <SearchResult>
       <Container>
         <Widget_2 />
         <ContainerRight>
           <TopContainer>
-            <Text>Vegetables</Text>
+            <Text>Our {params.category} Catalogue </Text>
           </TopContainer>
           <MiddleContainer>
-            { data.map(item => { return (
-              <ItemContainer>
-              <ImageContainer>
-              <Image alt={item.alt} src={item.url} />
-              </ImageContainer>
-                  <TextContainer>
-                  <ProductPrice className='price'>€{item.price}</ProductPrice>
-                    <Link to='/product'>
-                      <ProductName href='#' className='product__name'> {item.name} </ProductName>
-                    </Link>
-                    <Button href='#' className='green__button__white add-to-cart'> Add to Cart </Button>
-                  </TextContainer>
-                </ItemContainer>
-            )})}
+            {
+              Vegetables.map((item, index) => {
+                return (
+                  <FullCard item={item} index={index} setCart={setCart} setWishlist={setWishlist}  />
+                )
+              })
+            }
           </MiddleContainer>
           <BottomContainer>
             <PageNumContainer>

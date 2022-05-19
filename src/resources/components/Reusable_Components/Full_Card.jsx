@@ -15,11 +15,11 @@ import ProductPage from "../../../Product_Page";
 
 
 const ItemContainer = styled.div`
-position: relative;
-padding-bottom: 20px;
+  position: relative;
+  padding-bottom: 20px;
   flex: 1 1 auto;
   height: 457px;
-  width: 193px;
+  max-width: 193px;
   display: flex;
   flex-direction: column;
   row-gap: 2rem;

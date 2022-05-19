@@ -67,7 +67,7 @@ const ImageContainer = styled.div`
   width: 100%;
   background-color: var(--light-grey-color);
   border-radius: 50%;
-  transition: all .5s ease;
+  transition: transform .5s ease;
   cursor: pointer;
   overflow: hidden;
   &:active {
@@ -81,6 +81,10 @@ const ImageContainer = styled.div`
 const Image = styled.img`
 width: 100%;
 height: auto;
+transition: transform 2s ease;
+&:hover {
+  transform: scale(1.05);
+}
 `
 const TextContainer = styled.div`
 `

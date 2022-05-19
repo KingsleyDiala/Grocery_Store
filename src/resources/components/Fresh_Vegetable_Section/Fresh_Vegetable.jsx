@@ -59,7 +59,7 @@ const BottomContainer = styled.div`
 
 // ============ JSX COMPONENT =========
 
-export const FreshVegetableComponent = (props, { setCart, setWishlist }) => {
+export const FreshVegetableComponent = ({ setCart, setWishlist }) => {
 
   return (
     <FeaturedItems>
@@ -81,9 +81,7 @@ export const FreshVegetableComponent = (props, { setCart, setWishlist }) => {
               customLeftArrow={ <ArrowLeft />}
               additionalTransfrom={0}
               arrows
-              autoPlay={props.deviceType === "mobile" ? true : false}
               autoPlaySpeed={4000}
-              deviceType={props.deviceType}
               centerMode={true}
               className="carousel"
               containerClass='container-padding-bottom'

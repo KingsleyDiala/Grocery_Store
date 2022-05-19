@@ -56,7 +56,7 @@ const BottomContainer = styled.div`
 
 // ============ JSX COMPONENT =========
 
-export const FeaturedItemsComponent = (props, { Cart, setCart, wishlist, setWishlist }) => {
+export const FeaturedItemsComponent = ({ Cart, setCart, wishlist, setWishlist }) => {
 
   return (
     <FeaturedItems>
@@ -79,10 +79,8 @@ export const FeaturedItemsComponent = (props, { Cart, setCart, wishlist, setWish
               customLeftArrow={ <ArrowLeft />}
               additionalTransfrom={0}
               arrows
-              autoPlay={props.deviceType === "mobile" ? true : false}
               autoPlaySpeed={4000}
-              deviceType={props.deviceType}
-              centerMode={true}
+              partialVisbile={true}
               className="carousel"
               containerClass='container-padding-bottom'
               dotListClass="dots"

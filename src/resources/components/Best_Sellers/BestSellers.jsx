@@ -62,7 +62,7 @@ const BottomContainer = styled.div`
 
 // ============ JSX COMPONENT =========
 
-export const BestSellerSection = (props, { setCart, setWishlist }) => {
+export const BestSellerSection = ({ setCart, setWishlist }) => {
 
   return (
     <FeaturedItems>
@@ -83,9 +83,7 @@ export const BestSellerSection = (props, { setCart, setWishlist }) => {
               customLeftArrow={ <ArrowLeft />}
               additionalTransfrom={0}
               arrows
-              autoPlay={props.deviceType === "mobile" ? true : false}
               autoPlaySpeed={4000}
-              deviceType={props.deviceType}
               centerMode={true}
               className="carousel"
               containerClass='container-padding-bottom'

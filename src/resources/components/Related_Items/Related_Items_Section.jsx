@@ -5,6 +5,10 @@ import { StyleSheetConsumer } from 'styled-components';
 import '../../containers/Product_Carousel/Product_Carousel'
 import data, { Vegetables } from '../../Data/data';
 import FullCard from '../Reusable_Components/Full_Card';
+import { responsive_6 } from '../Reusable_Components/Responsive';
+import Carousel from 'react-multi-carousel';
+import "react-multi-carousel/lib/styles.css";
+import { ArrowRight, ArrowLeft } from '../Reusable_Components/Arrow';
 
 // ==========  STYLED COMPONENT  ============
 const RelatedItems = styled.div`
@@ -15,6 +19,12 @@ const RelatedItems = styled.div`
   padding: 100px 10%;
   display: grid;
   place-content: center;
+    & .carousel {
+    height: fit-content;
+    padding-bottom: 40px;
+    padding-top: 10px;
+    padding-right: 20px;
+  }
   ` 
 const RelatedItemsContainer = styled.div`
   position: relative;
@@ -51,49 +61,6 @@ const BottomContainer = styled.div`
   padding: 40px 0;
   &::-webkit-scrollbar {
     display: none;
-  }
-  `
-const ArrowRight = styled.div`
-  flex: 1;
-  height: 56px;
-  width: 56px;
-  color: var(--light-color);
-  position: absolute;
-  bottom: 50%;
-  right: -1.5rem;
-  display: grid;
-  place-items: center;
-  font-size: 40px;
-  border-radius: 50%;
-  overflow: hidden;
-  background-color: var(--accent-color);
-  cursor: pointer;
-  z-index: 1;
-  transition: all .2s ease;
-  &:hover {
-    transform: scale(1.05);
-    box-shadow: 5px 5px 10px 3px rgba(0, 0, 0, .2);
-  }
-`
-const ArrowLeft = styled.div`
-  height: 56px;
-  width: 56px;
-  color: var(--light-color);
-  position: absolute;
-  left: -1.5rem;
-  bottom: 50%;
-  display: grid;
-  place-items: center;
-  font-size: 40px;
-  border-radius: 50%;
-  overflow: hidden;
-  background-color: var(--accent-color);
-  cursor: pointer;
-  z-index: 1;
-  transition: all .2s ease;
-    &:hover {
-    transform: scale(1.05);
-    box-shadow: 5px 5px 10px 3px rgba(0, 0, 0, .2);
   }
 `
 const ItemContainer = styled.div`
@@ -165,10 +132,6 @@ export const RelatedItemsComponent = ({ setCart, setWishlist }) => {
     <RelatedItems>
       <RelatedItemsContainer>
 
-          {/* ARROW RIGHT AND LEFT */}
-          <ArrowRight> <i class="uil uil-angle-right-b"></i> </ArrowRight>
-          <ArrowLeft className='arrow__left'><i class="uil uil-angle-left"></i></ArrowLeft>
-
         {/* ======= TOP CONTAINER ========= */}
         <TopContainer>
           <h4> Related Items </h4>
@@ -180,7 +143,32 @@ export const RelatedItemsComponent = ({ setCart, setWishlist }) => {
         {/* ========= BOTTOM CONTAINER ========= */}
         <BottomContainer className='bottom__container'>
 
-          { Vegetables.slice(10, 16).map((item, index) => {
+          <Carousel
+              customRightArrow={<ArrowRight />}
+              customLeftArrow={ <ArrowLeft />}
+              additionalTransfrom={0}
+              arrows
+              autoPlaySpeed={4000}
+              centerMode={false}
+              className="carousel"
+              containerClass='container-padding-bottom'
+              dotListClass="dots"
+              draggable
+              focusOnSelect={false}
+              infinite={true}
+              itemClass=""
+              keyBoardControl
+              minimumTouchDrag={80}
+              renderButtonGroupOutside={false}
+              renderDotsOutside={false}
+              responsive={responsive_6}
+              showDots={true}
+              sliderClass=""
+              slidesToSlide={3}
+              swipeable
+              customTransition=''
+            >
+              { Vegetables.slice(10, 26).map((item, index) => {
             return (
               <FullCard
               setCart={setCart}
@@ -190,6 +178,7 @@ export const RelatedItemsComponent = ({ setCart, setWishlist }) => {
               />
             )
           })}
+          </Carousel>
 
 
         </BottomContainer>

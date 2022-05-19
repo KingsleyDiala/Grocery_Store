@@ -57,7 +57,7 @@ const BottomContainer = styled.div`
 
 // ============ JSX COMPONENT =========
 
-export const DiaryAndMilkComponent = (props, { setCart, setWishlist, items }) => {
+export const DiaryAndMilkComponent = ({ setCart, setWishlist, items }) => {
 
   const data = Milk.filter(item => {return item.title.length <= 45}).slice(0, 6);
 
@@ -82,9 +82,7 @@ export const DiaryAndMilkComponent = (props, { setCart, setWishlist, items }) =>
               customLeftArrow={ <ArrowLeft />}
               additionalTransfrom={0}
               arrows
-              autoPlay={props.deviceType === "mobile" ? true : false}
               autoPlaySpeed={4000}
-              deviceType={props.deviceType}
               centerMode={true}
               className="carousel"
               containerClass='container-padding-bottom'

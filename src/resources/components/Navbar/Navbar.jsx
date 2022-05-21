@@ -6,6 +6,7 @@ import IconButton from '@mui/material/IconButton';
 import Badge from '@mui/material/Badge';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Favorite from '@mui/icons-material/Favorite';
+import { motion } from 'framer-motion'
 
 
 // =============  STYLED COMPONENT  ============
@@ -19,6 +20,7 @@ const Navbar = styled.nav`
   display: grid;
   place-items: center;
   z-index: 5;
+  overflow: hidden;
 `
 const NavContainer = styled.div`
   position: relative;
@@ -202,64 +204,95 @@ const cartBadge = () => {
   return (
     <Navbar>
       <NavContainer>
-        <ul>
+        <ul
+        >
 
           {/* ===========  TOGGLE OPEN  ========== */}
-          <li>
+          <motion.li
+            initial={{ y: -100 }}
+            animate={{ y: 0 }}
+            transition={{ delay: 1, duration: 1.5, type: "spring", bounce: .5 }}
+          >
             <a href="#">
             <MenuToggleOpen>
                 { <UilListUiAlt size='2rem' className='open__icon' />}
             </MenuToggleOpen>
             </a>
-          </li>
+          </motion.li>
 
           {/* =========  TOGGLE CLOSE  ============ */}
-          <li>
+          <motion.li
+            initial={{ y: -100 }}
+            animate={{ y: 0 }}
+            transition={{ delay: 1, duration: 1.5, type: "spring", bounce: .5 }}
+          >
             <a href="#">
               <MenuToggleClose>
                 { <UilTimes size='2rem' className='close__icon' />}
               </MenuToggleClose>
             </a>
-          </li>
+          </motion.li>
         
         {/* ======== LOGO  ========== */}
-        <li>
+          <motion.li
+            initial={{ y: -100 }}
+            animate={{ y: 0 }}
+            transition={{ delay: 1.6, duration: 1.5, type: "spring", bounce: .5 }}
+          >
             <Link to='/'>
               <div className="logo">
                   { <UilBitcoin color='var(--accent-color)' size='3rem' className='icon' /> }
               </div>
               </Link>
-        </li>
+        </motion.li>
 
 
       {/* =========  Search Bar  ========= */}
-      <li>
+          <motion.li
+          initial={{ y: -100 }}
+          animate={{ y: 0 }}
+          transition={{ delay: 1.7, duration: 1.5, type: "spring", bounce: .5 }}
+          >
           <NavSearchBar>
               { <UilSearch size='1.2rem' className='icon search_icon' /> }
               <SearchInput placeholder="Search food..." />
           </NavSearchBar>
-      </li>
+      </motion.li>
 
       {/* ====== Navigation Links ========== */}
 
         {/* ===========  USER ACCOUNT  ============ */}
-        <li>
+          <motion.li
+          initial={{ y: -100 }}
+          animate={{ y: 0 }}
+          transition={{ delay: 1.8, duration: 1.5, type: "spring", bounce: .5 }}
+          >
           <a href="#">
             <UserContainer>
               { <UilUser size='1.5rem' className='user icon' /> }
               <p>Sign in</p>
             </UserContainer>
           </a>
-        </li>
+        </motion.li>
 
         {/* ===========  Wishlist  ============ */}
-        <li>
+          <motion.li
+          initial={{ y: -100 }}
+          animate={{ y: 0 }}
+          transition={{ delay: 1.9, duration: 1.5, type: "spring", bounce: .5 }}
+          >
           <Link className="wishlist" to='/wishlist'>
             { wishlistBadge() } Wishlist
           </Link>
-        </li>
+        </motion.li>
       {/* ============  Shopping cart  ============= */}
-      <li className="wishlist"> { cartBadge() } €34.00</li>
+          <motion.li
+            initial={{ y: -100 }}
+            animate={{ y: 0 }}
+            transition={{ delay: 2, duration: 1.5, type: "spring", bounce: .5 }}
+            className="wishlist">
+            {cartBadge()} €34.00
+          </motion.li>
       </ul>
     </NavContainer>
     </Navbar>

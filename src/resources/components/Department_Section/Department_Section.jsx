@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { CategoryData } from '../../Data/data';
 import { Skeleton } from '@mui/material';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 // ==========  STYLED COMPONENT  ============
 const FeaturedItems = styled.div`
@@ -38,7 +39,7 @@ const TopContainer = styled.div`
     transform: scale(1.04);
   }
   `
-const BottomContainer = styled.div`
+const BottomContainer = styled(motion.div)`
   padding: 10px 0;
   width: auto;
   height: fit-content;
@@ -121,7 +122,12 @@ export const DepartmentSection = () => {
         </TopContainer>
 
         {/* ========= BOTTOM CONTAINER ========= */}
-        <BottomContainer>
+        <BottomContainer
+          initial={{ y: 300, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: false }}
+          transition={{ delay: .1, duration: 1.5, type:'tween' }}
+        >
 
           { CategoryData.map(item => {
             return (

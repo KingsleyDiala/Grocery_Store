@@ -86,7 +86,7 @@ export const ShowcaseComponent = () => {
         <Content
           initial={{ y: 300, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: false }}
+          viewport={{ once: true }}
           transition={{ duration: .5, type: "spring", bounce: 1 }}
         >
           <Image className="img" src="https://envato-shoebox-0.imgix.net/5e55/6f66-4f47-4a43-852c-eb9fdab71d7c/at+the+grocery+store+2.jpg?auto=compress%2Cformat&fit=max&mark=https%3A%2F%2Felements-assets.envato.com%2Fstatic%2Fwatermark2.png&markalign=center%2Cmiddle&markalpha=18&w=800&s=6029bab067c11a6a27d1d4d969206928" />
@@ -102,7 +102,7 @@ export const ShowcaseComponent = () => {
         <Content
           initial={{ y: 300, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: false }}
+          viewport={{ once: true }}
           transition={{ delay: .1, duration: .5, type: "spring", bounce: 1 }}
         >
           <Image src="https://envato-shoebox-0.imgix.net/63d9/0cf0-8b05-4e40-91a9-93e39b614786/ADM_9491.jpg?auto=compress%2Cformat&fit=max&mark=https%3A%2F%2Felements-assets.envato.com%2Fstatic%2Fwatermark2.png&markalign=center%2Cmiddle&markalpha=18&w=800&s=7f948643054087c3011e7ee717cba0c7" />
@@ -118,7 +118,7 @@ export const ShowcaseComponent = () => {
         <Content
           initial={{ y: 300, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: false }}
+          viewport={{ once: true }}
           transition={{ delay: .2, duration: .5, type: "spring", bounce: 1 }}
         >
           <Image src="https://elements-twenty20-photos-0.imgix.net/production/uploads/items/28a775f3-f295-4833-a6f1-58511c012d3e/source?auto=compress%2Cformat&fit=max&mark=https%3A%2F%2Felements-assets.envato.com%2Fstatic%2Fwatermark2.png&markalign=center%2Cmiddle&markalpha=18&w=800&s=3c6da9fcfe210946a37b657e775a3d09" />

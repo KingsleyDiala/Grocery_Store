@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 //  ===============  STYLED COMPONENT  ============
 const TopFooter = styled.section`
@@ -21,7 +22,7 @@ const FooterContainer = styled.div`
   justify-content: center;
   column-gap: 2rem;
 `
-const ContactContainer = styled.div`
+const ContactContainer = styled(motion.div)`
 display: flex;
 flex-direction: column;
 row-gap: .7rem;
@@ -75,7 +76,7 @@ transition: all .2s ease;
 `
 
 // =======================================
-const CategoryContainer = styled.div`
+const CategoryContainer = styled(motion.div)`
 display: flex;
 flex-direction: column;
 row-gap: 1rem;
@@ -142,7 +143,7 @@ transition: all .2s ease;
 `
 
 // ==========================================
-const CompanyContainer = styled.div`
+const CompanyContainer = styled(motion.div)`
 display: flex;
 flex-direction: column;
 row-gap: 1rem;
@@ -194,7 +195,7 @@ transition: all .2s ease;
 `
 
 // ==========================================
-const NewsletterContainer = styled.div`
+const NewsletterContainer = styled(motion.div)`
 display: flex;
 flex-direction: column;
 row-gap: 2rem;
@@ -241,7 +242,12 @@ export const TopFooterComponent = () => {
       <FooterContainer>
 
         {/* ===========  CONTACT CONTAINER  =============== */}
-        <ContactContainer>
+        <ContactContainer
+          initial={{ y: 300, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: false }}
+          transition={{ delay: .1, duration: 1.5, type:'tween' }}
+        >
         <Link to={'/'}> <Logo > <i class="uil uil-bitcoin"></i></Logo> </Link>
         <Location><i class="uil uil-map-marker"></i> Stotternheimer Str. 6 / 7, 99086 Erfurt</Location>
         <Telephone href='tel:0361-78988101'  ><i class="uil uil-phone"></i> 0361 78988101</Telephone>
@@ -249,7 +255,12 @@ export const TopFooterComponent = () => {
         </ContactContainer>
 
         {/* ===========  CATEGORY CONTAINER  =============== */}
-        <CategoryContainer>
+        <CategoryContainer
+          initial={{ y: 300, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: false }}
+          transition={{ delay: .2, duration: 1.5, type:'tween' }}
+        >
           <Title>Category</Title>
           <Diary href='#'>Diary</Diary>
           <FreshProduce href='#'>Fresh Produce</FreshProduce>
@@ -259,7 +270,12 @@ export const TopFooterComponent = () => {
         </CategoryContainer>
 
         {/* ===========  COMPANY CONTANER  =============== */}
-        <CompanyContainer>
+        <CompanyContainer
+          initial={{ y: 300, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: false }}
+          transition={{ delay: .3, duration: 1.5, type:'tween' }}
+        >
           <Title>Company</Title>
           <AboutUs href='#'>About Us</AboutUs>
           <Link to='/contact'>Contact</Link>
@@ -268,7 +284,12 @@ export const TopFooterComponent = () => {
         </CompanyContainer>
 
         {/* ===========  NEWSLETTER CONTAINER  =============== */}
-        <NewsletterContainer>
+        <NewsletterContainer
+          initial={{ y: 300, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: false }}
+          transition={{ delay: .4, duration: 1.5, type:'tween' }}
+        >
           <Title>Join Our Newsletter</Title>
           <Form action='Post'>
             <Label for='email'> Your Email</Label>

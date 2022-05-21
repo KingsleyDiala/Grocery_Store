@@ -7,6 +7,7 @@ import { ArrowLeft, ArrowRight } from '../Reusable_Components/Arrow';
 import { responsive } from '../Reusable_Components/Responsive';
 import Carousel from 'react-multi-carousel';
 import "react-multi-carousel/lib/styles.css";
+import { motion } from 'framer-motion'
 
 // ==========  STYLED COMPONENT  ============
 const FeaturedItems = styled.div`
@@ -17,7 +18,6 @@ const FeaturedItems = styled.div`
   padding: 100px 10%;
   display: grid;
   place-content: center;
-  overflow: hidden;
   & .carousel {
     height: fit-content;
     padding-bottom: 40px;
@@ -46,7 +46,7 @@ const TopContainer = styled.div`
     transform: scale(1.04);
   }
   `
-const BottomContainer = styled.div`
+const BottomContainer = styled(motion.div)`
   position: relative;
   display: flex;
   justify-content: center;
@@ -74,7 +74,12 @@ export const FreshVegetableComponent = ({ setCart, setWishlist }) => {
         </TopContainer>
 
         {/* ========= BOTTOM CONTAINER ========= */}
-        <BottomContainer>
+        <BottomContainer
+          initial={{ y: 300, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: .1, duration: 1.5, type:'tween' }}
+        >
 
           <Carousel
               customRightArrow={<ArrowRight />}

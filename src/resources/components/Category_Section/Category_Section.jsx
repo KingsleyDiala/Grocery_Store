@@ -3,34 +3,12 @@ import data, { CategoryData, Vegetables } from "../../Data/data";
 import FullCard from "../Reusable_Components/Full_Card";
 import { CategoryComponent } from "../Single_Components/Single_Components";
 import SearchWidget from "../Widget/Search_Widget";
+import { motion } from 'framer-motion';
 
 
 // STYLED COMPONENT
-const Category = styled.section`
-width: 100%;
-height: fit-content;
-top: 100px;
-position: relative;
-display: grid;
-place-content: center;
-padding: 100px 0;
-`;
-const Container = styled.div`
-height: fit-content;
-width: 1232px;
-display: flex;
-column-gap: 1rem;
-`;
 
-const ContainerRight = styled.div`
-display: flex;
-flex-direction: column;
-row-gap: 2rem;
-flex: 2.7;
-`;
-const TopContainer = styled.div``;
-const Text = styled.h5``;
-const MiddleContainer = styled.div`
+const MiddleContainer = styled(motion.div)`
 display: flex;
 flex-wrap: wrap;
 align-items: center;
@@ -96,32 +74,6 @@ const Button = styled.a`
   text-align: center;
   line-height: 35px;
 `
-const BottomContainer = styled.div`
-display: flex;
-align-items: center;
-`;
-const PageNumContainer = styled.div`
-display: flex;
-align-items: center;
-column-gap: .5rem;
-& i {
-  font-size: 25px;
-  color: var(--accent-color);
-  cursor: pointer;
-}
-`;
-const Number = styled.div`
-display: grid;
-place-content: center;
-width: 30px;
-height: 30px;
-border-radius: 3px;
-cursor: pointer;
-&:hover {
-  color: var(--light-color);
-  background-color: var(--accent-color);
-}
-`;
 
 
 
@@ -130,7 +82,12 @@ cursor: pointer;
 
 const CategorySection = ({ currentItems, setCart, setWishlist }) => {
   return (
-          <MiddleContainer>
+    <MiddleContainer
+      initial={{ y: 200, opacity: 0 }}
+      whileInView={{ y: 0, opacity: 1 }}
+      viewport={{ once: false }}
+      transition={{ delay: .5, duration: 1, type:'tween' }}
+    >
             {
               currentItems && currentItems.map((item, index) => {
                 return (

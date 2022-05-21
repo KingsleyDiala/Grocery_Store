@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import { CategoryData } from "../../Data/data"
 import styled from "styled-components"
 import { Link } from "react-router-dom"
+import { motion } from 'framer-motion'
 
 
 // ==========  STYLED COMPONENT  ============
@@ -11,7 +12,6 @@ const Category = styled.div`
   height: fit-content;
   display: grid;
   place-content: center;
-  overflow: hidden;
   ` 
 const Container = styled.div`
   width: 816px;
@@ -34,7 +34,7 @@ const TopContainer = styled.div`
     transform: scale(1.04);
   }
   `
-const BottomContainer = styled.div`
+const BottomContainer = styled(motion.div)`
   position: relative;
   display: flex;
   flex-wrap: wrap;
@@ -107,7 +107,12 @@ export const CategoryComponent = () => {
         </TopContainer>
 
         {/* ========= BOTTOM CONTAINER ========= */}
-        <BottomContainer>
+        <BottomContainer
+          initial={{ y: 200, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 1, duration: 1, type:'tween' }}
+        >
 
         {CategoryData.map(item => {
           return (

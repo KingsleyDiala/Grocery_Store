@@ -1,6 +1,7 @@
 
 import React from 'react'
-import styled from 'styled-components'
+import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
 const Container = styled.div`
 height: fit-content;
@@ -28,7 +29,7 @@ padding-bottom: 1rem;
 border-radius: 10px;
 padding-left: 1rem;
 `;
-const CheckBoxContainer = styled.label`
+const CheckBoxContainer = styled(motion.label)`
 display: flex;
 align-items: center;
 column-gap: 1rem;
@@ -50,37 +51,67 @@ const Widget_2 = () => {
           <Category>
           <Category>
             <Title>Brands</Title>
-            <CheckBoxContainer>
+          <CheckBoxContainer
+            initial={{ x: -200, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: .5, duration: 1, type:'tween' }}
+          >
             <Name></Name>
               <Option type='checkbox' ></Option>
               Bare
 
             </CheckBoxContainer>
-            <CheckBoxContainer>
+          <CheckBoxContainer
+            initial={{ x: -200, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: .6, duration: 1, type:'tween' }}
+          >
             <Name></Name>
               <Option type='checkbox' ></Option>
               Bake
 
             </CheckBoxContainer>
-            <CheckBoxContainer>
+          <CheckBoxContainer
+            initial={{ x: -200, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: .7, duration: 1, type:'tween' }}
+          >
             <Name></Name>
               <Option type='checkbox' ></Option>
               Gloomy
 
             </CheckBoxContainer>
-            <CheckBoxContainer>
+          <CheckBoxContainer
+            initial={{ x: -200, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: .8, duration: 1, type:'tween' }}
+          >
             <Name></Name>
               <Option type='checkbox' ></Option>
               Blawd
 
             </CheckBoxContainer>
-            <CheckBoxContainer>
+          <CheckBoxContainer
+            initial={{ x: -200, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: .9, duration: 1, type:'tween' }}
+          >
             <Name></Name>
               <Option type='checkbox' ></Option>
               Berky
 
             </CheckBoxContainer>
-            <CheckBoxContainer>
+          <CheckBoxContainer
+            initial={{ x: -200, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 1, duration: 1, type:'tween' }}
+          >
             <Name></Name>
               <Option type='checkbox' ></Option>
               Yurz

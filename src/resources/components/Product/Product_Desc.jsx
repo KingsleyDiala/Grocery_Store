@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
-import {NutritionTable} from "./Virtualized_Table";
+import { NutritionTable } from "./Virtualized_Table";
+import { motion } from 'framer-motion'
 
 
 
@@ -25,7 +26,7 @@ justify-content: space-between;
 column-gap: 3rem;
 padding: 60px 20px;
 `
-const LeftContainer = styled.div`
+const LeftContainer = styled(motion.div)`
 flex: 1;
 display: flex;
 flex-direction: column;
@@ -103,7 +104,7 @@ border-radius: 10px;
   box-shadow: 0px 10px 10px 1px rgba(0, 0, 0, .1);
 }
 `
-const RightContainer = styled.div`
+const RightContainer = styled(motion.div)`
 flex: 2.5;
 padding-right: 2rem;
 height: fit-content;
@@ -144,13 +145,23 @@ export const ProductDescriptionComponent = ({ product }) => {
   return (
     <ProductDescription>
       <Container>
-        <LeftContainer>
+        <LeftContainer
+          initial={{ y: 200, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          viewport={{ once: false }}
+          transition={{ delay: .1, duration: 1, type:'tween' }}
+        >
           <Description onClick={() => handleClick(1)} >Description</Description>
           <NutritionFacts onClick={() => handleClick(2)} >Nutrition Facts</NutritionFacts>
           <Features onClick={() => handleClick(3)} >Features</Features>
           <ProducesOf onClick={() => handleClick(4)} >Produces of</ProducesOf>
         </LeftContainer>
-        <RightContainer>
+        <RightContainer
+          initial={{ y: 200, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          viewport={{ once: false }}
+          transition={{ delay: .5, duration: 1, type:'tween' }}
+        >
             { textToDisplay() }
         </RightContainer>
       </Container>

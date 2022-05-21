@@ -9,6 +9,7 @@ import { responsive_6 } from '../Reusable_Components/Responsive';
 import Carousel from 'react-multi-carousel';
 import "react-multi-carousel/lib/styles.css";
 import { ArrowRight, ArrowLeft } from '../Reusable_Components/Arrow';
+import { motion } from 'framer-motion';
 
 // ==========  STYLED COMPONENT  ============
 const RelatedItems = styled.div`
@@ -48,7 +49,7 @@ const TopContainer = styled.div`
     transform: scale(1.04);
   }
   `
-const BottomContainer = styled.div`
+const BottomContainer = styled(motion.div)`
   height: fit-content;
   width: auto;
   position: relative;
@@ -141,7 +142,12 @@ export const RelatedItemsComponent = ({ setCart, setWishlist }) => {
         </TopContainer>
 
         {/* ========= BOTTOM CONTAINER ========= */}
-        <BottomContainer className='bottom__container'>
+        <BottomContainer
+          initial={{ y: 300, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: .1, duration: 1.5, type:'tween' }}
+          className='bottom__container'>
 
           <Carousel
               customRightArrow={<ArrowRight />}

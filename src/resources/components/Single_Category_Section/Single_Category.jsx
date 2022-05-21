@@ -1,10 +1,11 @@
 import React from 'react'
 import styled from 'styled-components';
 import FullCard from '../Reusable_Components/Full_Card';
+import { motion } from 'framer-motion';
 
 
 
-const MiddleContainer = styled.div`
+const MiddleContainer = styled(motion.div)`
 display: flex;
 flex-wrap: wrap;
 align-items: center;
@@ -79,7 +80,12 @@ const Button = styled.a`
 const SingleCategory = ({ currentItems, setCart, setWishlist }) => {
 
   return (
-          <MiddleContainer>
+    <MiddleContainer
+      initial={{ y: 200, opacity: 0 }}
+      whileInView={{ y: 0, opacity: 1 }}
+      viewport={{ once: false }}
+      transition={{ delay: .3, duration: 1, type:'tween' }}
+    >
             {
               currentItems && currentItems.map((item, index) => {
                 return (

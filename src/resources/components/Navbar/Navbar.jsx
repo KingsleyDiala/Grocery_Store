@@ -211,7 +211,7 @@ const cartBadge = () => {
           <motion.li
             initial={{ y: -100 }}
             animate={{ y: 0 }}
-            transition={{ delay: 1, duration: 1.5, type: "spring", bounce: .5 }}
+            transition={{ delay: .5, duration: 1.5, type: "spring", bounce: .5 }}
           >
             <a href="#">
             <MenuToggleOpen>
@@ -224,7 +224,7 @@ const cartBadge = () => {
           <motion.li
             initial={{ y: -100 }}
             animate={{ y: 0 }}
-            transition={{ delay: 1, duration: 1.5, type: "spring", bounce: .5 }}
+            transition={{ delay: .6, duration: 1.5, type: "spring", bounce: .5 }}
           >
             <a href="#">
               <MenuToggleClose>
@@ -237,7 +237,7 @@ const cartBadge = () => {
           <motion.li
             initial={{ y: -100 }}
             animate={{ y: 0 }}
-            transition={{ delay: 1.6, duration: 1.5, type: "spring", bounce: .5 }}
+            transition={{ delay: .7, duration: 1.5, type: "spring", bounce: .5 }}
           >
             <Link to='/'>
               <div className="logo">
@@ -251,7 +251,7 @@ const cartBadge = () => {
           <motion.li
           initial={{ y: -100 }}
           animate={{ y: 0 }}
-          transition={{ delay: 1.7, duration: 1.5, type: "spring", bounce: .5 }}
+          transition={{ delay: .8, duration: 1.5, type: "spring", bounce: .5 }}
           >
           <NavSearchBar>
               { <UilSearch size='1.2rem' className='icon search_icon' /> }
@@ -265,7 +265,7 @@ const cartBadge = () => {
           <motion.li
           initial={{ y: -100 }}
           animate={{ y: 0 }}
-          transition={{ delay: 1.8, duration: 1.5, type: "spring", bounce: .5 }}
+          transition={{ delay: .9, duration: 1.5, type: "spring", bounce: .5 }}
           >
           <a href="#">
             <UserContainer>
@@ -279,7 +279,7 @@ const cartBadge = () => {
           <motion.li
           initial={{ y: -100 }}
           animate={{ y: 0 }}
-          transition={{ delay: 1.9, duration: 1.5, type: "spring", bounce: .5 }}
+          transition={{ delay: 1, duration: 1.5, type: "spring", bounce: .5 }}
           >
           <Link className="wishlist" to='/wishlist'>
             { wishlistBadge() } Wishlist
@@ -289,7 +289,7 @@ const cartBadge = () => {
           <motion.li
             initial={{ y: -100 }}
             animate={{ y: 0 }}
-            transition={{ delay: 2, duration: 1.5, type: "spring", bounce: .5 }}
+            transition={{ delay: 1.1, duration: 1.5, type: "spring", bounce: .5 }}
             className="wishlist">
             {cartBadge()} €34.00
           </motion.li>

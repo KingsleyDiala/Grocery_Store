@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import './App.css';
 import Home from "../src/Pages/Home";
 import ProductPage from '../src/Pages/Product_Page';
-import CategoryPage from "../src/Pages/Category_Page";
+import CategoryPage from "../src/Pages/Categories";
 import SearchPage from '../src/Pages/Search_Page';
 import { Route, Routes } from "react-router-dom";
 import { NavbarComponent } from "./resources/components/Navbar/Navbar";

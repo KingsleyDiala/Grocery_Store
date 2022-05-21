@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import CategorySection from './Category_Section';
 import { CategoryComponent } from '../Single_Components/Single_Components';
+import { motion } from 'framer-motion'
 
 //  ============== STYLED COMPONENT =================
 const Category = styled.section`
@@ -24,13 +25,14 @@ display: flex;
 column-gap: 1rem;
 `;
 
-const ContainerRight = styled.div`
+const ContainerRight = styled(motion.div)`
 display: flex;
 flex-direction: column;
 row-gap: 2rem;
 flex: 2.7;
 `;
-const TopContainer = styled.div``;
+const TopContainer = styled(motion.div)`
+`;
 const Text = styled.h5``;
 const BottomContainer = styled.div`
 display: flex;
@@ -126,7 +128,12 @@ export default function AllCategories ({ cart, setCart, wishlist, setWishlist })
         <SearchWidget />
         <ContainerRight>
           <CategoryComponent />
-          <TopContainer>
+          <TopContainer
+            initial={{ y: 200, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: .1, duration: 1, type:'tween' }}
+          >
             <Text>Explore these items</Text>
           </TopContainer>
           <CategorySection

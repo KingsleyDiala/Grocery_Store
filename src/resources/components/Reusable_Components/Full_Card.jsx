@@ -5,6 +5,7 @@ import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
 import Favorite from '@mui/icons-material/Favorite';
 import { Link, useLocation } from "react-router-dom";
 import { Skeleton } from "@mui/material";
+import { motion } from 'framer-motion';
 
 
 
@@ -13,7 +14,7 @@ import { Skeleton } from "@mui/material";
 // =================  STYLED COMPONENT  ========================
 
 
-const ItemContainer = styled.div`
+const ItemContainer = styled(motion.div)`
   position: relative;
   padding-bottom: 20px;
   flex: 1 1 auto;
@@ -154,7 +155,12 @@ const FullCard = ({ index, cart, setCart, item, wishlist, setWishlist }) => {
 
 
   return (
-    <ItemContainer key={index}>
+    <ItemContainer
+      initial={{ y: 200, opacity: 0 }}
+      whileInView={{ y: 0, opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{ delay: .1 , duration: 1, type:'tween' }}
+      key={index}>
               <ImageContainer className="image__container">
                 <Link to={`/product/${item.id}`}>
                   { item.image ? <Image src={item.image} alt={item.name} /> : <Skeleton animation='wave'

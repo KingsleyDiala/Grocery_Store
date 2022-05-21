@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { useState } from 'react'
 import * as React from 'react';
 import { Divider, ListItem, Skeleton } from "@mui/material";
+import { motion } from 'framer-motion'
 
 
 
@@ -22,7 +23,7 @@ display: flex;
 align-items: center;
 justify-content: space-between;
 `
-const LeftContainer = styled.div`
+const LeftContainer = styled(motion.div)`
 width: 500px;
 height: 100%;
 background-color: var(--light-color);
@@ -45,7 +46,7 @@ transition: .5s transform ease;
   transform: scale(1.05);
 }
 `
-const RightContainer = styled.div`
+const RightContainer = styled(motion.div)`
 width: 608px;
 display: flex;
 flex-direction: column;
@@ -187,10 +188,20 @@ export const ProductHeadComponent = ({ setCart, setWishlist, product }) => {
   return (
     <ProductHead key={product.id}>
       <Container>
-        <LeftContainer>
+        <LeftContainer
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          viewport={{ once: false }}
+          transition={{ delay: .1, duration: 1, type:'tween' }}
+        >
           { product.image ? <Image src={product.image} alt={product.name} /> : <Skeleton animation='wave' variant="rect" width={500} height={600} /> }
         </LeftContainer>
-        <RightContainer>
+        <RightContainer
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          viewport={{ once: false }}
+          transition={{ delay: .5, duration: 1, type:'tween' }}
+        >
             { product ? <ProductName>{product.title}</ProductName> : <Skeleton width='80%' height={60} animation='wave' />}
             <ProductPrice>
               { product ? <Price>€{product.price}</Price> : <Skeleton animation='wave' height={60} width='20%' /> }
@@ -205,7 +216,7 @@ export const ProductHeadComponent = ({ setCart, setWishlist, product }) => {
             <Divider sx={{ width: '100%', marginTop: 1.5, marginBottom: 3}} />
             { product ? <QuantityContainer>
               <Decrement onClick={decrement}><i class="uil uil-minus"></i></Decrement>
-              <Quantity>{quantity}</Quantity>
+            <Quantity>{quantity}</Quantity>
               <Increment onClick={increment}><i class="uil uil-plus"></i></Increment>
             </QuantityContainer> : <Skeleton animation='wave' sx={{ marginBottom: 4, width:'30%', height: 90 }} /> }
             { product ? <AddToCart onClick={addToCart} className='green__button'>Add to Cart</AddToCart> : <Skeleton animation='wave' height={80} />}

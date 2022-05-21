@@ -15,10 +15,9 @@ const FeaturedItems = styled.div`
   padding: 100px 10%;
   display: grid;
   place-content: center;
-  overflow: hidden;
   ` 
 const FeaturedItemsContainer = styled.div`
-position: relative;
+  position: relative;
   width: 1260px;
   height: fit-content;
   display: flex;
@@ -125,7 +124,7 @@ export const DepartmentSection = () => {
         <BottomContainer
           initial={{ y: 300, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: false }}
+          viewport={{ once: true }}
           transition={{ delay: .1, duration: 1.5, type:'tween' }}
         >
 

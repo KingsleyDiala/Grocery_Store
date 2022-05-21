@@ -245,7 +245,7 @@ export const TopFooterComponent = () => {
         <ContactContainer
           initial={{ y: 300, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: false }}
+          viewport={{ once: true }}
           transition={{ delay: .1, duration: 1.5, type:'tween' }}
         >
         <Link to={'/'}> <Logo > <i class="uil uil-bitcoin"></i></Logo> </Link>
@@ -258,7 +258,7 @@ export const TopFooterComponent = () => {
         <CategoryContainer
           initial={{ y: 300, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: false }}
+          viewport={{ once: true }}
           transition={{ delay: .2, duration: 1.5, type:'tween' }}
         >
           <Title>Category</Title>
@@ -273,7 +273,7 @@ export const TopFooterComponent = () => {
         <CompanyContainer
           initial={{ y: 300, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: false }}
+          viewport={{ once: true }}
           transition={{ delay: .3, duration: 1.5, type:'tween' }}
         >
           <Title>Company</Title>
@@ -287,7 +287,7 @@ export const TopFooterComponent = () => {
         <NewsletterContainer
           initial={{ y: 300, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: false }}
+          viewport={{ once: true }}
           transition={{ delay: .4, duration: 1.5, type:'tween' }}
         >
           <Title>Join Our Newsletter</Title>

@@ -1,7 +1,7 @@
-import '../src/resources/reset.css'
-import './App.css';
-import { LinkNavigationComponent } from './resources/components/Link_Navigation/Link-Navigation';
-import CategorySection from './resources/components/Category_Section/Category_Section';
+import '../resources/reset.css';
+import '../App.css';
+import { LinkNavigationComponent } from '../resources/components/Link_Navigation/Link-Navigation';
+import AllCategories from '../resources/components/Category_Section/Paginantion_Categ_sec';
 
 function CategoryPage ({ setCart, setWishlist }) {
   return (
@@ -14,7 +14,7 @@ function CategoryPage ({ setCart, setWishlist }) {
         />
 
         {/* =========== SEARCH RESULT SECTION ========== */}
-        <CategorySection setCart={setCart} setWishlist={setWishlist} />
+        <AllCategories setCart={setCart} setWishlist={setWishlist} />
     </div>
   )
 }

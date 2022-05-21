@@ -1,9 +1,8 @@
-import '../src/resources/reset.css'
-import './App.css';
-import { LinkNavigationComponent } from './resources/components/Link_Navigation/Link-Navigation';
-import Search_Result from './resources/components/Search_Result_Section/Search_Result';
-import SingleCategory from './resources/components/Single_Category_Section/Single_Category';
+import '../resources/reset.css';
+import '../App.css';
+import { LinkNavigationComponent } from '../resources/components/Link_Navigation/Link-Navigation';
 import { useParams } from 'react-router-dom';
+import PaginatedItems from '../resources/components/Single_Category_Section/pagi_single_category';
 
 function Category ({ setCart, setWishlist }) {
   // get the parameter from url
@@ -19,7 +18,7 @@ function Category ({ setCart, setWishlist }) {
         />
 
         {/* =========== SEARCH RESULT SECTION ========== */}
-        <SingleCategory setCart={setCart} setWishlist={setWishlist} />
+        <PaginatedItems setCart={setCart} setWishlist={setWishlist} />
     </div>
   )
 }

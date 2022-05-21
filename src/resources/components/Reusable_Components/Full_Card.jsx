@@ -5,7 +5,6 @@ import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
 import Favorite from '@mui/icons-material/Favorite';
 import { Link, useLocation } from "react-router-dom";
 import { Skeleton } from "@mui/material";
-import ProductPage from "../../../Product_Page";
 
 
 

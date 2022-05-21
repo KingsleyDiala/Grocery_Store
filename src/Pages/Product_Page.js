@@ -1,12 +1,12 @@
-import '../src/resources/reset.css'
-import './App.css';
-import { DepartmentSection } from './resources/components/Department_Section/Department_Section';
-import { LinkNavigationComponent } from './resources/components/Link_Navigation/Link-Navigation';
-import { ProductHeadComponent } from './resources/components/Product/Product_Head';
-import { ProductDescriptionComponent } from './resources/components/Product/Product_Desc';
-import { RelatedItemsComponent } from './resources/components/Related_Items/Related_Items_Section';
+import '../resources/reset.css';
+import '../App.css';
+import { DepartmentSection } from '../resources/components/Department_Section/Department_Section';
+import { LinkNavigationComponent } from '../resources/components/Link_Navigation/Link-Navigation';
+import { ProductHeadComponent } from '../resources/components/Product/Product_Head';
+import { ProductDescriptionComponent } from '../resources/components/Product/Product_Desc';
+import { RelatedItemsComponent } from '../resources/components/Related_Items/Related_Items_Section';
 import { useParams } from 'react-router-dom';
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 
 
 const ProductPage = ({ setCart, setWishlist }) => {

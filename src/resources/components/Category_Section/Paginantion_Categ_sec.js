@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import ReactPaginate from 'react-paginate';
 import { Vegetables } from '../../Data/data';
-import SearchResultContainer from './Search_Result';
-import styled from 'styled-components';
 import SearchWidget from '../Widget/Search_Widget';
+import { useParams } from 'react-router-dom';
+import styled from 'styled-components';
+import CategorySection from './Category_Section';
+import { CategoryComponent } from '../Single_Components/Single_Components';
 
-
-
-// =====================  STYLED COMPONENT  ========================
-
-const SearchResult = styled.section`
+//  ============== STYLED COMPONENT =================
+const Category = styled.section`
 width: 100%;
 height: fit-content;
 top: 100px;
@@ -37,7 +36,6 @@ const BottomContainer = styled.div`
 display: flex;
 align-items: center;
 `;
-
 const PageNumContainer = styled.div`
 & .number__container {
 display: flex;
@@ -94,15 +92,14 @@ transition: all .2s ease;
 
 
 
+// ============  PAGINATION COMPONENT ============
 
-//  ==================  JAVASCRIPT LOGIC  =================
-
-
-// passing vegetable as a variable of items
 const items = Vegetables;
-const itemsPerPage = 12
+const itemsPerPage = 12;
 
-function PaginatedItems({ text, cart, setCart, wishlist, setWishlist }) {
+export default function AllCategories ({ cart, setCart, wishlist, setWishlist }) {
+  const params = useParams();
+  
   // We start with an empty list of items.
   const [currentItems, setCurrentItems] = useState(null);
   const [pageCount, setPageCount] = useState(0);
@@ -115,7 +112,7 @@ function PaginatedItems({ text, cart, setCart, wishlist, setWishlist }) {
     const endOffset = itemOffset + itemsPerPage;
     setCurrentItems(items.slice(itemOffset, endOffset));
     setPageCount(Math.ceil(items.length / itemsPerPage));
-  }, [itemOffset, itemsPerPage]);
+  }, [itemOffset]);
 
   // Invoke when user click to request another page.
   const handlePageClick = (event) => {
@@ -124,23 +121,24 @@ function PaginatedItems({ text, cart, setCart, wishlist, setWishlist }) {
   };
 
   return (
-    <SearchResult>
+    <Category>
       <Container>
         <SearchWidget />
         <ContainerRight>
+          <CategoryComponent />
           <TopContainer>
-            <Text>{text}</Text>
+            <Text>Explore these items</Text>
           </TopContainer>
-          <SearchResultContainer
+          <CategorySection
             currentItems={currentItems}
-            cart={cart}
-            setCart={setCart}
             wishlist={wishlist}
             setWishlist={setWishlist}
+            cart={cart}
+            setCart={setCart}
           />
           <BottomContainer>
             <PageNumContainer>
-            <ReactPaginate
+              <ReactPaginate
                 breakLabel="..."
                 nextLabel={<i class="uil uil-angle-right"></i>}
                 onPageChange={handlePageClick}
@@ -156,8 +154,6 @@ function PaginatedItems({ text, cart, setCart, wishlist, setWishlist }) {
           </BottomContainer>
         </ContainerRight>
       </Container>
-    </SearchResult>
+    </Category>
   );
 }
-
-export default PaginatedItems;

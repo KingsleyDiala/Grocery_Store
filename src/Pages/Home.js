@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react';
-import '../src/resources/reset.css'
-import './App.css';
-import { HeroComponent } from './resources/components/Hero/Hero';
-import { ShowcaseComponent } from './resources/components/Showcase/Showcase';
-import { FeaturedItemsComponent} from './resources/components/Featured_Items/Featured_Items.jsx'
-import { BestSellerSection } from './resources/components/Best_Sellers/BestSellers.jsx'
-import { FreshVegetableComponent} from './resources/components/Fresh_Vegetable_Section/Fresh_Vegetable';
-import { DiaryAndMilkComponent } from './resources/components/Diary_and_Milk/Diary_and_Milk';
-import { DepartmentSection } from './resources/components/Department_Section/Department_Section';
+import '../resources/reset.css';
+import '../App.css';
+import { HeroComponent } from '../resources/components/Hero/Hero';
+import { ShowcaseComponent } from '../resources/components/Showcase/Showcase';
+import { FeaturedItemsComponent} from '../resources/components/Featured_Items/Featured_Items.jsx'
+import { BestSellerSection } from '../resources/components/Best_Sellers/BestSellers.jsx'
+import { FreshVegetableComponent} from '../resources/components/Fresh_Vegetable_Section/Fresh_Vegetable';
+import { DiaryAndMilkComponent } from '../resources/components/Diary_and_Milk/Diary_and_Milk';
+import { DepartmentSection } from '../resources/components/Department_Section/Department_Section';
 
 
 function Home({ cart, setCart, wishlist, setWishlist }) {

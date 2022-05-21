@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import ReactPaginate from 'react-paginate';
 import { Vegetables } from '../../Data/data';
-import SearchResultContainer from './Search_Result';
+import Widget_2 from '../Widget/Widget_2';
+import { useParams } from 'react-router-dom';
+import SingleCategory from './Single_Category';
 import styled from 'styled-components';
-import SearchWidget from '../Widget/Search_Widget';
 
-
-
-// =====================  STYLED COMPONENT  ========================
-
+//  ============== STYLED COMPONENT =================
 const SearchResult = styled.section`
 width: 100%;
 height: fit-content;
@@ -37,7 +35,6 @@ const BottomContainer = styled.div`
 display: flex;
 align-items: center;
 `;
-
 const PageNumContainer = styled.div`
 & .number__container {
 display: flex;
@@ -90,19 +87,31 @@ transition: all .2s ease;
   }
 
 `;
+const Number = styled.div`
+display: grid;
+place-content: center;
+width: 30px;
+height: 30px;
+border-radius: 3px;
+cursor: pointer;
+&:hover {
+  color: var(--light-color);
+  background-color: var(--accent-color);
+}
+`;
 
 
 
 
 
-//  ==================  JAVASCRIPT LOGIC  =================
+// ============  PAGINATION COMPONENT ============
 
-
-// passing vegetable as a variable of items
 const items = Vegetables;
-const itemsPerPage = 12
+const itemsPerPage = 12;
 
-function PaginatedItems({ text, cart, setCart, wishlist, setWishlist }) {
+export default function PaginatedItems({ cart, setCart, wishlist, setWishlist }) {
+  const params = useParams();
+  
   // We start with an empty list of items.
   const [currentItems, setCurrentItems] = useState(null);
   const [pageCount, setPageCount] = useState(0);
@@ -115,7 +124,7 @@ function PaginatedItems({ text, cart, setCart, wishlist, setWishlist }) {
     const endOffset = itemOffset + itemsPerPage;
     setCurrentItems(items.slice(itemOffset, endOffset));
     setPageCount(Math.ceil(items.length / itemsPerPage));
-  }, [itemOffset, itemsPerPage]);
+  }, [itemOffset]);
 
   // Invoke when user click to request another page.
   const handlePageClick = (event) => {
@@ -126,38 +135,36 @@ function PaginatedItems({ text, cart, setCart, wishlist, setWishlist }) {
   return (
     <SearchResult>
       <Container>
-        <SearchWidget />
+        <Widget_2 />
         <ContainerRight>
           <TopContainer>
-            <Text>{text}</Text>
+            <Text>Our {params.category} Catalogue </Text>
           </TopContainer>
-          <SearchResultContainer
+          <SingleCategory
             currentItems={currentItems}
-            cart={cart}
-            setCart={setCart}
             wishlist={wishlist}
             setWishlist={setWishlist}
+            cart={cart}
+            setCart={setCart}
           />
           <BottomContainer>
             <PageNumContainer>
-            <ReactPaginate
-                breakLabel="..."
-                nextLabel={<i class="uil uil-angle-right"></i>}
-                onPageChange={handlePageClick}
-                pageRangeDisplayed={5}
-                pageCount={pageCount}
-                previousLabel={<i class="uil uil-angle-left"></i>}
-                renderOnZeroPageCount={null}
-                containerClassName='number__container'
-                pageLinkClassName='number'
-                activeLinkClassName='active__link'
-          />
-            </PageNumContainer>
+              <ReactPaginate
+                  breakLabel="..."
+                  nextLabel={<i class="uil uil-angle-right"></i>}
+                  onPageChange={handlePageClick}
+                  pageRangeDisplayed={5}
+                  pageCount={pageCount}
+                  previousLabel={<i class="uil uil-angle-left"></i>}
+                  renderOnZeroPageCount={null}
+                  containerClassName='number__container'
+                  pageLinkClassName='number'
+                  activeLinkClassName='active__link'
+                />
+              </PageNumContainer>
           </BottomContainer>
         </ContainerRight>
       </Container>
     </SearchResult>
   );
 }
-
-export default PaginatedItems;

@@ -1,37 +1,9 @@
 import React from 'react'
 import styled from 'styled-components';
-import data, { Vegetables } from '../../Data/data';
-import Widget_2 from '../Widget/Widget_2';
-import { Link } from 'react-router-dom';
 import FullCard from '../Reusable_Components/Full_Card';
-import { useParams } from 'react-router-dom';
 
 
-// STYLED COMPONENT
-const SearchResult = styled.section`
-width: 100%;
-height: fit-content;
-top: 100px;
-position: relative;
-display: grid;
-place-content: center;
-padding: 100px 0;
-`;
-const Container = styled.div`
-height: fit-content;
-width: 1232px;
-display: flex;
-column-gap: 1rem;
-`;
 
-const ContainerRight = styled.div`
-display: flex;
-flex-direction: column;
-row-gap: 2rem;
-flex: 2.7;
-`;
-const TopContainer = styled.div``;
-const Text = styled.h5``;
 const MiddleContainer = styled.div`
 display: flex;
 flex-wrap: wrap;
@@ -98,73 +70,24 @@ const Button = styled.a`
   text-align: center;
   line-height: 35px;
 `
-const BottomContainer = styled.div`
-display: flex;
-align-items: center;
-`;
-const PageNumContainer = styled.div`
-display: flex;
-align-items: center;
-column-gap: .5rem;
-& i {
-  font-size: 25px;
-  color: var(--accent-color);
-  cursor: pointer;
-}
-`;
-const Number = styled.div`
-display: grid;
-place-content: center;
-width: 30px;
-height: 30px;
-border-radius: 3px;
-cursor: pointer;
-&:hover {
-  color: var(--light-color);
-  background-color: var(--accent-color);
-}
-`;
-
 
 
 
 
 // JSX STRUCTURE
 
-const SingleCategory = ({ CategoryName, setCart, setWishlist }) => {
-  const params = useParams();
+const SingleCategory = ({ currentItems, setCart, setWishlist }) => {
 
   return (
-    <SearchResult>
-      <Container>
-        <Widget_2 />
-        <ContainerRight>
-          <TopContainer>
-            <Text>Our {params.category} Catalogue </Text>
-          </TopContainer>
           <MiddleContainer>
             {
-              Vegetables.map((item, index) => {
+              currentItems && currentItems.map((item, index) => {
                 return (
                   <FullCard item={item} index={index} setCart={setCart} setWishlist={setWishlist}  />
                 )
               })
             }
           </MiddleContainer>
-          <BottomContainer>
-            <PageNumContainer>
-            <i class="uil uil-angle-left"></i>
-            <Number>1</Number>
-            <Number>2</Number>
-            <Number>3</Number>
-            <Number>4</Number>
-            <Number>5</Number>
-            <i class="uil uil-angle-right"></i>
-            </PageNumContainer>
-          </BottomContainer>
-        </ContainerRight>
-      </Container>
-    </SearchResult>
   )
 }
 

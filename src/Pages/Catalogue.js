@@ -1,7 +1,7 @@
-import '../src/resources/reset.css'
-import './App.css';
-import { LinkNavigationComponent } from './resources/components/Link_Navigation/Link-Navigation';
-import PaginatedItems from './resources/components/Search_Result_Section/pagination';
+import '../resources/reset.css'
+import '../App.css';
+import { LinkNavigationComponent } from '../resources/components/Link_Navigation/Link-Navigation';
+import PaginatedItems from '../resources/components/Search_Result_Section/pagination';
 
 
 function Catalogue ({ cart, setCart, wishlist, setWishlist }) {

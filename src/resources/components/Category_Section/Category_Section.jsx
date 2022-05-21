@@ -128,39 +128,17 @@ cursor: pointer;
 
 // JSX STRUCTURE COMPONENT
 
-const CategorySection = ({ setCart, setWishlist }) => {
+const CategorySection = ({ currentItems, setCart, setWishlist }) => {
   return (
-    <Category>
-      <Container>
-        <SearchWidget />
-        <ContainerRight>
-          <CategoryComponent />
-          <TopContainer>
-            <Text>Explore these items</Text>
-          </TopContainer>
           <MiddleContainer>
             {
-              Vegetables.map((item, index) => {
+              currentItems && currentItems.map((item, index) => {
                 return (
                   <FullCard item={item} index={index} setCart={setCart} setWishlist={setWishlist} />
                 )
               })
             }
           </MiddleContainer>
-          <BottomContainer>
-            <PageNumContainer>
-            <i class="uil uil-angle-left"></i>
-            <Number>1</Number>
-            <Number>2</Number>
-            <Number>3</Number>
-            <Number>4</Number>
-            <Number>5</Number>
-            <i class="uil uil-angle-right"></i>
-            </PageNumContainer>
-          </BottomContainer>
-        </ContainerRight>
-      </Container>
-    </Category>
   )
 }
 

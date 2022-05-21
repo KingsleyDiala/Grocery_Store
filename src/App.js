@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from "react";
 import './App.css';
-import Home from "./Home";
-import ProductPage from './Product_Page';
-import CategoryPage from "./Category_Page";
-import SearchPage from './Search_Page';
+import Home from "../src/Pages/Home";
+import ProductPage from '../src/Pages/Product_Page';
+import CategoryPage from "../src/Pages/Category_Page";
+import SearchPage from '../src/Pages/Search_Page';
 import { Route, Routes } from "react-router-dom";
 import { NavbarComponent } from "./resources/components/Navbar/Navbar";
 import { TopFooterComponent } from "./resources/components/Top_Footer/Footer";
 import { BottomFooterComponent } from "./resources/components/Bottom_Footer/Bottom_Footer";
-import Category from "./Category";
-import Catalogue from "./Catalogue";
-import Wishlist from "./Wishlist";
-import Contact from "./Contact";
+import Category from "../src/Pages/Category";
+import Catalogue from "../src/Pages/Catalogue";
+import Wishlist from "../src/Pages/Wishlist";
+import Contact from "../src/Pages/Contact";
 
 
 const App = () => {

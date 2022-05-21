@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import styled from 'styled-components';
 import { images } from "../../Data/data";
 import { Link } from "react-router-dom";
+import { motion } from 'framer-motion'
 
 
 // ============  STYLED COMPONENTS  ===========
@@ -30,7 +31,7 @@ const HeroItem = styled.div`
   width: 100%;
   height: 100%;
 `
-const Image = styled.img`
+const Image = styled(motion.img)`
 position: relative;
 width: 100%;
 height: 100%;
@@ -104,7 +105,7 @@ const Left = styled.div`
     transform: scale(.9);
   }
 `
-const Button = styled.button`
+const Button = styled(motion.button)`
 &:active {
   transform: scale(.99);
 }
@@ -128,11 +129,11 @@ align-items: center;
 
 const slider = {
 opacity: '1',
-transition: 'all 1s ease',
+transition: 'all 0s ease',
 }
 const active = {
 opacity: '0',
-transitionDuration: '1s',
+transitionDuration: '0s',
 transform: 'scale(0.9)'
 }
 
@@ -173,13 +174,26 @@ export const HeroComponent = () => {
         <div style={index === current ? slider : active } key={index}>
           {index === current &&
           <>
-          <Image src={image.url} alt={image.alt}></Image>
+            <Image
+                  initial={{ y: 200, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ delay: .5, duration: 1, type: "spring", bounce: .5 }}
+              src={image.url} alt={image.alt}></Image>
           <HeroItem >
           <TextContainer>
-            <h1 className="heading__text">
+                <motion.h1
+                  initial={{ y: 200, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ delay: 1, duration: 1.5, type: "spring", bounce: .5 }}
+                  className="heading__text">
               { image.heading}
-            </h1>
-            <Link to='/catalogue'><Button className="green__button">
+            </motion.h1>
+                <Link to='/catalogue'>
+                  <Button
+                    initial={{ y: 300, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 1.4, duration: 1.5, type: "spring", bounce: .6}}
+                  className="green__button">
               <a>Find Products</a>
             </Button></Link>
           </TextContainer>

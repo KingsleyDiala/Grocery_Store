@@ -1,7 +1,7 @@
 import '../src/resources/reset.css'
 import './App.css';
 import { LinkNavigationComponent } from './resources/components/Link_Navigation/Link-Navigation';
-import SearchResultContainer from './resources/components/Search_Result_Section/Search_Result';
+import PaginatedItems from './resources/components/Search_Result_Section/pagination';
 
 
 function Catalogue ({ cart, setCart, wishlist, setWishlist }) {
@@ -15,7 +15,7 @@ function Catalogue ({ cart, setCart, wishlist, setWishlist }) {
         />
 
         {/* =========== SEARCH RESULT SECTION ========== */}
-        <SearchResultContainer cart={cart} setCart={setCart} wishlist={wishlist} setWishlist={setWishlist} text={'Explore our Catalogue'} />
+        <PaginatedItems cart={cart} setCart={setCart} wishlist={wishlist} setWishlist={setWishlist} text={'Explore our Catalogue'} />
 
     </div>
   )

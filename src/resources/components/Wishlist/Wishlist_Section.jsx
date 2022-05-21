@@ -1,8 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { Vegetables } from '../../Data/data'
 import SingleCardComponent from './Single_Card_Component';
+import { motion, AnimatePresence } from "framer-motion";
 
 // ================ STYLED COMPONENT  ==================
 const Wishlist = styled.section`
@@ -53,16 +53,20 @@ const WishlistSection = ({ setCart, setWishlist, wishlist }) => {
       <Container>
         <Text> { wishlist.length === 0 ? 'Your Wishlist is empty' : 'Your Wishlist' } </Text>
         <ItemContainer>
+          <AnimatePresence>
           {wishlist.map(item => {
             return (
+              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} >
               <SingleCardComponent
               setCart={setCart}
               setWishlist={setWishlist}
               wishlist={wishlist}
               item={item}
-              />
+                />
+              </motion.div>
             )
           })}
+            </AnimatePresence>
         </ItemContainer>
       </Container>
       { wishlist.length === 0 ? <Link to={'/catalogue'} > <Button className='white__button__green'> Continue Shopping</Button> </Link> : <Button className='white__button__green'>Go to Cart</Button> }

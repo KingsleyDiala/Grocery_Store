@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components';
+import { motion } from "framer-motion";
 
 
 //  =============== STYLED COMPONENTS =============
@@ -102,7 +103,7 @@ const SingleCardComponent = ({ setCart, setWishlist, wishlist, item }) => {
   }
 
   return (
-      <Item key={item.id}>
+        <Item key={item.id}>
               <ImageContainer>
                 <Image src={item.image} alt={item.title} />
               </ImageContainer>
@@ -115,7 +116,7 @@ const SingleCardComponent = ({ setCart, setWishlist, wishlist, item }) => {
                   <Remove onClick={removeFromWishlist} className='green__button__white'>Remove</Remove>
                 </ButtonContainer>
               </DetailsContainer>
-            </Item>
+          </Item>
   )
 }
 

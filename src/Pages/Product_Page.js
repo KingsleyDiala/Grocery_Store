@@ -7,6 +7,7 @@ import { ProductDescriptionComponent } from '../resources/components/Product/Pro
 import { RelatedItemsComponent } from '../resources/components/Related_Items/Related_Items_Section';
 import { useParams } from 'react-router-dom';
 import React, { useState } from 'react'
+import { motion } from 'framer-motion'
 
 
 const ProductPage = ({ setCart, setWishlist }) => {
@@ -37,7 +38,11 @@ const ProductPage = ({ setCart, setWishlist }) => {
   }
 
   return (
-    <div className='Product_Page'>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1 }}
+      className='Product_Page'>
         {/* =========== LINK NAVIGATION SECTION ========== */}
         <LinkNavigationComponent
         name={'Product'}
@@ -55,7 +60,7 @@ const ProductPage = ({ setCart, setWishlist }) => {
 
         {/* =========== APP SHOP BY DEPARTMENT SECTION ========== */}
         { <DepartmentSection /> }
-    </div>
+    </motion.div>
   )
 }
 

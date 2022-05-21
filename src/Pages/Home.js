@@ -8,6 +8,7 @@ import { BestSellerSection } from '../resources/components/Best_Sellers/BestSell
 import { FreshVegetableComponent} from '../resources/components/Fresh_Vegetable_Section/Fresh_Vegetable';
 import { DiaryAndMilkComponent } from '../resources/components/Diary_and_Milk/Diary_and_Milk';
 import { DepartmentSection } from '../resources/components/Department_Section/Department_Section';
+import { motion } from 'framer-motion'
 
 
 function Home({ cart, setCart, wishlist, setWishlist }) {
@@ -37,7 +38,11 @@ function Home({ cart, setCart, wishlist, setWishlist }) {
 
 
   return (
-    <div className="Home">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1.5 }}
+      transition={{ duration: 1 }}
+      className="Home">
         {/* =========== APP HERO ========== */}
       <section className='app-hero'>
       { <HeroComponent /> }
@@ -65,7 +70,7 @@ function Home({ cart, setCart, wishlist, setWishlist }) {
         {/* =========== APP Shop By Department SECTION ========== */}
         { <DepartmentSection /> }
 
-    </div>
+    </motion.div>
   );
 }
 

@@ -106,11 +106,11 @@ cursor: pointer;
 
 // ============  PAGINATION COMPONENT ============
 
-const items = Vegetables;
 const itemsPerPage = 12;
 
-export default function PaginatedItems({ cart, setCart, wishlist, setWishlist }) {
+export default function PaginatedItems({ products, setProducts, cart, setCart, wishlist, setWishlist }) {
   const params = useParams();
+  const items = products;
   
   // We start with an empty list of items.
   const [currentItems, setCurrentItems] = useState(null);

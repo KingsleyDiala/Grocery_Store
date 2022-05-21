@@ -112,8 +112,6 @@ export const FreshVegetableComponent = ({ setCart, setWishlist }) => {
             )
           })}
           </Carousel>
-
-
         </BottomContainer>
       </FeaturedItemsContainer>
       </FeaturedItems>

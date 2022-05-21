@@ -56,14 +56,14 @@ const WishlistSection = ({ setCart, setWishlist, wishlist }) => {
           <AnimatePresence>
           {wishlist.map(item => {
             return (
-              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} >
+              <div >
               <SingleCardComponent
               setCart={setCart}
               setWishlist={setWishlist}
               wishlist={wishlist}
               item={item}
                 />
-              </motion.div>
+              </div>
             )
           })}
             </AnimatePresence>

@@ -2,10 +2,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components';
 import { motion } from "framer-motion";
+import { duration } from '@mui/material';
 
 
 //  =============== STYLED COMPONENTS =============
-const Item = styled.div`
+const Item = styled(motion.div)`
 padding: 10px;
 width: 700px;
 height: 140px;
@@ -103,7 +104,11 @@ const SingleCardComponent = ({ setCart, setWishlist, wishlist, item }) => {
   }
 
   return (
-        <Item key={item.id}>
+    <Item
+      initial={{ opacity: 1, x: 0 }}
+      animate={{ opacity: 1, x: 100 }}
+      exit={{ opacity: 0, duration: 2, x: 200 }}
+      key={item.id}>
               <ImageContainer>
                 <Image src={item.image} alt={item.title} />
               </ImageContainer>
